@@ -3,13 +3,15 @@
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-grayscale/blob/master/LICENSE)
  */
+
 body {
   font-family: 'Raleway', 'Lora', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   position: relative;
   width: 100%;
   height: 100%;
   color: white;
-  background-color: black; }
+  background-color: black;
+}
 
 html {
   width: 100%;
@@ -46,6 +48,24 @@ a {
     text-decoration: none;
     color: #1d9b6c; }
 
+#welcome-lg {
+  display: none;
+}
+
+#welcome {
+  display: inline;
+}
+
+
+@media (min-width: 992px) {
+  #welcome-lg{
+    display: inline;
+    margin-top: 100px;
+  }
+  #welcome{
+    display: none;
+  }
+}
 #mainNav {
   /*font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
   margin-bottom: 0;
@@ -93,6 +113,12 @@ a {
         #mainNav .nav-link.active:hover {
           color: white; } }
 
+/*#navbarResponsive .show{*/
+  /*background-color: rgba(15, 33, 44, 0.6);*/
+/*}*/
+div#welcome{
+  margin:top
+}
 .masthead {
   /*display: table;*/
   width: 100%;

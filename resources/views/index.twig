@@ -1,9 +1,20 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-    <div class="masthead">
-    <div class="intro-body"></div>
+    <div id="jumbotron-index" class="jumbotron">
+        <div id="jumbotron-img"></div>
+        <div id="welcome-lg" class="container">
+            <h1 class="display-3">Welcome-lg</h1>
+            <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button" style="background: #60aec8; border: none">Learn more »</a></p>
+        </div>
+        <div id="welcome" class="container">
+            <h1 class="display-3">Welcome</h1>
+            <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button" style="background: #60aec8; border: none">Learn more »</a></p>
+        </div>
     </div>
+    <div id="mainContent" style="padding-top: -900px"></div>
     <!-- About Section -->
     <section id="about" class="content-section text-center">
         <div class="container">
@@ -76,3 +87,6 @@
     <!-- Map Section -->
     <div id="map"></div>
 {% endblock content %}
+{% block scripts %}
+<script src="js/index.js" />
+{% endblock scripts %}
