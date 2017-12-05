@@ -167,12 +167,12 @@ a {
     background: rgba(255, 255, 255, 0.1); }
 
 .content-section {
-  padding-top: 150px;
-  padding-bottom: 150px; }
+  padding-top: 15px;
+  padding-bottom: 15px; }
 
 .download-section {
   color: white;
-  background: url("../img/downloads-bg.jpg") no-repeat center center scroll;
+  /*background: url("../img/downloads-bg.jpg") no-repeat center center scroll;*/
   background-color: black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -185,8 +185,8 @@ a {
 
 @media (min-width: 992px) {
   .content-section {
-    padding-top: 200px;
-    padding-bottom: 200px; }
+    padding-top: 50px;
+    padding-bottom: 50px; }
   #map {
     height: 350px; } }
 
