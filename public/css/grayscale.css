@@ -56,16 +56,18 @@ a {
   display: inline;
 }
 
-
 @media (min-width: 992px) {
   #welcome-lg{
     display: inline;
-    margin-top: 100px;
   }
   #welcome{
     display: none;
   }
+  #navbarResponsive a{
+    font-size: larger;
+  }
 }
+
 #mainNav {
   /*font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
   margin-bottom: 0;
@@ -116,9 +118,7 @@ a {
 /*#navbarResponsive .show{*/
   /*background-color: rgba(15, 33, 44, 0.6);*/
 /*}*/
-div#welcome{
-  margin:top
-}
+
 .masthead {
   /*display: table;*/
   width: 100%;

@@ -4512,14 +4512,15 @@ tbody.collapse.show {
   }
 }
 #jumbotron-img {
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-  url('../../../img/billboard.png');
-  background-repeat: no-repeat;
-  background-size: 100%;
-  padding-bottom: 56.25%;
+  content: url('../../../img/billboard.png');
+  /*image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),*/
+  /*url('../../../img/billboard.png');*/
+  /*background-repeat: no-repeat;*/
+  width: 100%;
+  /*padding-bottom: -56.25%;*/
   display: inline;
   background-position-y: 57px;
-  margin-top: 57px;
+  /*margin-top: 57px;*/
   background-attachment: fixed !important;
   position: relative;
   /*background-size: cover;*/
@@ -4528,8 +4529,8 @@ tbody.collapse.show {
   /*padding-bottom: 0;*/
 }
 #jumbotron-index {
-   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
-   url('../../../img/billboard.png');
+   /*background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),*/
+   /*url('../../../img/billboard.png');*/
    background-repeat: no-repeat;
    background-size: 100%;
    /*padding-bottom: 56.25%;*/
