@@ -15,9 +15,9 @@
         </div>
     </div>
 
-{% include 'sections/about.twig' %}
-{% include 'sections/contact.twig' %}
-{% include 'sections/download.twig' %}
+    {% for section in sections %}
+        {% include "sections/" . {{ section }} . ".twig" %}
+    {% endfor %}
 
 
 

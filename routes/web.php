@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return View::make('index');
-});
+Route::get('/', 'Site\Index@index');
+
+Route::get('/admin/settings/', 'Admin\Settings@index');
