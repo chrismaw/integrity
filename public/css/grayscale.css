@@ -189,7 +189,13 @@ a {
   margin-bottom: 15px;
 }
 
-
+#about > div > div > h5 {
+  font-size: 4vw;
+margin-bottom: 0;
+}
+#about > div > div > h2 {
+  font-size: 6vw;
+}
 #map {
   width: 100%;
   height: 300px; }
@@ -199,6 +205,12 @@ a {
     font-size: 3vw;
   }
   #info > div > div > h2{
+    font-size: 4.5vw;
+  }
+  #about > div > div > h5 {
+    font-size: 3vw;
+  }
+  #about > div > div > h2 {
     font-size: 4.5vw;
   }
 }
@@ -212,6 +224,12 @@ a {
     font-size: 1.5vw;
   }
   #info > div > div > h2{
+    font-size: 3vw;
+  }
+  #about > div > div > h5 {
+    font-size: 1.5vw;
+  }
+  #about > div > div > h2 {
     font-size: 3vw;
   }
 }
