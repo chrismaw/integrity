@@ -15,8 +15,6 @@ class Index extends Controller{
             ['where_used', 'like', '%index%'],
                 ])->get();
 
-		var_dump($sections);
-
 		return view( 'index', [ 'settings' => $settings, 'sections' => $sections] );
 	}
 
