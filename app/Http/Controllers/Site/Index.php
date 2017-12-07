@@ -14,8 +14,9 @@ class Index extends Controller{
             ['active', '=', 1],
             ['where_used', 'like', '%index%'],
                 ])->get();
+		$page = DB::table('pages')->where('name','=','index')->first();
 
-		return view( 'index', [ 'settings' => $settings, 'sections' => $sections] );
+		return view( 'index', [ 'settings' => $settings, 'sections' => $sections, 'page' => $page] );
 	}
 
 }

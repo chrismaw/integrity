@@ -10,7 +10,7 @@ body {
   width: 100%;
   height: 100%;
   color: white;
-  background-color: black;
+  background-color: #0f212c;
 }
 
 html {
@@ -30,12 +30,12 @@ h6 {
   text-transform: uppercase; }
 
 p {
-  /*font-size: 16px;*/
+  font-size: 16px;
   line-height: 1.5;
   margin: 0 0 25px; }
   @media (min-width: 768px) {
     p {
-      /*font-size: 18px;*/
+      font-size: 18px;
       line-height: 1.6;
       margin: 0 0 35px; } }
 
@@ -180,20 +180,42 @@ a {
   -o-background-size: cover;
   background-size: cover; }
 
-#info > div > div > h2{
-  font-size: 3vw;
+#info > div > div > p{
+  font-size: 4vw;
+  margin-bottom: 0;
 }
+#info > div > div > h2{
+  font-size: 6vw;
+  margin-bottom: 15px;
+}
+
 
 #map {
   width: 100%;
   height: 300px; }
 
+@media (min-width: 576px) {
+  #info > div > div > p {
+    font-size: 3vw;
+  }
+  #info > div > div > h2{
+    font-size: 4.5vw;
+  }
+}
 @media (min-width: 992px) {
   .content-section {
     padding-top: 50px;
     padding-bottom: 50px; }
   #map {
-    height: 350px; } }
+    height: 350px; }
+  #info > div > div > p{
+    font-size: 1.5vw;
+  }
+  #info > div > div > h2{
+    font-size: 3vw;
+  }
+}
+
 
 .btn {
   /*font-family: 'Cabin', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/

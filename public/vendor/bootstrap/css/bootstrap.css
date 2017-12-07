@@ -4555,6 +4555,7 @@ tbody.collapse.show {
     background-position: center top;
     margin: 0;
     padding-top: 25%;
+    padding-bottom: -25%;
     background-size: 100%;
     height: 100%
     /*-moz-background-size: 100%;*/
@@ -5777,7 +5778,7 @@ a.bg-light:focus, a.bg-light:hover {
 }
 
 .bg-dark {
-  background-color: #343a40 !important;
+  background-color: #0f212c !important;
 }
 
 a.bg-dark:focus, a.bg-dark:hover {

@@ -4,19 +4,21 @@
     <div id="jumbotron-index" class="jumbotron" style="font-family: 'Raleway', sans-serif;">
         <div id="jumbotron-img"></div>
         <div class="container">
-            <div id="welcome-lg" class="container">
+            <div id="welcome-lg">
                 {#<h1 class="display-3">Welcome-lg</h1>#}
                 <p style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
-                    This is a large line of text that can be a quote or a mission statement. Use it for whatever the heck you want.
+                    {{ page.billboard_text }}
                 </p>
                 <p><a class="btn btn-primary btn-lg" href="#" role="button" style="background: #60aec8; border: none">Learn more »</a></p>
             </div>
         </div>
+        <div class="bg-light text-dark">
         <div class="container">
-            <div id="welcome" class="container">
-                {#<h1 class="display-3">Welcome</h1>#}
-                <p>This is a normal line of text that can be a quote or a mission statement. Use it for whatever the heck you want</p>
-                <p><a class="btn btn-primary btn-sm" href="#" role="button" style="background: #60aec8; border: none">Learn more »</a></p>
+                <div id="welcome">
+                    {#<h1 class="display-3">Welcome</h1>#}
+                    <p>{{ page.billboard_text }}</p>
+                    <p><a class="btn btn-primary btn-sm" href="#" role="button" style="background: #60aec8; border: none">Learn more »</a></p>
+                </div>
             </div>
         </div>
     </div>
