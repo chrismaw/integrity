@@ -41,7 +41,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `settings` WRITE;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-INSERT INTO `settings` VALUES ('Integrity Church','liveintegrity.org','1414 14th Street','Greenville','NC',27858,123546789,'inf@liveintegrity.org','930AM & 11AM','2017-12-06 05:00:00',NULL);
+INSERT INTO `settings` VALUES ('Integrity Church','liveintegrity.org','1414 14th Street','Greenville','NC',27858,123546789,'inf0@liveintegrity.org','930AM & 11AM','2017-12-06 05:00:00',NULL);
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
