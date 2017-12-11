@@ -1,60 +1,71 @@
 {% extends 'base.twig' %}
-
+{% block addToHead %}
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+{% endblock %}
 {% block content %}
+
     <h1>settings go here</h1>
-    <div>
-        <form id="settingsForm" class="mx-auto" method="post" action="http://localhost/admim/settings">
-            {#<div>#}
-                {#<small class="float-right form-text"><em>* required | email will be used to login</em></small>#}
-            {#</div>#}
-            <div class="form-group">
-                <label for="settingsName">Church Name</label>
-                <input class="form-control" type="text" name="settingsName"
-                       value="{{ settingsName is defined ? settingsName : "" }}"/>
-            </div>
-            <div class="form-group">
-                <label for="userFirstname">Domain</label>
-                <input class="form-control" type="text" name="userFirstname"
-                       value="{{ userFirstname is defined ? userFirstname : "" }}"/>
-            </div>
-            <div class="form-group">
-                <label for="settingsAddress">Church Address</label>
-                <input class="form-control" type="text" name="settingsAddress"
-                       value="{{ userLastname is defined ? userLastname : "" }}"/>
-                <input class="form-control" type="text" name="settingsCity"
-                       value="{{ userLastname is defined ? userLastname : "" }}"/>
-                <input class="form-control" type="text" name="settingsState"
-                       value="{{ userLastname is defined ? userLastname : "" }}"/>
-                <input class="form-control" type="text" name="settingsZip"
-                       value="{{ userLastname is defined ? userLastname : "" }}"/>
-            </div>
-            <div class="form-group">
-                <label for="settingsOfficeAddress">Office Address (if different)</label>
-                <input class="form-control" type="text" name="settingsOfficeAddress"
-                       value="{{ settingsOfficeAddress is defined ? settingsOfficeAddress : "" }}"/>
-                <input class="form-control" type="text" name="settingsOfficeCity"
-                       value="{{ settingsOfficeCity is defined ? settingsOfficeCity : "" }}"/>
-                <input class="form-control" type="text" name="settingsOfficeState"
-                       value="{{ settingsOfficeState is defined ? settingsOfficeState : "" }}"/>
-                <input class="form-control" type="text" name="settingsOfficeZip"
-                       value="{{ settingsOfficeZip is defined ? settingsOfficeZip : "" }}"/>
-            </div>
-            <div class="form-group">
-                <label for="settingsPhone">Contact Phone Number</label>
-                <input class="form-control" type="text" name="settingsPhone"
-                       value="{{ settingsPhone is defined ? settingsPhone : "" }}"/>
-            </div>
-            <div class="form-group">
-                <label for="settingsEmail">Contact Email</label>
-                <input class="form-control" type="text" name="settingsEmail"
-                       value="{{ settingsEmail is defined ? settingsEmail : "" }}"/>
-            </div>
-            <div class="form-group">
-                <label for="settingsTimes">Service Times (text)</label>
-                <input class="form-control" type="text" name="settingsTimes"
-                       value="{{ settingsTimes is defined ? settingsTimes : "" }}"/>
-            </div>
-            <button type="submit">Submit</button>
-        </form>
+    <div class="container">
+    <div class="row">
+    <div class="col-3">Test Text</div>
+    <div class="col-9">
+            <form id="settingsForm" class="mx-auto" method="post" action="http://localhost/admim/settings">
+                {#<div>#}
+                    {#<small class="float-right form-text"><em>* required | email will be used to login</em></small>#}
+                {#</div>#}
+                <div class="form-group">
+                    <label for="settingsName">Church Name</label>
+                    <input class="form-control" type="text" name="settingsName" placeholder="{{ settings.church_name }}"
+                           value="{{ settingsName is defined ? settingsName : "" }}"/>
+                </div>
+                <div class="form-group">
+                    <label for="userFirstname">Domain</label>
+                    <input class="form-control" type="text" name="userFirstname" placeholder="{{ settings.domain }}"
+                           value="{{ userFirstname is defined ? userFirstname : "" }}"/>
+                </div>
+                <div class="form-group">
+                    <label for="settingsAddress">Church Address</label>
+                    <input class="form-control" type="text" name="settingsAddress" placeholder="{{ settings.address }}"
+                           value="{{ userLastname is defined ? userLastname : "" }}"/>
+                    <input class="form-control" type="text" name="settingsCity" placeholder="{{ settings.city }}"
+                           value="{{ userLastname is defined ? userLastname : "" }}"/>
+                    <input class="form-control" type="text" name="settingsState" placeholder="{{ settings.state }}"
+                           value="{{ userLastname is defined ? userLastname : "" }}"/>
+                    <input class="form-control" type="text" name="settingsZip" placeholder="{{ settings.zip }}"
+                           value="{{ userLastname is defined ? userLastname : "" }}"/>
+                </div>
+                <div class="form-group">
+                    <label for="settingsOfficeAddress">Office Address (if different)</label>
+                    <input class="form-control" type="text" name="settingsOfficeAddress"
+                           value="{{ settingsOfficeAddress is defined ? settingsOfficeAddress : "" }}"/>
+                    <input class="form-control" type="text" name="settingsOfficeCity"
+                           value="{{ settingsOfficeCity is defined ? settingsOfficeCity : "" }}"/>
+                    <input class="form-control" type="text" name="settingsOfficeState"
+                           value="{{ settingsOfficeState is defined ? settingsOfficeState : "" }}"/>
+                    <input class="form-control" type="text" name="settingsOfficeZip"
+                           value="{{ settingsOfficeZip is defined ? settingsOfficeZip : "" }}"/>
+                </div>
+                <div class="form-group">
+                    <label for="settingsPhone">Contact Phone Number</label>
+                    <input class="form-control" type="text" name="settingsPhone" placeholder="{{ settings.phone }}"
+                           value="{{ settingsPhone is defined ? settingsPhone : "" }}"/>
+                </div>
+                <div class="form-group">
+                    <label for="settingsEmail">Contact Email</label>
+                    <input class="form-control" type="text" name="settingsEmail" placeholder="{{ settings.email }}"
+                           value="{{ settingsEmail is defined ? settingsEmail : "" }}"/>
+                </div>
+                <div class="form-group">
+                    <label for="settingsTimes">Service Times (text)</label>
+                    <input class="form-control" type="text" name="settingsTimes" placeholder="{{ settings.times }}"
+                           value="{{ settingsTimes is defined ? settingsTimes : "" }}"/>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+    </div>
+    </div>
     </div>
 {% endblock %}
