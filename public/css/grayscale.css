@@ -44,10 +44,10 @@ a {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-  color: #42DCA3; }
+  color: #60aec8; }
   a:focus, a:hover {
     text-decoration: none;
-    color: #1d9b6c; }
+    color: #0f212c; }
 
 #welcome-lg {
   display: none;
@@ -245,7 +245,7 @@ margin-bottom: 0;
   min-height: 400px;
   overflow: hidden;
   border: solid 1px white;
-  font-family:'Mysterious Lovers';
+  /*font-family:'Nord';*/
   font-size: 6vw;
 
 }
