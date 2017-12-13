@@ -82,7 +82,7 @@ return [
         | NOTE: these will be overwritten if you pass data into the view with the same key.
         |
         */
-        'globals' => ['app_uri' => 'http://localhost:8888/integrity/public/'],
+        'globals' => ['app_uri' => env('APP_URL','').'/integrity/public/'],
     ],
 
     'extensions' => [

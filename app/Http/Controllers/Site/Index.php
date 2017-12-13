@@ -9,6 +9,7 @@ use App\Section;
 class Index extends Controller{
 
 	public function index() {
+
 		$settings = DB::table('settings')->first();
 		$sections = DB::table('sections')->where([
             ['active', '=', 1],

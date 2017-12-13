@@ -1,0 +1,44 @@
+{% extends 'base.twig' %}
+{% block addToHead %}
+{% endblock %}
+
+{% block content %}
+    {% if page.billboard is defined %}
+        <div id="jumbotron-index" class="jumbotron" style="font-family: 'Raleway', sans-serif;">
+            <div id="jumbotron-img"></div>
+            {% if page.billboard_text is defined %}
+                <div class="container">
+                    <div id="welcome-lg">
+                        {#<h1 class="display-3">Welcome-lg</h1>#}
+                        <p style="text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; ">
+                            {{ page.billboard_text }}
+                        </p>
+                        <p><a class="btn btn-primary btn-lg" href="#" role="button" style="background: #60aec8; border: none">Learn more »</a></p>
+                    </div>
+                </div>
+                <div class="bg-light text-dark">
+                    <div class="container">
+                        <div id="welcome">
+                            {#<h1 class="display-3">Welcome</h1>#}
+                            <p>{{ page.billboard_text }}</p>
+                            <p><a class="btn btn-primary btn-sm" href="#" role="button" style="background: #60aec8; border: none">Learn more »</a></p>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+
+<main class="container" >
+<h1>{{ heading }}</h1>
+    {% if page.lead %}
+        <p class="lead">{{ page.lead }}</p>
+    {% endif %}
+</main>
+
+{% endblock content %}
+{% block scripts %}
+{% endblock scripts %}
+ {% block mission %}
+     <span>Mature & Multiply</span>
+ {% endblock mission %}
