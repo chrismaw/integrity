@@ -16,7 +16,9 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('footer-component', require('./components/FooterComponent.vue'));
 
 const app = new Vue({
+    delimiters: ['${', '}'],
     el: '#app'
 });
