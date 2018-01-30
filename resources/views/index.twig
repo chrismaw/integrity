@@ -3,7 +3,13 @@
 {% block content %}
 
     {% for section in sections %}
-        {% include 'sections/' ~ section.name ~ '.twig' %}
+        <section>
+                {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
+                <div>
+                    {% if section.content %}{{ section.content|raw }}{% endif %}
+                </div>
+        </section>
+        {#{% include 'sections/' ~ section.name ~ '.twig' %}#}
     {% endfor %}
 
 
@@ -11,5 +17,5 @@
 {% block footer %}
 {% endblock footer %}
 {% block scripts %}
-<script src="js/index.js" />
+    <script src="js/index.js"/>
 {% endblock scripts %}
