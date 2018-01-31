@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\DB;
 class Settings extends Controller{
 
 	public function index(){
-
 		$settings = DB::table('settings')->first();
 		return view('admin.settings', ['settings' => $settings]);
 	}
