@@ -7,7 +7,7 @@
                 <strong>{{ key|title }}</strong>
                 <ul>
                     {% for link in parent %}
-                    <li><a href="/{{ link.parent }}/{{ link.path }}">{{ link.name }}</a></li>
+                    <li><a href="/{{ link.parent }}/{{ link.path }}">{{ link.name|title }}</a></li>
                     {% endfor %}
                 </ul>
             </li>

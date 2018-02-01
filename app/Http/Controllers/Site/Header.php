@@ -21,7 +21,7 @@ class Header extends Controller
             ])->get();
         }
 
-        file_put_contents('c:/wamp64/www/integrity/test.txt',json_encode(self::$headerLinks));
+//        file_put_contents('c:/wamp64/www/integrity/test.txt',json_encode(self::$headerLinks));
 
 
         return self::$headerLinks;
