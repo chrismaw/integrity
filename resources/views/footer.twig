@@ -4,7 +4,7 @@
         <ul>
         {% for link in footerLinkList %}
         <li>
-            <a href="/{{ link.parent }}/{{ link.path }}">{{ link.name|title }}</a>
+            <a href="{{  link.parent ? '/' ~ link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
         </li>
         {% endfor %}
         </ul>

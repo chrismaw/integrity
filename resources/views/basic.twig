@@ -1,0 +1,17 @@
+{% extends 'base.twig' %}
+{# header #}
+{% block content %}
+    {{ page.content ? page.content|raw : '' }}
+    {% for section in sections %}
+        <section>
+                {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
+                <div>
+                    {% if section.content %}{{ section.content|raw }}{% endif %}
+                </div>
+        </section>
+        {#{% include 'sections/' ~ section.name ~ '.twig' %}#}
+    {% endfor %}
+
+{% endblock content %}
+{% block scripts %}
+{% endblock scripts %}
