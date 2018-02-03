@@ -2,13 +2,14 @@
     <h6>Begin Footer</h6>
     {% if footerLinkList %}
         <ul>
-        {% for link in footerLinkList %}
-        <li>
-            <a href="{{  link.parent ? '/' ~ link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
-        </li>
-        {% endfor %}
+            {% for link in footerLinkList %}
+                <li>
+                    <a href="{{ app_uri }}{{  link.parent ? '/' ~ link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
+                </li>
+            {% endfor %}
         </ul>
     {% else %}
         <h1>Who needs a footer anyway?</h1>
     {% endif %}
+    <a href="{{ app_uri }}/admin/settings">Admin</a>
 </footer>

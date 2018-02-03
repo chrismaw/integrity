@@ -1,7 +1,8 @@
 {% extends 'base.twig' %}
 {# header #}
 {% block content %}
-
+    {% if medialinks %}
+    {% endif %}
     {% for section in sections %}
         <section>
                 {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}

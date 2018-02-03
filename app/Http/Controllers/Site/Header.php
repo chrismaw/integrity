@@ -18,11 +18,8 @@ class Header extends Controller
             self::$headerLinks[$value] = DB::table('links')->select('name','path','parent')->where([
                 ['dest', '=', 'page'],
                 ['parent','=', $value]
-            ])->get();
+            ])->orderBy('name','asc')->get();
         }
-
-//        file_put_contents('c:/wamp64/www/integrity/test.txt',json_encode(self::$headerLinks));
-
 
         return self::$headerLinks;
     }

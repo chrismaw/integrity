@@ -13,10 +13,18 @@
 
 //index
 Route::get('/', 'Site\Index@index');
-Route::get('/{parent}/{page}', 'Site\Index@pageIndex')->name('basicPage');
 
+//$basicPages = \Illuminate\Support\Facades\DB::table('pages')->select()->where('basic', 1)->get();
+//$basicPaths = array();
+//foreach ($basicPages as $basic_page){
+//
+//}
 //admin
 Route::get('/admin/settings', 'Admin\Settings@index');
+Route::get('/about/contact-us', 'Site\Pages\ContactUs@index')->name('contact us');
+
+Route::get('/{parent}/{page}', 'Site\Index@pageIndex')->name('basicPage');
+
 
 //ABOUT
 //history

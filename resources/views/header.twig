@@ -1,21 +1,24 @@
 <header style="font-family: 'Raleway', sans-serif">
     {% if settings.header_logo %}
-        <img src="img/{{ settings.header_logo }}" style=" background-color: black"/>
+        <img src="{{ app_uri }}img/{{ settings.header_logo }}" style=" background-color: black"/>
     {% endif %}
     {% if headerLinks %}
         <ul>
             {% for key, parent in headerLinks %}
-            <li>
-                <strong>{{ key|title }}</strong>
-                <ul>
-                    {% for link in parent %}
-                    <li><a href="{{ app_uri }}{{  link.parent ?  link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a></li>
-                    {% endfor %}
-                </ul>
-            </li>
+                {% if key|length %}
+                    <li>
+                        <strong>{{ key|title }}</strong>
+                        <ul>
+                            {% for link in parent%}
+                            <li><a href="{{ app_uri }}{{  link.parent ?  link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endif %}
             {% endfor %}
         </ul>
         {% else %}
         <h1>No Parents, No Rules!</h1>
     {% endif %}
+    <h6>End Header</h6>
 </header>
