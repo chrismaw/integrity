@@ -12,17 +12,32 @@ class Media extends Model
     public $type = array();
     public $filename;
     public $folder;
+    public $function;
     public $link;
     public $file_size;
     public $thumb_link;
     public $thumb_size;
 
-    public function getMediaLink(Media $media){
-//        $m = DB::table('media')->where('id', $media->id)->first();
-        $mLink = '';
-        switch ($media->type){
+	protected $table = 'media';
+
+
+	public function getBillboard(Media $media){
+		$folder = $media['folder'];
+		$filename = $media['filename'];
+		if ($media['function'] == 'billboard'){
+			$billboard = 'img/' . ($folder ? $folder.'/' : '') . $filename;
+		} else {
+			$billboard = 'error finding billboard image';
+		}
+		return $billboard;
+	}
+	public function getMediaLink(Media $media){
+        $folder = $media['folder'];
+        $filename = $media['filename'];
+
+		switch ($media['type']){
             case 'img':
-            $mLink = "<img src=\"img/'.$media->folder ? $media->folder.'/' : ''$media->filename.'\">";
+                $mLink = '<img src="img/'. ($folder ? $folder.'/' : '') . $filename . '">';
             break;
             case 'vid':
                 $mLink = "<video autoplay><source src=\"vid/'.$media->folder ? $media->folder.'/' : ''$media->filename.'\" type=\"video/mp4\"></video>";
@@ -33,6 +48,7 @@ class Media extends Model
             default:
                 $mLink = "There was an error when retrieving the media file";
         }
-        return $mLink;
+
+		return $mLink;
     }
 }

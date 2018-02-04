@@ -19,7 +19,7 @@ class Page extends Model
     public $content;
     public $basic;
 
-//    protected $table = 'pages';
+    protected $table = 'pages';
 
     public function getBasicPage($parent, $page){
 

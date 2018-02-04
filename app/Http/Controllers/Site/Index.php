@@ -22,24 +22,32 @@ class Index extends Controller{
 		//get media files and billboard from page value
 		// example: $p[0]->included_media = [[1],[2],[3]]
 		$mediaLinks = array();
+		$billboard = '';
 		$medias = json_decode($p[0]->included_media,true);
 
-//		$medias = array_column($medias, 'media');
+//		$medias = array_values($medias);
 		// example: $medias = [1,2,3]
-		file_put_contents('/Applications/MAMP/htdocs/integrity/test.txt',json_encode($medias['media']));
-
-		if ($p[0]->billboard_img || is_array($medias)) {
-			$media = Media::whereIn( 'id', json_encode($medias['media']) )->orWhere( 'id', $p[0]->billboard_img )->get('id');
-//		file_put_contents('/Applications/MAMP/htdocs/integrity/test.txt',($media));
-
-			foreach ($media as $m){
-				if ($m instanceof Media){
-					$mediaLinks[$m->name] = $m->getMediaLink($m);
-				}
+//		$medias['media'] = 'yes';
+//		echo($medias['media']);
+		if ($p[0]->billboard_img){
+			$media = Media::where('id', $p[0]->billboard_img)->get();
+			if ($media[0] instanceof Media){
+				$billboard = $media[0]->getBillboard($media[0]);
 			}
 		}
 
-        $headerLinks = Header::getHeaderLinks();
+//		if (is_array($medias['media'])) {
+////			$media = Media::where('id', $p[0]->billboard_img)->get();
+//			foreach ($media as $m){
+//file_put_contents('/Applications/MAMP/htdocs/integrity/test.txt',json_encode($m));
+//				if ($m instanceof Media){
+//					$mediaLinks[$m['name']] = ($m->getMediaLink($m));
+//				}
+//			}
+//		}
+		echo '<pre><p></p>' . var_export($media[0]['function'], true) . '</pre>';
+
+		$headerLinks = Header::getHeaderLinks();
         $footerLinkList = Footer::getFooterLinks();
 //        $media = DB::table('pages')->where('name')
 		$settings = DB::table('settings')->first();
@@ -53,7 +61,8 @@ class Index extends Controller{
             'sections' => $sections,
             'headerLinks' => $headerLinks,
             'footerLinkList' => $footerLinkList,
-			'mediaLinks' => $mediaLinks
+			'mediaLinks' => $mediaLinks,
+			'billboard' => $billboard
         ] );
 	}
     public function pageIndex($parent, $page) {

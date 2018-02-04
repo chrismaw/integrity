@@ -1,8 +1,16 @@
 {% extends 'base.twig' %}
 {# header #}
 {% block content %}
-    {% if medialinks %}
+    {% if billboard %}
+        <div style="background: url('{{ billboard|raw }}')">
+            <p>billboard text here</p>
+        </div>
+
+        {#{% for link in mediaLinks %}#}
+            {#{{ link|raw }}#}
+        {#{% endfor %}#}
     {% endif %}
+    {#{{ mediaLinks.index_billboard|raw }}#}
     {% for section in sections %}
         <section>
                 {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
