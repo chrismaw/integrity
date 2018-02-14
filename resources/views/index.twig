@@ -1,18 +1,42 @@
 {% extends 'base.twig' %}
 {# header #}
 {% block content %}
-    {% if billboard %}
-        <div style="background: url('{{ billboard|raw }}')">
-            <p>billboard text here</p>
-        </div>
 
-        {#{% for link in mediaLinks %}#}
-            {#{{ link|raw }}#}
-        {#{% endfor %}#}
+    {% if billboard %}
+        <style>
+            #billboard-grid {
+                display: grid;
+                grid-template-columns: 20% 20% 1fr 1fr 20%;
+                grid-template-rows: 1fr;
+                /*grid-template-rows: 50px auto 50px;*/
+            }
+            #billboard {
+                grid-column: 1 / 6;
+                grid-row: 1 / 3;
+                width: 100%;
+                height: auto;
+                /*grid-column-start: 1;*/
+                /*grid-column-end: 6;*/
+                /*grid-row-start: 1;*/
+                /*grid-row-end: 3*/
+            }
+
+            #billboard-text {
+                grid-column: 1 / 4;
+                grid-row: 2;
+                margin: 5px;
+            }
+        </style>
+        <div id="billboard-grid">
+            <img id="billboard" src="{{ billboard.img|raw }}">
+            <div id="billboard-text">
+            {{ billboard.text|raw }}
+            </div>
+        </div>
     {% endif %}
     {#{{ mediaLinks.index_billboard|raw }}#}
     {% for section in sections %}
-        <section>
+        <section style="margin-top: 5px">
                 {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
                 <div>
                     {% if section.content %}{{ section.content|raw }}{% endif %}

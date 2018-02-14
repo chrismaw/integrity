@@ -22,24 +22,12 @@ Route::get('/', 'Site\Index@index');
 //admin
 Route::get('/admin/settings', 'Admin\Settings@index');
 Route::get('/about/contact-us', 'Site\Pages\ContactUs@index')->name('contact us');
+Route::get('/connect/events', 'Site\Pages\Events@index')->name('events');
+Route::get('/connect/giving', 'Site\Pages\Giving@index')->name('giving');
+Route::get('/resources/blog', 'Site\Pages\Blog@index')->name('blog');
+Route::get('/resources/stories', 'Site\Pages\Stories@index')->name('stories');
+Route::get('/resources/discipleship-seminar', 'Site\Pages\DiscipleshipSeminar@index')->name('discipleship seminar');
+Route::get('/resources/sermons', 'Site\Pages\Sermons@index')->name('sermons');
 
 Route::get('/{parent}/{page}', 'Site\Index@pageIndex')->name('basicPage');
 
-
-//ABOUT
-//history
-//Route::get('about/history','Site\About@historyIndex');
-//Route::get('about/mission','Site\About@missionIndex');
-//Route::get('about/leadership','Site\About@leadershipIndex');
-//Route::get('about/sunday-mornings','Site\About@sundayMorningsIndex');
-//Route::get('about/integrity-kids','Site\About@integrityKidsIndex');
-//Route::get('about/contact-us','Site\About@contactUsIndex');
-
-//
-//Route::get('','');
-//Route::get('','');
-//Route::get('','');
-//Route::get('','');
-//Route::get('','');
-//Route::get('','');
-//Route::get('','');

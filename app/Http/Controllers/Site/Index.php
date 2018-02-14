@@ -22,7 +22,7 @@ class Index extends Controller{
 		//get media files and billboard from page value
 		// example: $p[0]->included_media = [[1],[2],[3]]
 		$mediaLinks = array();
-		$billboard = '';
+		$billboard = array();
 		$medias = json_decode($p[0]->included_media,true);
 
 //		$medias = array_values($medias);
@@ -32,9 +32,10 @@ class Index extends Controller{
 		if ($p[0]->billboard_img){
 			$media = Media::where('id', $p[0]->billboard_img)->get();
 			if ($media[0] instanceof Media){
-				$billboard = $media[0]->getBillboard($media[0]);
+				$billboard['img'] = $media[0]->getBillboard($media[0]);
 			}
 		}
+			$billboard['text'] = $p[0]->billboard_text ? $p[0]->billboard_text : '';
 
 //		if (is_array($medias['media'])) {
 ////			$media = Media::where('id', $p[0]->billboard_img)->get();
@@ -71,6 +72,14 @@ class Index extends Controller{
 	        ['name', $page],
             ['parent', $parent]
         ])->get();
+	    $billboard = array();
+
+	    if ($p[0]->billboard_img){
+		    $media = Media::where('id', $p[0]->billboard_img)->get();
+		    if ($media[0] instanceof Media){
+			    $billboard['img'] = $media[0]->getBillboard($media[0]);
+		    }
+	    }
 	    if ($p[0]->basic == 1) {
             $headerLinks = Header::getHeaderLinks();
             $footerLinkList = Footer::getFooterLinks();
@@ -85,7 +94,8 @@ class Index extends Controller{
                 'settings' => $settings,
                 'sections' => $sections,
                 'headerLinks' => $headerLinks,
-                'footerLinkList' => $footerLinkList
+                'footerLinkList' => $footerLinkList,
+                'billboard' => $billboard
             ]);
         } else {
 		    return redirect()->route($p[0]->name);

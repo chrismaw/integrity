@@ -1,6 +1,33 @@
 {% extends 'base.twig' %}
 {# header #}
 {% block content %}
+    {% if billboard %}
+        <style>
+            #billboard-grid {
+                display: grid;
+                grid-template-columns: 20% 20% 1fr 1fr 20%;
+                grid-template-rows: 1fr;
+            }
+            #billboard {
+                grid-column: 1 / 6;
+                grid-row: 1 / 3;
+                width: 100%;
+                height: auto;
+            }
+
+            #billboard-text {
+                grid-column: 1 / 4;
+                grid-row: 2;
+                margin: 5px;
+            }
+        </style>
+        <div id="billboard-grid">
+            <img id="billboard" src="{{ app_uri }}{{ billboard.img|raw }}">
+            <div id="billboard-text">
+                {{ billboard.text|raw }}
+            </div>
+        </div>
+    {% endif %}
     {{ page.content ? page.content|raw : '' }}
     {% for section in sections %}
         <section>
