@@ -1,1 +1,1 @@
-[]
+{"id":3,"name":"index_billboard","type":"img","filename":"billboard.png","function":"billboard","folder":"","link":null,"file_size":null,"thumb_link":"","thumb_size":"","created_at":"2018-02-03 14:51:21","updated_at":"2018-02-03 14:51:23"}

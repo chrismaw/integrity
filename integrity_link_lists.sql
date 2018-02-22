@@ -1,1 +1,0 @@
-INSERT INTO integrity.link_lists (name, links, created_at, updated_at) VALUES ('Footer', '{"link1":1,"link2":2,"link3":3,"link4":4}', '2018-01-31 16:56:12', '2018-01-31 16:56:12');
