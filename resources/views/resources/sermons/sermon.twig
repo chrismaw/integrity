@@ -1,0 +1,11 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    {% if series.image is defined %}
+    {% endif %}
+
+    {{ page.content ? page.content|raw : '' }}
+
+{% endblock content %}
+{% block scripts %}
+{% endblock scripts %}
