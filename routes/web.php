@@ -31,5 +31,8 @@ Route::get('/resources/sermons', 'Site\Pages\Sermons@index')->name('sermons');
 Route::get('/resources/sermons/{sermon}', 'Site\Pages\Sermons@sermonPage')->name('sermon');
 
 
+Route::get('/resources/sermons/{series}', 'Site\Pages\SermonSeries@index')->name('sermon series');
+Route::get('/resources/sermons/{series}/{sermon}', 'Site\Pages\Sermon@index')->name('sermon');
+
 Route::get('/{parent}/{page}', 'Site\Index@pageIndex')->name('basicPage');
 
