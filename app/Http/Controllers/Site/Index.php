@@ -46,7 +46,6 @@ class Index extends Controller{
 //				}
 //			}
 //		}
-		echo '<pre><p></p>' . var_export($media[0]['function'], true) . '</pre>';
 
 		$headerLinks = Header::getHeaderLinks();
         $footerLinkList = Footer::getFooterLinks();

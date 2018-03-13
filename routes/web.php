@@ -28,6 +28,8 @@ Route::get('/resources/blog', 'Site\Pages\Blog@index')->name('blog');
 Route::get('/resources/stories', 'Site\Pages\Stories@index')->name('stories');
 Route::get('/resources/discipleship-seminar', 'Site\Pages\DiscipleshipSeminar@index')->name('discipleship seminar');
 Route::get('/resources/sermons', 'Site\Pages\Sermons@index')->name('sermons');
+Route::get('/resources/sermons/{sermon}', 'Site\Pages\Sermons@sermonPage')->name('sermon');
+
 
 Route::get('/{parent}/{page}', 'Site\Index@pageIndex')->name('basicPage');
 
