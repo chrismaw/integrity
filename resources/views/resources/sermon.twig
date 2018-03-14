@@ -1,6 +1,32 @@
 {% extends 'base.twig' %}
+{% block addToHead %}
+    <script type="text/javascript" src="{{ app_uri }}mediaelement/mediaelement-and-player.min.js"></script>
+    <script type="text/javascript" src="{{ app_uri }}mediaelement/jump-forward/jump-forward.min.js"></script>
+    <script type="text/javascript" src="{{ app_uri }}mediaelement/jump-forward/jump-forward-i18n.js"></script>
+    <link rel="stylesheet" href="{{ app_uri }}mediaelement/mediaelementplayer.min.css" />
+    <link rel="stylesheet" href="{{ app_uri }}mediaelement/jump-forward/jump-forward.min.css" />
 
+
+{% endblock %}
 {% block content %}
     <h4>Hi</h4>
-<h2>{{ sermon.title }}</h2>
+<h2>{{ series.title }} - {{ sermon.title }}</h2>
+    {% if audio %}
+        <audio id="mediaplayer" src="{{ app_uri }}/aud/{{ audio.filename }}"></audio>
+        <script>
+            $('#mediaplayer').mediaelementplayer({
+                audioWidth: '100%',
+                alwaysShowControls: true,
+                features: ['playpause','jumpforward','current','progress','duration','volume' ],
+                {#pluginPath: "{{ app_uri }}mediaelement/jump-forward/jump-forward-i18n.js",#}
+                jumpForwardInterval: 15,
+
+                // When using jQuery's `mediaelementplayer`, an `instance` argument
+                // is available in the `success` callback
+    //            success: function(mediaElement, originalNode, instance) {
+                    // do things
+    //            }
+            });
+        </script>
+    {% endif %}
 {% endblock %}

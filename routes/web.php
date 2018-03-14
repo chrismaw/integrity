@@ -27,12 +27,10 @@ Route::get('/connect/giving', 'Site\Pages\Giving@index')->name('giving');
 Route::get('/resources/blog', 'Site\Pages\Blog@index')->name('blog');
 Route::get('/resources/stories', 'Site\Pages\Stories@index')->name('stories');
 Route::get('/resources/discipleship-seminar', 'Site\Pages\DiscipleshipSeminar@index')->name('discipleship seminar');
+
 Route::get('/resources/sermons', 'Site\Pages\Sermons@index')->name('sermons');
-Route::get('/resources/sermons/{sermon}', 'Site\Pages\Sermons@sermonPage')->name('sermon');
-
-
 Route::get('/resources/sermons/{series}', 'Site\Pages\SermonSeries@index')->name('sermon series');
-Route::get('/resources/sermons/{series}/{sermon}', 'Site\Pages\Sermon@index')->name('sermon');
+Route::get('/resources/sermons/{series}/{sermon}', 'Site\Pages\Sermons@sermonPage')->name('sermon');
 
 Route::get('/{parent}/{page}', 'Site\Index@pageIndex')->name('basicPage');
 

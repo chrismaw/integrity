@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site\Pages;
 
+use App\Media;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -9,6 +10,8 @@ use Illuminate\Database\Eloquent\Collection;
 use App\Http\Controllers\Site\Header;
 use App\Http\Controllers\Site\Footer;
 use App\Sermon;
+use App\SermonSeries;
+
 
 class Sermons extends Controller
 {
@@ -35,15 +38,21 @@ class Sermons extends Controller
 	    ] );
     }
 
-	public function sermonPage($sermon){
+	public function sermonPage($series, $sermon){
 
 		$headerLinks = Header::getHeaderLinks();
 		$footerLinkList = Footer::getFooterLinks();
-		$sermon = Sermon::where('slug', '=', $sermon)->first();
+		$sr = SermonSeries::where('slug', $series)->first();
+		$sm = Sermon::where([
+			['slug', '=', $sermon],
+			['series', '=', $sr->id]
+		])->first();
+		$audio = DB::table('media')->where('id', $sm->media)->first();
 		$settings = DB::table('settings')->first();
-		var_dump($sermon);
 		return view('resources/sermon', [
-			'sermon' => $sermon,
+			'audio' => $audio,
+			'sermon' => $sm,
+			'series' => $sr,
 			'settings' => $settings,
 			'headerLinks' => $headerLinks,
 			'footerLinkList' => $footerLinkList
