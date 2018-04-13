@@ -6,22 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <script type="text/javascript" src="{{ app_uri }}js/jquery-3.3.1.min.js"></script>
-
     <title>Integrity Church</title>
-
-    <!-- Bootstrap core CSS -->
-    {#<link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">#}
-    {#<link rel="stylesheet" href="//unpkg.com/iview/dist/styles/iview.css">#}
-
-    <!-- Custom fonts for this template -->
-    {#<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">#}
-    {#<link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet"#}
-          {#type="text/css">#}
-    {#<link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>#}
-
-    <!-- Custom styles for this template -->
-    {#<link href="css/grayscale.css" rel="stylesheet">#}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="css/integrity.css" rel="stylesheet">
     {% block addToHead %}
     {% endblock %}
 
@@ -52,7 +40,7 @@
 {#<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>#}
 
 <!-- Custom scripts for this template -->
-{#<script src="js/grayscale.min.js"></script>#}
+<script src="{{ asset('js/app.js') }}"></script>
 <!-- Page Specific -->
 {% block scripts %}
 {% endblock scripts %}

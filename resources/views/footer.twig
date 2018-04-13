@@ -1,15 +1,50 @@
 <footer>
-    <h6>Begin Footer</h6>
-    {% if footerLinkList %}
-        <ul>
-            {% for link in footerLinkList %}
-                <li>
-                    <a href="{{ app_uri }}{{  link.parent ? '/' ~ link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <h1>Who needs a footer anyway?</h1>
-    {% endif %}
-    <a href="{{ app_uri }}/admin/settings">Admin</a>
+    <div class="d-none d-lg-block">
+        {% if footerLinkList %}
+            <ul>
+                {% for link in footerLinkList %}
+                    <li>
+                        <a href="{{ app_uri }}{{  link.parent ? '/' ~ link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h1>Who needs a footer anyway?</h1>
+        {% endif %}
+        <a href="{{ app_uri }}/admin/settings">Admin</a>
+    </div>
+
+    <nav class="d-lg-none navbar fixed-bottom navbar-expand-lg navbar-dark scrolling-navbar">
+        {% if settings.header_logo %}
+            <a class="navbar-brand" href="/">
+                <img src="{{ app_uri }}img/{{ settings.header_logo }}"/>
+            </a>
+        {% endif %}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            {% if headerLinks %}
+                <ul class="navbar-nav text-right">
+                    {% for key, parent in headerLinks %}
+                        {% if key|length %}
+                            <li class="nav-item dropup">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdown10" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ key|title }}
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="dropdown10">
+                                    {% for link in parent%}
+                                        <a class="dropdown-item" href="{{ app_uri }}{{  link.parent ?  link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
+                                    {% endfor %}
+                                </div>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <h1>No Parents, No Rules!</h1>
+            {% endif %}
+        </div>
+    </nav>
+
 </footer>
