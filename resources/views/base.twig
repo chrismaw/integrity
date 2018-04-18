@@ -16,12 +16,15 @@
         <style>
             {% if billboard is defined%}
             #billboard-grid {
+                /*display: grid;*/
+                /*grid-template-columns: 20% 20% 1fr 1fr 20%;*/
+                /*grid-template-rows: 1fr;*/
                 display: grid;
                 grid-template-columns: 20% 20% 1fr 1fr 20%;
                 grid-template-rows: 1fr;
                 /*grid-template-rows: 50px auto 50px;*/
             }
-            #billboard {
+            #billboard-img {
                 grid-column: 1 / 6;
                 grid-row: 1 / 3;
                 width: 100%;
@@ -75,8 +78,15 @@
 
 <!-- Custom scripts for this template -->
 <script src="{{ asset('js/app.js') }}"></script>
+<script>
+    var OFFSET_TOP = 50;
+    $(window).scroll(function () {
+        $(".navbar").length && ($(".navbar").offset().top > OFFSET_TOP ? $(".scrolling-navbar").addClass("top-nav-collapse") : $(".scrolling-navbar").removeClass("top-nav-collapse"))
+    })
+</script>
 <!-- Page Specific -->
 {% block scripts %}
+
 {% endblock scripts %}
 </body>
 

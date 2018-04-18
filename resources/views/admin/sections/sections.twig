@@ -10,10 +10,14 @@
     <div class="container-fluid">
         {% for section in sections %}
             <div class="card mt-3">
-                <div class="card-header{% if section.active %} bg-success{% else %} bg-secondary{% endif %}">
-                    {{ section.name }}
+                <div class="card-header py-0{% if section.active %} bg-success{% else %} bg-secondary{% endif %}">
+                    <div class="btn-group float-right" role="group" aria-label="WYSIWYG Editor">
+                        <button id="edit" class="btn btn-primary py-0 my-1" onclick="edit{{ loop.index }}()" type="button">Edit 1</button>
+                        <button id="save" class="btn btn-primary py-0 my-1" onclick="save{{ loop.index }}()" type="button">Save 2</button>
+                    </div>
+                    <div class="logo">{{ section.name }}</div>
                 </div>
-                <form class="card-body">
+                <form class="card-body p-0">
                     {% include 'admin/sections/edit.twig' %}
                 </form>
             </div>
@@ -26,10 +30,20 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
 
     <script>
-        $(document).ready(function () {
+        // $(document).ready(function () {
             {% for section in sections %}
-            $('#summernote{{ loop.index }}').summernote();
+            function edit{{ loop.index }}() {
+                $('#summernote{{ loop.index }}').summernote({focus: true,popover:{}});
+            }
+            function save{{ loop.index }}() {
+                var markup = $('#summernote{{ loop.index }}').summernote('code');
+                $('#summernote{{ loop.index }}').summernote('destroy');
+            }
+
+            {#$('#summernote{{ loop.index }}').summernote({#}
+                {#popover:{}#}
+            {#});#}
             {% endfor %}
-        });
+        // });
     </script>
 {% endblock scripts %}
