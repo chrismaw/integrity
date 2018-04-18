@@ -19,7 +19,9 @@ body > nav > ul > li:hover {
 body > nav > ul > li:hover > a {
     color: #60aec8;
 }
-
+body > nav > ul > li.nav-item.dropdown.show > div > a{
+    line-height: 2;
+}
 .dropdown-menu {
      border-radius: 0;
      background-color: rgba(6,13,17,0.3);
@@ -35,7 +37,7 @@ body > nav > ul > li:hover > a {
 }
 
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 767.98px) {
     .navbar {
         background-color: #0f212c;
     }

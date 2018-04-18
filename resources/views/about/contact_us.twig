@@ -1,8 +1,6 @@
 {% extends 'base.twig' %}
 
 {% block content %}
-    {% if page.billboard is defined %}
-    {% endif %}
 
     {{ page.content ? page.content|raw : '' }}
 

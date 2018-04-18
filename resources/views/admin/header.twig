@@ -1,37 +1,21 @@
-{#     ADMIN HEADER     #}
-<header style="font-family: 'Raleway', sans-serif">
-    <img src="{{ app_uri }}img/headerlogo.png" style=" background-color: black"/>
-    <ul>
-        <li>
-            {#<a href="/about">About</a>#}
-            {#<ul>#}
-                {#<li><a href="/about/mission">Mission</a></li>#}
-                {#<li><a href="/about/history">History</a></li>#}
-                {#<li><a href="/about/sunday-mornings">Sunday Mornings</a></li>#}
-                {#<li><a href="/about/leadership">Leadership</a></li>#}
-                {#<li><a href="/about/integrity-kids">Integrity Kids</a></li>#}
-                {#<li><a href="/about/contact-us">Contact Us</a></li>#}
-            {#</ul>#}
-        </li>
-        <li>
-            {#<a href="/about">Resources</a>#}
-            {#<ul>#}
-                {#<li><a href="/about/mission">Sermons</a></li>#}
-                {#<li><a href="/about/history">Integrity Stories</a></li>#}
-                {#<li><a href="/about/sunday-mornings">Blog</a></li>#}
-                {#<li><a href="/about/discipleship-seminar">Discipleship Seminar</a></li>#}
-                {#<li><a href="/about/finances">Finances</a></li>#}
-            {#</ul>#}
-        </li>
-        <li>
-            {#<a href="/about">Connect</a>#}
-            {#<ul>#}
-                {#<li><a href="/about/small-groups">Small Groups</a></li>#}
-                {#<li><a href="/about/events">Events</a></li>#}
-                {#<li><a href="/about/membership">Membership</a></li>#}
-                {#<li><a href="/about/giving">Giving</a></li>#}
-                {#<li><a href="/about/serve">Serve</a></li>#}
-            {#</ul>#}
-        </li>
-    </ul>
-</header>
+<nav class="d-none d-md-flex navbar navbar-expand-md navbar-dark py-0">
+    {% if settings.header_logo %}
+        <a class="navbar-brand" href="{{ app_uri }}">
+            <img src="{{ app_uri }}img/{{ settings.header_logo }}"/>
+        </a>
+    {% endif %}
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link text-white h4" href="{{ app_uri }}admin/settings">Settings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white h4" href="{{ app_uri }}admin/sections">Sections</a>
+            </li>
+        </ul>
+    </div>
+</nav>

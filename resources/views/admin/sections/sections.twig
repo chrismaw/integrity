@@ -1,0 +1,35 @@
+{% extends 'base.twig' %}
+{% block addToHead %}
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+{% endblock %}
+{% block header %}
+    {% include 'admin/header.twig' %}
+
+{% endblock header %}
+{% block content %}
+    <div class="container-fluid">
+        {% for section in sections %}
+            <div class="card mt-3">
+                <div class="card-header{% if section.active %} bg-success{% else %} bg-secondary{% endif %}">
+                    {{ section.name }}
+                </div>
+                <form class="card-body">
+                    {% include 'admin/sections/edit.twig' %}
+                </form>
+            </div>
+
+        {% endfor %}
+
+    </div>
+{% endblock content %}
+{% block scripts %}
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            {% for section in sections %}
+            $('#summernote{{ loop.index }}').summernote();
+            {% endfor %}
+        });
+    </script>
+{% endblock scripts %}

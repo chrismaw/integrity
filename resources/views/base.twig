@@ -9,17 +9,51 @@
     <title>Integrity Church</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="css/integrity.css" rel="stylesheet">
+    <link href="{{ app_uri }}css/integrity.css" rel="stylesheet">
     {% block addToHead %}
     {% endblock %}
 
+        <style>
+            {% if billboard is defined%}
+            #billboard-grid {
+                display: grid;
+                grid-template-columns: 20% 20% 1fr 1fr 20%;
+                grid-template-rows: 1fr;
+                /*grid-template-rows: 50px auto 50px;*/
+            }
+            #billboard {
+                grid-column: 1 / 6;
+                grid-row: 1 / 3;
+                width: 100%;
+                height: auto;
+                /*grid-column-start: 1;*/
+                /*grid-column-end: 6;*/
+                /*grid-row-start: 1;*/
+                /*grid-row-end: 3*/
+            }
+
+            #billboard-text {
+                grid-column: 1 / 4;
+                grid-row: 2;
+                margin: 5px;
+            }
+            {% else %}
+            body {
+                padding-top: 55px;
+            }
+            {% endif %}
+
+        </style>
 </head>
-<body style="padding-bottom: 73px">
+<body class="bg-dark text-white"
+      style="padding-bottom: 73px;"
+>
 
 <!-- Navigation -->
 {% block header %}
     {% include 'header.twig' %}
 {% endblock header%}
+
 {% block content %}
 
 {% endblock content %}

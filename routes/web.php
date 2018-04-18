@@ -21,6 +21,8 @@ Route::get('/', 'Site\Index@index');
 //}
 //admin
 Route::get('/admin/settings', 'Admin\Settings@index');
+Route::get('/admin/sections', 'Admin\Sections@index');
+
 Route::get('/about/contact-us', 'Site\Pages\ContactUs@index')->name('contact us');
 Route::get('/connect/events', 'Site\Pages\Events@index')->name('events');
 Route::get('/connect/giving', 'Site\Pages\Giving@index')->name('giving');
