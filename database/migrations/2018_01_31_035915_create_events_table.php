@@ -20,9 +20,9 @@ class CreateEventsTable extends Migration
             $table->date('end_date')->nullable();
             $table->timestamp('start_time')->nullable();
             $table->timestamp('end_time')->nullable();
-			$table->boolean('all_day');
-			$table->string('location');
-			$table->mediumText('desc');
+			$table->boolean('all_day')->default(0);
+			$table->string('location')->default(null);
+			$table->longText('desc');
 			$table->string('img');
             $table->timestamps();
         });

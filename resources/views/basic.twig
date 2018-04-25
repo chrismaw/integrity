@@ -16,15 +16,15 @@
             }
 
             #billboard-text {
-                grid-column: 1 / 4;
-                grid-row: 2;
+                grid-column: {% if page.billboard_text is not null %}1 / 4{% else %}1 / 6{% endif %};
+                grid-row: {% if page.billboard_text is not null %}2{% else %}1{% endif %};
                 margin: 5px;
             }
         </style>
         <div id="billboard-grid">
             <img id="billboard" src="{{ app_uri }}{{ billboard.img|raw }}">
-            <div id="billboard-text">
-                {{ billboard.text|raw }}
+            <div id="billboard-text" {% if page.billboard_text is not null %}{% else %}class="my-auto"{% endif %}>
+                {% if page.billboard_text is not null %}{{ page.billboard_text|raw }}{% else %}<div class="text-center" style="font-size: 13vw">{{ page.name|title }}</div>{% endif %}
             </div>
         </div>
     {% endif %}

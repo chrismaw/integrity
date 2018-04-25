@@ -6,6 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreatePreachersTable extends Migration
 {
+
+	public $timestamps = false;
     /**
      * Run the migrations.
      *
@@ -16,7 +18,6 @@ class CreatePreachersTable extends Migration
         Schema::create('preachers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->timestamps();
         });
     }
 

@@ -18,13 +18,20 @@ class CreateSermonsTable extends Migration
             $table->string('title');
             $table->date('date');
 	        $table->string('passage');
-	        $table->smallInteger('series');
-	        $table->smallInteger('preacher');
+	        $table->unsignedSmallInteger('sermon_series_id');
+	        $table->unsignedSmallInteger('preacher_id');
 	        $table->longText('summary');
-	        $table->string('media')->nullable();
+	        $table->unsignedSmallInteger('media_id')->nullable();
+	        $table->string('slug');
 	        $table->timestamps();
+
+	        $table->foreign('sermon_series_id')->references('id')->on('sermon_series')->onDelete('cascade');
+	        $table->foreign('preacher_id')->references('id')->on('preachers');
+	        $table->foreign('media_id')->references('id')->on('media');
+
         });
     }
+
 
     /**
      * Reverse the migrations.

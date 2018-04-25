@@ -15,14 +15,16 @@ class CreateLinksTable extends Migration
     {
         Schema::create('links', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name',45);
             $table->string('path');
-            $table->string('parent')->nullable();
-            $table->text('desc')->nullable();
-            $table->string('dest');
-            $table->smallInteger('image')->nullable();
-            $table->string('icon')->nullable();
+            $table->string('parent',45)->nullable();
+            $table->string('desc')->nullable();
+            $table->smallInteger('media_id')->nullable();
+            $table->string('icon',45)->nullable();
             $table->timestamps();
+
+	        $table->foreign('media_id')->references('id')->on('media');
+
         });
     }
 

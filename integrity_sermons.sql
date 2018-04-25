@@ -1,0 +1,1 @@
+INSERT INTO integrity.sermons (title, date, passage, series, preacher, summary, media, slug, updated_at, created_at) VALUES ('Identity of an Exile', '2018-03-11', '1 Peter 1:1-2', 1, 1, null, '5', 'identity-of-an-exile', '2018-03-12 23:41:14', '2018-03-12 23:41:11');

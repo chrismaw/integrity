@@ -1,0 +1,11 @@
+INSERT INTO integrity.migrations (migration, batch) VALUES ('2018_01_31_035623_create_sermons_table', 1);
+INSERT INTO integrity.migrations (migration, batch) VALUES ('2018_01_31_035704_create_articles_table', 1);
+INSERT INTO integrity.migrations (migration, batch) VALUES ('2018_01_31_035718_create_blogs_table', 1);
+INSERT INTO integrity.migrations (migration, batch) VALUES ('2018_01_31_035818_create_preachers_table', 1);
+INSERT INTO integrity.migrations (migration, batch) VALUES ('2018_01_31_035859_create_groups_table', 1);
+INSERT INTO integrity.migrations (migration, batch) VALUES ('2018_01_31_035915_create_events_table', 1);
+INSERT INTO integrity.migrations (migration, batch) VALUES ('2018_01_31_035950_create_sermon_series_table', 1);
+INSERT INTO integrity.migrations (migration, batch) VALUES ('2018_01_31_040014_create_media_table', 1);
+INSERT INTO integrity.migrations (migration, batch) VALUES ('2018_01_31_171818_create_link_lists_table', 1);
+INSERT INTO integrity.migrations (migration, batch) VALUES ('2018_01_31_172203_create_links_table', 1);
+INSERT INTO integrity.migrations (migration, batch) VALUES ('2018_03_24_190218_create_leaders_table', 2);

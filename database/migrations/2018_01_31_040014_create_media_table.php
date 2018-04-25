@@ -18,10 +18,13 @@ class CreateMediaTable extends Migration
             $table->string('name');
             $table->enum('type',['img', 'aud', 'vid']);
             $table->string('filename');
-            $table->string('link');
-            $table->string('file_size');
-            $table->string('thumb_link');
-            $table->string('thumb_size');
+            $table->string('alt')->nullable();
+            $table->string('function',15)->nullable();
+            $table->string('folder',45)->nullable();
+            $table->string('link')->nullable();
+            $table->string('file_size')->nullable();;
+            $table->string('thumb_link')->nullable();;
+            $table->string('thumb_size')->nullable();;
             $table->timestamps();
         });
     }
