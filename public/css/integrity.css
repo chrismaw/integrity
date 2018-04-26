@@ -2,6 +2,11 @@
     font-family: "Avenir LT Std 35 Light";
     src: url("../fonts/vendor/Avenir/AvenirLTStd-Light.otf");
 }
+@font-face {
+    font-family: "Georgia";
+    src: url("../fonts/vendor/Georgia/georgia.ttf");
+}
+
 html, body, main, nav {
     font-family: "Avenir LT Std 35 Light";
 }
@@ -14,11 +19,18 @@ html, body, main, nav {
     -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
     transition: background .5s ease-in-out, padding .5s ease-in-out;
 }
+.navbar.nav-link {
+    -webkit-transition: color .5s ease-in-out, padding .5s ease-in-out;
+    transition: color .5s ease-in-out, padding .5s ease-in-out;
+}
 
 .top-nav-collapse {
     background-color: #0f212c;
-
 }
+.top-nav-link-collapse {
+     color: #fff;
+ }
+
 
 #navbarSupportedContent > ul > li {
      transition: background-color .5s ease;
@@ -92,3 +104,10 @@ body > nav > ul > li.nav-item.dropdown.show > div > a{
 
 }
 
+/* PAGE SPECIFIC*/
+.h7 {
+    font-family: Georgia;
+    font-variant: all-small-caps;
+    letter-spacing: 15px;
+    color: #60aec8;
+}

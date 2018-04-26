@@ -57,6 +57,7 @@ class Index extends Controller{
                 ])->get();
 //		$page = DB::table('pages')->where('name','=','index')->first();
 		return view('index', [
+		    'page' => $p[0],
 		    'settings' => $settings,
             'sections' => $sections,
             'headerLinks' => $headerLinks,
