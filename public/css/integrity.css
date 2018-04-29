@@ -46,12 +46,12 @@ body > nav > ul > li:hover > a {
     color: #60aec8;
 }
 
-body > nav > ul > li.nav-item.dropdown.show > div > a{
+body > nav > ul > li.nav-item.dropdown.show > div > a {
     line-height: 2;
 }
 .dropdown-menu {
      border-radius: 0;
-     background-color: rgba(6,13,17,0.5);
+     background-color: rgba(6,13,17,0.7);
      color: #fff;
  }
 .dropdown-menu .dropdown-item:hover {
@@ -61,6 +61,13 @@ body > nav > ul > li.nav-item.dropdown.show > div > a{
 .dropdown-item {
     color: #fff;
     transition: color .5s ease;
+}
+
+.h7 {
+    font-family: Georgia;
+    font-variant: all-small-caps;
+    letter-spacing: 15px;
+    color: #60aec8;
 }
 
 @media only screen and (max-width: 767.98px) {
@@ -83,7 +90,11 @@ body > nav > ul > li.nav-item.dropdown.show > div > a{
     column-count: 1;
 }
 
-@media (min-width: 576px) {
+#contact > div > div > div > a {
+    font-size: 115%
+}
+
+@media (min-width: 567px) {
     .card-columns {
         column-count: 2;
     }
@@ -95,6 +106,9 @@ body > nav > ul > li.nav-item.dropdown.show > div > a{
     #leadership > div > div > p {
         font-size: 75%;
     }
+    #contact > div > div > div > a {
+        font-size: 75%;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -103,11 +117,4 @@ body > nav > ul > li.nav-item.dropdown.show > div > a{
     }
 
 }
-
 /* PAGE SPECIFIC*/
-.h7 {
-    font-family: Georgia;
-    font-variant: all-small-caps;
-    letter-spacing: 15px;
-    color: #60aec8;
-}
