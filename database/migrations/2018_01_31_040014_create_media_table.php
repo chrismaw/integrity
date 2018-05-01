@@ -16,15 +16,15 @@ class CreateMediaTable extends Migration
         Schema::create('media', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->enum('type',['img', 'aud', 'vid']);
+            $table->enum('type', \App\Media::TYPES);
             $table->string('filename');
             $table->string('alt')->nullable();
-            $table->string('function',15)->nullable();
+            $table->string('function',45)->nullable();
             $table->string('folder',45)->nullable();
             $table->string('link')->nullable();
-            $table->string('file_size')->nullable();;
-            $table->string('thumb_link')->nullable();;
-            $table->string('thumb_size')->nullable();;
+            $table->string('file_size')->nullable();
+            $table->string('thumb_link')->nullable();
+            $table->string('thumb_size')->nullable();
             $table->timestamps();
         });
     }

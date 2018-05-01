@@ -20,6 +20,7 @@ class Media extends Model
 
 	protected $table = 'media';
 
+    const TYPES = ['img','aud', 'vid'];
 
 	public function getBillboard(Media $media){
 		$folder = $media['folder'];

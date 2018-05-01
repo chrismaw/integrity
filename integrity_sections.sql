@@ -1,5 +1,0 @@
-INSERT INTO integrity.sections (name, active, heading, type, where_used, content, bg) VALUES ('info', 1, 'Location & Service Times', null, 'index', '<div><span>2725 E. 14th Street in Greenville, NC</span><br><span>Sundays | 9 AM & 11 AM</span></div>', '');
-INSERT INTO integrity.sections (name, active, heading, type, where_used, content, bg) VALUES ('about', 1, 'Mission', null, 'index', 'Integrity''s mission is to mature and multiply, son.', '');
-INSERT INTO integrity.sections (name, active, heading, type, where_used, content, bg) VALUES ('contact', 0, null, null, 'index', null, '');
-INSERT INTO integrity.sections (name, active, heading, type, where_used, content, bg) VALUES ('latest sermon', 0, 'Latest Sermon', null, 'index', null, '');
-INSERT INTO integrity.sections (name, active, heading, type, where_used, content, bg) VALUES ('links', 1, 'Here are some links', null, 'index', '<a href="#"><div><span>Join Us for Worship</span></div></a><a href="#"><div><span>Join A Smallgroup</span></div></a><a href="#"><div><span>Contact Us</span></div></a><a href="#"><div><span>Serve With Us</span></div></a>', '');

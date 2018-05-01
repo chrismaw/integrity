@@ -19,6 +19,7 @@ class CreateLinksTable extends Migration
             $table->string('path');
             $table->string('parent',45)->nullable();
             $table->string('desc')->nullable();
+            $table->string('dest')->nullable();
             $table->smallInteger('media_id')->nullable();
             $table->string('icon',45)->nullable();
             $table->timestamps();

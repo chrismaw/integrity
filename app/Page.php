@@ -21,6 +21,19 @@ class Page extends Model
 
     protected $table = 'pages';
 
+    const COLORS = [
+        'dark',
+        'light',
+        'primary',
+        'secondary',
+        'success',
+        'danger',
+        'warning',
+        'info',
+        'muted',
+        'white'
+    ];
+
     public function getBasicPage($parent, $page){
 
         $p = DB::table('pages')->where([

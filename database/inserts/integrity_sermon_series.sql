@@ -1,0 +1,1 @@
+INSERT INTO integrity.sermon_series (id, title, tagline, passage, details, media_id, created_at, updated_at) VALUES (1, 'Exiles', null, null, null, 4, '2018-05-01 14:27:49', '2018-05-01 14:27:49');

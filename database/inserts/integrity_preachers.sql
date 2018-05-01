@@ -1,0 +1,1 @@
+INSERT INTO integrity.preachers (id, name) VALUES (1, 'Ben Tugwell');

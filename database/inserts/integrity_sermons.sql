@@ -1,0 +1,1 @@
+INSERT INTO integrity.sermons (id, media_id, title, date, sermon_series_id, preacher_id, passage, summary, slug, created_at, updated_at) VALUES (1, 5, 'Philadelphia', '2018-02-25', 1, 1, null, null, null, '2018-02-26 16:50:11', '2018-02-26 16:50:11');
