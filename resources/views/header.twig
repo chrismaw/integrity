@@ -1,8 +1,8 @@
 {#<header style="font-family: 'Raleway', sans-serif">#}
     <nav class="d-none d-md-flex navbar fixed-top navbar-expand-md navbar-{{ page is defined ? page.bg_color : dark }} scrolling-navbar py-0">
-        {% if settings.header_logo %}
+        {% if settings %}
             <a class="navbar-brand" href="{{ app_uri }}">
-                <img id="header-logo" src="{{ app_uri }}img/{% if page.bg_color == "dark" %}{{ settings.header_logo }}{% else %}headerlogodark.png{% endif %}"/>
+                <img id="header-logo" src="{{ app_uri }}img/{% if page.bg_color == "dark" %}{{ settings.header_logo_light }}{% else %}{{ settings.header_logo_dark }}{% endif %}"/>
             </a>
         {% endif %}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

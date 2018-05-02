@@ -29,8 +29,8 @@ class Index extends Controller{
 		// example: $medias = [1,2,3]
 //		$medias['media'] = 'yes';
 //		echo($medias['media']);
-		if ($p[0]->billboard_img){
-			$media = Media::where('id', $p[0]->billboard_img)->get();
+		if ($p[0]->billboard_img_id){
+			$media = Media::where('id', $p[0]->billboard_img_id)->get();
 			if ($media[0] instanceof Media){
 				$billboard['img'] = $media[0]->getBillboard($media[0]);
 			}
@@ -74,8 +74,8 @@ class Index extends Controller{
         ])->get();
 	    $billboard = array();
 
-	    if ($p[0]->billboard_img){
-		    $media = Media::where('id', $p[0]->billboard_img)->get();
+	    if ($p[0]->billboard_img_id){
+		    $media = Media::where('id', $p[0]->billboard_img_id)->get();
 		    if ($media[0] instanceof Media){
 			    $billboard['img'] = $media[0]->getBillboard($media[0]);
 		    }
