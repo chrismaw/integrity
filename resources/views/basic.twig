@@ -24,7 +24,7 @@
         <div id="billboard-grid">
             <img id="billboard" src="{{ app_uri }}{{ billboard.img|raw }}">
             <div id="billboard-text" {% if page.billboard_text is not null %}{% else %}class="my-auto"{% endif %}>
-                {% if page.billboard_text is not null %}{{ page.billboard_text|raw }}{% else %}<div class="text-center" style="font-size: 13vw; font-family: Georgia; font-variant: all-small-caps; letter-spacing: 2vw; ">{{ page.name|title }}</div>{% endif %}
+                {% if page.billboard_text is not null %}{{ page.billboard_text|raw }}{% else %}<div class="text-center" style="font-size: 13vw;">{{ page.name|title }}</div>{% endif %}
             </div>
         </div>
     {% endif %}
