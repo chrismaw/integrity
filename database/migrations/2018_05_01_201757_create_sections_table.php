@@ -19,7 +19,7 @@ class CreateSectionsTable extends Migration
             $table->boolean('active');
             $table->string('heading')->nullable();
             $table->string('type')->nullable();
-            $table->json('where_used');
+            $table->string('where_used');
             $table->longText('content')->nullable();
             $table->enum('bg_color',App\Page::COLORS)->default(App\Page::COLORS[1]);
             $table->enum('text_color',App\Page::COLORS)->default(App\Page::COLORS[0]);

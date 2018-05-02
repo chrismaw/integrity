@@ -16,7 +16,7 @@ class CreateLinkListsTable extends Migration
         Schema::create('link_lists', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->json('links');
+            $table->string('links');
             $table->timestamps();
         });
     }

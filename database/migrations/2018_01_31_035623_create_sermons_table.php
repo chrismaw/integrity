@@ -15,11 +15,11 @@ class CreateSermonsTable extends Migration
     {
         Schema::create('sermons', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedSmallInteger('media_id')->nullable();
+            $table->unsignedInteger('media_id')->nullable();
             $table->string('title');
             $table->date('date');
-	        $table->unsignedSmallInteger('sermon_series_id');
-	        $table->unsignedSmallInteger('preacher_id');
+	        $table->unsignedInteger('sermon_series_id');
+	        $table->unsignedInteger('preacher_id');
             $table->string('passage')->nullable();
 	        $table->longText('summary')->nullable();
             $table->string('slug')->nullable();

@@ -26,9 +26,9 @@ class CreateSettings extends Migration
             $table->string('phone');
             $table->string('email');
             $table->string('times');
-            $table->unsignedSmallInteger('header_logo_light');
-            $table->unsignedSmallInteger('header_logo_dark');
-            $table->unsignedSmallInteger('small_logo')->nullable();
+            $table->unsignedInteger('header_logo_light');
+            $table->unsignedInteger('header_logo_dark');
+            $table->unsignedInteger('small_logo')->nullable();
             $table->timestamps();
 
         });

@@ -21,7 +21,7 @@ class CreateArticlesTable extends Migration
             $table->text('desc');
             $table->longText('content');
             $table->string('author');
-            $table->smallInteger('image');
+            $table->unsignedInteger('media');
             $table->timestamps();
         });
     }

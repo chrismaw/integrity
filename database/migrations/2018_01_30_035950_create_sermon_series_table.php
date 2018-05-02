@@ -18,8 +18,9 @@ class CreateSermonSeriesTable extends Migration
             $table->string('title');
             $table->string('tagline')->nullable();
             $table->string('passage')->nullable();
+	        $table->unsignedInteger('media_id')->nullable();
             $table->longText('details')->nullable();
-	        $table->unsignedSmallInteger('media_id')->nullable();
+	        $table->string('slug')->nullable();
 	        $table->timestamps();
 
 	        $table->foreign('media_id')->references('id')->on('media');

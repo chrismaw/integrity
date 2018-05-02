@@ -25,7 +25,7 @@ class Pages extends Migration
            $table->enum('billboard_text_color',App\Page::COLORS)->default(App\Page::COLORS[1]);
            $table->string('desc')->nullable();
            $table->longText('content')->nullable();
-           $table->json('included_media')->nullable();
+           $table->string('included_media')->nullable();
            $table->boolean('basic')->default(1);
            $table->boolean('active')->default(1);
            $table->timestamps();
