@@ -1,0 +1,36 @@
+{% extends 'base.twig' %}
+{% block addToHead %}
+    <script type="text/javascript" src="{{ app_uri }}mediaelement/mediaelement-and-player.min.js"></script>
+    <script type="text/javascript" src="{{ app_uri }}mediaelement/jump-forward/jump-forward.min.js"></script>
+    <script type="text/javascript" src="{{ app_uri }}mediaelement/jump-forward/jump-forward-i18n.js"></script>
+    <link rel="stylesheet" href="{{ app_uri }}mediaelement/mediaelementplayer.min.css" />
+    <link rel="stylesheet" href="{{ app_uri }}mediaelement/jump-forward/jump-forward.min.css" />
+<style>
+
+
+
+</style>
+
+{% endblock %}
+{% block content %}
+    <div>
+        {% if image %}
+            <img style="width: 100%; height: auto;" class="img-responsive" src="{{ app_uri }}{{ image.type }}/sermons/{{ image.filename }}">
+        {% else %}
+            <div class="h7">{{ series.title|title }}</div>
+        {% endif %}
+    </div>
+    <div class="container">
+        <ul>
+            {% for sermon in sermons %}
+                <li>
+                    <a class="link-info" href="{{ app_uri }}resources/sermons/{{ series.title }}/{{ sermon.slug }}">
+                        {{ sermon.title }} - {{ sermon.date }} - {{ sermon.passage }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+
+{% endblock %}

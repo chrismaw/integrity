@@ -1,1 +1,1 @@
-["articles","blogs","events","groups","link_lists","links","media","migrations","pages","preachers","sections","sermon_series","sermons","settings"]
+{"id":4,"name":"exiles_main","type":"img","filename":"exiles_main.jpg","alt":null,"function":"billboard","folder":"sermons","link":null,"file_size":null,"thumb_link":null,"thumb_size":null,"created_at":"2018-03-12 23:08:56","updated_at":"2018-03-12 23:13:55"}

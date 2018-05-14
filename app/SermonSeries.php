@@ -6,12 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class SermonSeries extends Model
 {
-	protected $fillable = [
-		'title',
-		'tagline',
-		'passage',
-		'image',
-		'details',
-		'slug',
-	];
+	public function sermons()
+	{
+		return $this->hasMany('App/Sermon');
+	}
 }

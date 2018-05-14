@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
+use App\SermonSeries;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Collection;
@@ -66,6 +67,7 @@ class Index extends Controller{
 			'billboard' => $billboard
         ] );
 	}
+
     public function pageIndex($parent, $page) {
 		$page = str_replace("-"," ",$page);
 	    $p = DB::table('pages')->where([
@@ -80,6 +82,7 @@ class Index extends Controller{
 			    $billboard['img'] = $media[0]->getBillboard($media[0]);
 		    }
 	    }
+
 	    if ($p[0]->basic == 1) {
             $headerLinks = Header::getHeaderLinks();
             $footerLinkList = Footer::getFooterLinks();
@@ -99,7 +102,6 @@ class Index extends Controller{
             ]);
         } else {
 		    return redirect()->route($p[0]->name);
-
 	    }
 	}
 }
