@@ -23,10 +23,9 @@ class Series extends Controller
 		    ['active', '=', 1],
 		    ['where_used', 'like', '%sermon%'],
 	    ])->get();
-	    $sermonSeries = SermonSeries::where('title',$series)->first();
+	    $sermonSeries = SermonSeries::where('slug',$series)->first();
 	    $sermons = Sermon::where('sermon_series_id',$sermonSeries->id)->get();
 	    $seriesImage = Media::where('id',$sermonSeries->media_id)->first();
-	    file_put_contents('/Applications/MAMP/htdocs/integrity/text.txt', json_encode($seriesImage));
 
 	    return view('resources/series', [
 //		    'page' => $p[0],

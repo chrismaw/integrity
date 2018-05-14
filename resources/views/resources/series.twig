@@ -24,7 +24,7 @@
         <ul>
             {% for sermon in sermons %}
                 <li>
-                    <a class="link-info" href="{{ app_uri }}resources/sermons/{{ series.title }}/{{ sermon.slug }}">
+                    <a class="link-info" href="{{ app_uri }}resources/sermons/{{ series.slug }}/{{ sermon.slug }}">
                         {{ sermon.title }} - {{ sermon.date }} - {{ sermon.passage }}
                     </a>
                 </li>
