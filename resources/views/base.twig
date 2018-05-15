@@ -48,7 +48,21 @@
 
         </style>
 </head>
-<body class="bg-{{ page is defined ? page.bg_color : dark }} text-{{ page is defined ? page.text_color : dark }} pb-md-0"
+{% set bg_color = dark %}
+{% set text_color = light %}
+{% if page is defined %}
+    {% set bg_color = page.bg_color %}
+    {% set text_color = page.text_color %}
+{% endif %} {# not elseif because the two variables coexist #}
+{% if series is defined %} {# needs to override page #}
+    {% set bg_color = series.bg_color %}
+        {% if bg_color == "light" %}
+        {% set text_color = "dark" %}
+    {% else %}
+        {% set text_color = "white" %}
+    {% endif %}
+{% endif %}
+<body class="bg-{{ bg_color }} text-{{ text_color }} pb-md-0"
       style="padding-bottom: 73px;"
 >
 
@@ -71,7 +85,7 @@
     var OFFSET_TOP = 50;
     $(window).scroll(function () {
         $(".navbar").length && ($(".navbar").offset().top > OFFSET_TOP ? $(".scrolling-navbar").addClass("top-nav-collapse") : $(".scrolling-navbar").removeClass("top-nav-collapse"));
-        {% if page.bg_color != "dark" and page.billboard_img == null%}
+        {% if bg_color != "dark" and page.billboard_img == null%}
             $(".navbar").length && ($(".navbar").offset().top > OFFSET_TOP ? $(".nav-link").addClass("text-white").removeClass("text-dark") : $(".nav-link").removeClass("text-white").addClass('text-dark'));
             $(".navbar").length && ($(".navbar").offset().top > OFFSET_TOP ? $("#header-logo").attr('src',"{{ app_uri }}img/headerlogo.png") : $("#header-logo").attr('src',"{{ app_uri }}img/headerlogodark.png"));
         {% endif %}

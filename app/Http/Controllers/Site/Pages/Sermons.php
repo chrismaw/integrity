@@ -37,7 +37,7 @@ class Sermons extends Controller
 
 //		$page = DB::table('pages')->where('name','=','index')->first();
 	    return view('resources/sermons', [
-	    	'series' => $currentSeries,
+	    	'currentSeries' => $currentSeries,
 		    'latestSeriesSermon' => $latestSeriesSermon,
 		    'seriesImage' => $seriesMedia->toArray(),
 		    'page' => $p[0],
@@ -63,7 +63,7 @@ class Sermons extends Controller
 		return view('resources/sermon', [
 			'audio' => $audio,
 			'sermon' => $sm,
-			'series' => $sr,
+			'currentSeries' => $sr,
 			'settings' => $settings,
 			'headerLinks' => $headerLinks,
 			'footerLinkList' => $footerLinkList

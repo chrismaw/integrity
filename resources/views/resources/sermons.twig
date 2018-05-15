@@ -16,18 +16,18 @@
 <div class="container">
     <div class="text-center mt-3 mb-3 mt-md-5 h7" style="font-size: 9vw;">SERMONS</div>
     {{ page.content ? page.content|raw : '' }}
-
-    <h2>Current Series:</h2>
 </div>
+{% if currentSeries %}
+    <div class="container"><h2>Current Series:</h2></div>
     {% if seriesImage %}
-        <a href="{{ app_uri }}resources/sermons/{{ series.slug }}">
+        <a href="{{ app_uri }}resources/sermons/{{ currentSeries.slug }}">
             <img style="width: 100%; height: auto;" class="img-responsive" src="{{ app_uri }}{{ seriesImage.type }}/sermons/{{ seriesImage.filename }}">
 
         </a>
     {% else %}
-    <h4>{{ series.title }}</h4>
+    <h4>{{ currentSeries.title }}</h4>
     {% endif %}
-
+{% endif %}
     {% if audio %}
         <audio id="mediaplayer" src="{{ app_uri }}/aud/{{ audio.filename }}"></audio>
         <script type="text/javascript">
