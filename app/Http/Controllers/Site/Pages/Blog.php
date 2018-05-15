@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Site\Header;
 use App\Http\Controllers\Site\Footer;
 
-class ContactUs extends Controller
+class Blog extends Controller
 {
     public function index(){
 	    $headerLinks = Header::getHeaderLinks();
