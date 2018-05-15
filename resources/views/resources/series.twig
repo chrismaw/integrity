@@ -6,21 +6,35 @@
     <link rel="stylesheet" href="{{ app_uri }}mediaelement/mediaelementplayer.min.css" />
     <link rel="stylesheet" href="{{ app_uri }}mediaelement/jump-forward/jump-forward.min.css" />
 <style>
-
+.parallax {
+    {#background-image: url("{{ app_uri }}{{ image.type }}/sermons/{{ image.filename }}");#}
+    width: 100%;
+    height: auto;
+    position: fixed;
+    z-index: -1;
+}
+    .hidden {
+        visibility: hidden;
+        width: 100%;
+        height: auto;
+    }
 
 
 </style>
 
 {% endblock %}
 {% block content %}
-    <div>
-        {% if image %}
-            <img style="width: 100%; height: auto;" class="img-responsive" src="{{ app_uri }}{{ image.type }}/sermons/{{ image.filename }}">
-        {% else %}
-            <div class="h7">{{ series.title|title }}</div>
-        {% endif %}
-    </div>
-    <div class="container">
+    {% if image %}
+        <div class="parallax">
+            <img class="img-responsive parallax" src="{{ app_uri }}{{ image.type }}/sermons/{{ image.filename }}">
+        </div>
+    {% else %}
+        <div class="h7">{{ series.title|title }}</div>
+    {% endif %}
+    <img class="hidden" src="{{ app_uri }}{{ image.type }}/sermons/{{ image.filename }}">
+
+    <div class="container mt-3" style="height: 1000px;">
+        {{ series.details ? series.details}|raw : '' }}
         <ul>
             {% for sermon in sermons %}
                 <li>
@@ -32,5 +46,13 @@
         </ul>
     </div>
 
-
 {% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        $(window).scroll(function(){
+        $(".parallax").css("opacity", 1 - $(window).scrollTop() / 600);
+        $('.parallax').css("margin-top", -($(window).scrollTop()/4)+"px");
+        });
+    </script>
+{% endblock scripts %}
