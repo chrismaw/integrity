@@ -17,7 +17,7 @@
         <span style="font-size: 7vw">{{ currentSeries.title }} | </span><span style="font-size: 3vw" class="text-uppercase">{{ sermon.title }}</span>
     </div>
     {% if audio %}
-        <audio id="mediaplayer" src="{{ app_uri }}/aud/{{ audio.filename }}"></audio>
+        <audio class="shadow" id="mediaplayer" src="{{ app_uri }}/aud/{{ audio.filename }}"></audio>
         <script type="text/javascript">
             $('#mediaplayer').mediaelementplayer({
                 audioWidth: '100%',
@@ -46,7 +46,7 @@
                 <div class="col-12">By: {{ sermon.preacher }}</div>
             {% endif %}
         </div>
-        <img style="width: 100%; height: auto;"  src="{{ app_uri }}{{ seriesImage.type }}/sermons/{{ seriesImage.filename }}">
+        <img style="width: 100%; height: auto;" class="shadow-lg" src="{{ app_uri }}{{ seriesImage.type }}/sermons/{{ seriesImage.filename }}">
 
     </div>
 {% endblock %}
