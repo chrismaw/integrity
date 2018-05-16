@@ -82,8 +82,8 @@
         <div class="h7 text-center" style="font-size: 5vw">Listen to The Sermons</div>
          <div class="list-group list-group-flush">
             {% for sermon in sermons %}
-                    <a class="list-group-item list-group-item-action p-1 bg-{{ bg_color }} text-{{ text_color }} clearfix" href="{{ app_uri }}resources/sermons/{{ series.slug }}/{{ sermon.slug }}">
-                        <span class="d-inline">{{  sermon.title }}</span> <small class="d-inline">{{ sermon.passage ? '- '~sermon.passage : '' }}</small> <span style="float:right" class="d-inline badge badge-info my-auto">{{ sermon.date|date("m/d/Y") }}</span>
+                    <a class="list-group-item list-group-item-action p-1 bg-{{ bg_color }} text-{{ text_color }} d-flex justify-content-between align-items-center" href="{{ app_uri }}resources/sermons/{{ series.slug }}/{{ sermon.slug }}">
+                        <span>{{  sermon.title }} <small class="text-uppercase text-secondary">{{ sermon.passage ? '- '~sermon.passage : '' }}</small></span> <span class="text-secondary">{{ sermon.date|date("m/d/Y") }}</span>
                     </a>
             {% endfor %}
         </div>

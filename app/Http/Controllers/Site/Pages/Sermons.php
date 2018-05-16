@@ -58,12 +58,15 @@ class Sermons extends Controller
 			['sermon_series_id', '=', $sr->id]
 		])->first();
 		$audio = DB::table('media')->where('id', $sm->media_id)->first();
+		$seriesImage = Media::where('id',$sr->media_id)->first();
+
 
 		$settings = DB::table('settings')->first();
 		return view('resources/sermon', [
 			'audio' => $audio,
 			'sermon' => $sm,
 			'currentSeries' => $sr,
+			'seriesImage' => $seriesImage->toArray(),
 			'settings' => $settings,
 			'headerLinks' => $headerLinks,
 			'footerLinkList' => $footerLinkList

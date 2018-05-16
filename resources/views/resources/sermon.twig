@@ -13,8 +13,8 @@
 
 {% endblock %}
 {% block content %}
-    <div class="container mt-3 mb-3 mt-md-5">
-        <h2>{{ currentSeries.title }} - {{ sermon.title }}</h2>
+    <div class="container-fluid mt-3 mb-3 mt-md-5 text-center">
+        <span style="font-size: 7vw">{{ currentSeries.title }} | </span><span style="font-size: 3vw" class="text-uppercase">{{ sermon.title }}</span>
     </div>
     {% if audio %}
         <audio id="mediaplayer" src="{{ app_uri }}/aud/{{ audio.filename }}"></audio>
@@ -35,6 +35,18 @@
         </script>
     {% endif %}
     <div class="container">
+        <div class="row text-center my-5">
+            {% if sermon.date %}
+                <div class="col-12 col-sm-6"><span class="h4"><strong>DATE </strong></span><span class="">{{ sermon.date|date("m/d/Y") }}</span></div>
+            {% endif %}
+            {% if sermon.passage %}
+                <div class="col-12 col-sm-6"><span class="h4"><strong>PASSAGE </strong></span><span class="">{{ sermon.passage }}</span></div>
+            {% endif %}
+            {% if sermon.preacher %}
+                <div class="col-12">By: {{ sermon.preacher }}</div>
+            {% endif %}
+        </div>
+        <img style="width: 100%; height: auto;"  src="{{ app_uri }}{{ seriesImage.type }}/sermons/{{ seriesImage.filename }}">
 
     </div>
 {% endblock %}
