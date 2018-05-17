@@ -1,26 +1,36 @@
 <footer class="container-fluid">
     <div class="d-none d-md-flex row">
-        <div style="background-color: #0f212c;font-size: small" class="col-10 px-1">
-            <div class="row">
+        <div style="background-color: #0f212c;font-size: small" class="col-10 px-5">
+            <div class="row mx-0">
                 <div class="col">Col 1</div>
                 <div class="col">Col 2</div>
             </div>
-            <div class="row border-top border-info">
-                <div class="col">Col 3</div>
-                <div class="col">Col 4</div>
+            <div class="row mx-0">
+                <div class="col">Col 1</div>
+                <div class="col">Col 2</div>
+            </div>
+            <div class="row mx-0">
+                <div class="col">Col 1</div>
+                <div class="col">Col 2</div>
+            </div>
+            <div class="row mx-0 border-top border-info">
+                <div style="font-size: 14px" class="col-8 my-auto pr-0">Copyright © 2018 Integrity Church | Greenville NC</div>
+                <div class="col-4 text-right pl-0 py-1">
+                    <div class="d-inline">
+                        <a href="#" class="d-inline text-white px-1"><img src="{{ app_uri }}img/icons/facebook.png"></a>
+                        <a href="#" class="d-inline px-1"><img src="{{ app_uri }}img/icons/instagram.png"></a>
+                        <a href="#" class="d-inline px-1"><img src="{{ app_uri }}img/icons/twitter.png"></a>
+                    </div>
+                </div>
             </div>
         </div>
-            <div style="background-color: #0f212c; font-size: small" class="col-2">
-                <ul class="list-group list-group-flush p-0 text-right">
+            <div style="background-color: #0f212c; font-size: small" class="col-2 pl-0">
+                <div class="list-group list-group-flush p-0 text-right">
                     {% for link in footerLinkList %}
-                        <button type="button" class="list-group-item bg-transparent p-0 border-info text-right">
-                            <a class="text-white" href="{{ app_uri }}{{ link.parent ? '/' ~ link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
-                        </button>
+                        <a class="list-group-item bg-transparent p-0 border-info text-white" href="{{ app_uri }}{{ link.parent ? '/' ~ link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
                     {% endfor %}
-                    <li class="list-group-item bg-transparent text-white p-0 border-info">
-                        <a class="text-white" href="{{ app_uri }}/admin/settings">Admin</a>
-                    </li>
-                </ul>
+                        <a class="list-group-item bg-transparent text-white p-0 border-info text-white" href="{{ app_uri }}/admin/settings">Admin</a>
+                </div>
             </div>
         {#{% else %}#}
             {#<h1>Who needs a footer anyway?</h1>#}
