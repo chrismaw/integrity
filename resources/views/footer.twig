@@ -1,16 +1,24 @@
 <footer class="container-fluid">
     <div class="d-none d-md-flex row">
-        <div class="col-9">
+        <div style="background-color: #0f212c;font-size: small" class="col-10 px-1">
+            <div class="row">
+                <div class="col">Col 1</div>
+                <div class="col">Col 2</div>
+            </div>
+            <div class="row border-top border-info">
+                <div class="col">Col 3</div>
+                <div class="col">Col 4</div>
+            </div>
         </div>
-            <div class="col-3">
+            <div style="background-color: #0f212c; font-size: small" class="col-2">
                 <ul class="list-group list-group-flush p-0 text-right">
                     {% for link in footerLinkList %}
-                        <button type="button" class="list-group-item bg-transparent text-info p-0 text-right">
-                            <a href="{{ app_uri }}{{ link.parent ? '/' ~ link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
+                        <button type="button" class="list-group-item bg-transparent p-0 border-info text-right">
+                            <a class="text-white" href="{{ app_uri }}{{ link.parent ? '/' ~ link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
                         </button>
                     {% endfor %}
-                    <li class="list-group-item bg-transparent text-info p-0">
-                        <a href="{{ app_uri }}/admin/settings">Admin</a>
+                    <li class="list-group-item bg-transparent text-white p-0 border-info">
+                        <a class="text-white" href="{{ app_uri }}/admin/settings">Admin</a>
                     </li>
                 </ul>
             </div>
@@ -22,7 +30,7 @@
 
     <nav class="d-md-none navbar fixed-bottom navbar-expand-md navbar-dark">
         {% if settings %}
-            <a class="navbar-brand" href="{{ app_uri }}">
+            <a class="navbar-brand text-hide" href="{{ app_uri }}">Integrity Church
                 <img src="{{ app_uri }}img/{{ settings.header_logo_light }}"/>
             </a>
         {% endif %}

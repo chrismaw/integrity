@@ -1,7 +1,7 @@
 {#<header style="font-family: 'Raleway', sans-serif">#}
     <nav class="d-none d-md-flex navbar fixed-top navbar-expand-md navbar-{{ bg_color }} scrolling-navbar py-0">
         {% if settings %}
-            <a class="navbar-brand" href="{{ app_uri }}">
+            <a class="navbar-brand text-hide" href="{{ app_uri }}">Integrity Church
                 <img id="header-logo" src="{{ app_uri }}img/{% if bg_color == "dark" %}{{ settings.header_logo_light }}{% else %}{{ settings.header_logo_dark }}{% endif %}"/>
             </a>
         {% endif %}
