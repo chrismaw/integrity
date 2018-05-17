@@ -14,7 +14,7 @@
                     {% for key, parent in headerLinks %}
                         {% if key|length %}
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-{{ text_color }} h5" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle h5" style="color: {% if text_color == 'dark' %}#343a40{% else %}#fff{% endif %}" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ key|title }}
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
