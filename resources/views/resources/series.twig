@@ -25,6 +25,7 @@
     .full_img {
         width: 100%;
         height: auto;
+        overflow-x: hidden;
     }
 .animation-element {
     opacity: 0;
@@ -77,10 +78,10 @@
     {% endif %}
     <img class="hidden" src="{{ app_uri }}{{ image.type }}/sermons/{{ image.filename }}">
 
-    <div class="container mt-3">
+    <div style="overflow-x:hidden" class="container mt-3 pb-5">
         {{ series.details ? series.details|raw : '' }}
     </div>
-    <div class="h7 text-center mt-5" style="font-size: 5vw">Listen&nbsp;to The&nbsp;Sermons</div>
+    <div class="h7 text-center" style="font-size: 5vw">Listen&nbsp;to The&nbsp;Sermons</div>
     <div class="container mb-5">
         <div class="list-group list-group-flush">
             {% for sermon in sermons %}

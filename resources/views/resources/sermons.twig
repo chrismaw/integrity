@@ -16,20 +16,8 @@
 <div class="container">
     <div class="text-center mt-3 mb-3 mt-md-5 h7" style="font-size: 9vw;">SERMONS</div>
     {{ page.content ? page.content|raw : '' }}
-</div>
-{% if currentSeries %}
-    <div class="container"><h2>Current Series:</h2></div>
-    {% if seriesImage %}
-        <a href="{{ app_uri }}resources/sermons/{{ currentSeries.slug }}">
-            <img style="width: 100%; height: auto;" class="img-responsive" src="{{ app_uri }}{{ seriesImage.type }}/sermons/{{ seriesImage.filename }}">
-
-        </a>
-    {% else %}
-    <h4>{{ currentSeries.title }}</h4>
-    {% endif %}
-{% endif %}
-    {% if audio %}
-        <audio id="mediaplayer" src="{{ app_uri }}/aud/{{ audio.filename }}"></audio>
+    {% if latestSeriesSermon %}
+        <audio class="shadow" id="mediaplayer" src="{{ app_uri }}/aud/{{ latestSeriesSermon.filename }}"></audio>
         <script type="text/javascript">
             $('#mediaplayer').mediaelementplayer({
                 audioWidth: '100%',
@@ -40,10 +28,101 @@
 
                 // When using jQuery's `mediaelementplayer`, an `instance` argument
                 // is available in the `success` callback
-    //            success: function(mediaElement, originalNode, instance) {
-                    // do things
-    //            }
+                //            success: function(mediaElement, originalNode, instance) {
+                // do things
+                //            }
             });
         </script>
     {% endif %}
+</div>
+{% for series in allSeries %}
+    {% if series.is_current == 1 %}
+        <div class="container"><h2>Current Series:</h2></div>
+            <a href="{{ app_uri }}resources/sermons/{{ series.slug }}">
+                <img style="width: 100%; height: auto;" class="img-responsive shadow" src="{{ app_uri }}{{ series.type }}/sermons/{{ series.filename }}">
+            </a>
+    {% endif %}
+{% endfor %}
+
+<div class="album py-5 d.block d-md-none">
+    <div class="container">
+        {% set count = 0 %}
+        {% for series in allSeries %}
+            {% if series.is_current == 0 %}
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top" alt="" style="height: 56.25%; width: 100%; display: block;" src="{{ app_uri }}img/{{ series.folder }}/{{ series.filename }}"/>
+                        <div class="card-body p-1">
+                            <p class="card-text text-dark text-center"><strong>{{ series.title|title }}</strong></p>
+                            <p class="card-text text-muted text-right small">{{ series.passage|title }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+<div class="album py-5 d-none d-md-block d-lg-none">
+    <div class="container">
+        <div class="row">
+            {% set count = 0 %}
+            {% for series in allSeries %}
+            {% if series.is_current == 0 %}
+            {% set count = count + 1 %}
+            {% if count > 2 %}
+            {% set count = 1 %}
+        </div>
+        <div class="row">
+            {% endif %}
+            <div class="col-6">
+                <div class="card mb-4 box-shadow" style="min-height: 320px">
+                    <a href="#">
+                        <img class="card-img-top" alt="" style="height: 56.25%; width: 100%; display: block;" src="{{ app_uri }}img/{{ series.folder }}/{{ series.filename }}"/>
+                    </a>
+                    <div class="card-body p-1">
+                        <p class="card-text text-dark text-center"><strong>{{ series.title|title }}</strong></p>
+                        <p class="card-text text-muted text-right small">{{ series.passage|title }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% if count < 2 %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+    </div>
+<div class="album py-5 d-none d-lg-block">
+    <div class="container">
+        <div class="row">
+            {% set count = 0 %}
+            {% for series in allSeries %}
+            {% if series.is_current == 0 %}
+            {% set count = count + 1 %}
+            {% if count > 3 %}
+            {% set count = 1 %}
+        </div>
+        <div class="row">
+            {% endif %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card mb-4 box-shadow" style="min-height: 315px">
+                    <img class="card-img-top" alt="" style="height: 56.25%; width: 100%; display: block;" src="{{ app_uri }}img/{{ series.folder }}/{{ series.filename }}"/>
+                    <div class="card-body p-1">
+                        <p class="card-text text-dark text-center"><strong>{{ series.title|title }}</strong></p>
+                        <p class="card-text text-muted text-right small">{{ series.passage|title }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% if count < 3 %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+</div>
 {% endblock %}
+

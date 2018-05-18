@@ -34,12 +34,17 @@ class Sermons extends Controller
 	    	'sermon_series_id', $currentSeries['id']
 	    )->orderBy('id', 'desc')->first();
 	    $seriesMedia = Media::where('id',$currentSeries['media_id'])->first();
-
+	    $allSeries = DB::table('sermon_series')
+                        ->join('media', 'sermon_series.media_id', '=', 'media.id')
+                        ->select('sermon_series.*', 'media.type', 'media.folder', 'media.filename')
+                        ->orderBy('id', 'desc')
+                        ->get();
 //		$page = DB::table('pages')->where('name','=','index')->first();
 	    return view('resources/sermons', [
 	    	'currentSeries' => $currentSeries,
 		    'latestSeriesSermon' => $latestSeriesSermon,
 		    'seriesImage' => $seriesMedia->toArray(),
+		    'allSeries' => $allSeries,
 		    'page' => $p[0],
 		    'settings' => $settings,
 		    'sections' => $sections,
