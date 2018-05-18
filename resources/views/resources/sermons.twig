@@ -37,7 +37,9 @@
 </div>
 {% for series in allSeries %}
     {% if series.is_current == 1 %}
-        <div class="container"><h2>Current Series:</h2></div>
+        <div class="container-fluid mt-3 mb-3 mt-md-5 text-center">
+            <span style="font-size: 7vw">Current Series | </span><span style="font-size: 3vw" class="text-uppercase">{{ currentSeries.title }}</span>
+        </div>
             <a href="{{ app_uri }}resources/sermons/{{ series.slug }}">
                 <img style="width: 100%; height: auto;" class="img-responsive shadow" src="{{ app_uri }}{{ series.type }}/sermons/{{ series.filename }}">
             </a>
@@ -51,11 +53,13 @@
             {% if series.is_current == 0 %}
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" alt="" style="height: 56.25%; width: 100%; display: block;" src="{{ app_uri }}img/{{ series.folder }}/{{ series.filename }}"/>
-                        <div class="card-body p-1">
-                            <p class="card-text text-dark text-center"><strong>{{ series.title|title }}</strong></p>
-                            <p class="card-text text-muted text-right small">{{ series.passage|title }}</p>
+                    <div class="card mb-4 box-shadow bg-transparent" style="border:none">
+                        <a href="{{ app_uri }}resources/sermons/{{ series.slug }}">
+                            <img class="card-img-top" alt="" style="height: 56.25%; width: 100%; display: block;" src="{{ app_uri }}img/{{ series.folder }}/{{ series.filename }}"/>
+                        </a>
+                        <div class="card-body p-1 text-center text-{{ text_color }}">
+                            <span class="card-text" style="font-size: 125%"><strong>{{ series.title|title }}</strong></span>
+                            <p class="card-text small">{{ series.passage|title }}</p>
                         </div>
                     </div>
                 </div>
@@ -77,13 +81,13 @@
         <div class="row">
             {% endif %}
             <div class="col-6">
-                <div class="card mb-4 box-shadow" style="min-height: 320px">
-                    <a href="#">
+                <div class="card mb-4 box-shadow" style="min-height: 320px; border:none">
+                    <a href="{{ app_uri }}resources/sermons/{{ series.slug }}">
                         <img class="card-img-top" alt="" style="height: 56.25%; width: 100%; display: block;" src="{{ app_uri }}img/{{ series.folder }}/{{ series.filename }}"/>
                     </a>
-                    <div class="card-body p-1">
-                        <p class="card-text text-dark text-center"><strong>{{ series.title|title }}</strong></p>
-                        <p class="card-text text-muted text-right small">{{ series.passage|title }}</p>
+                    <div class="card-body p-1 text-center text-{{ text_color }}">
+                        <span class="card-text" style="font-size: 125%"><strong>{{ series.title|title }}</strong></span>
+                        <p class="card-text small">{{ series.passage|title }}</p>
                     </div>
                 </div>
             </div>
@@ -108,11 +112,13 @@
         <div class="row">
             {% endif %}
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="card mb-4 box-shadow" style="min-height: 315px">
-                    <img class="card-img-top" alt="" style="height: 56.25%; width: 100%; display: block;" src="{{ app_uri }}img/{{ series.folder }}/{{ series.filename }}"/>
-                    <div class="card-body p-1">
-                        <p class="card-text text-dark text-center"><strong>{{ series.title|title }}</strong></p>
-                        <p class="card-text text-muted text-right small">{{ series.passage|title }}</p>
+                <div class="card mb-4 box-shadow bg-transparent" style="min-height: 325px; border: none">
+                    <a href="{{ app_uri }}resources/sermons/{{ series.slug }}">
+                        <img class="card-img-top" alt="" style="height: 56.25%; width: 100%; display: block;" src="{{ app_uri }}img/{{ series.folder }}/{{ series.filename }}"/>
+                    </a>
+                    <div class="card-body p-1 text-center text-{{ text_color }}">
+                        <span class="card-text" style="font-size: 125%"><strong>{{ series.title|title }}</strong></span>
+                        <p class="card-text small">{{ series.passage|title }}</p>
                     </div>
                 </div>
             </div>
