@@ -36,11 +36,11 @@
     -webkit-transition: all 500ms linear;
     -o-transition: all 500ms linear;
     transition: all 500ms linear;
-    -moz-transform: translate3d(-100px, 0px, 0px);
-    -webkit-transform: translate3d(-100px, 0px, 0px);
-    -o-transform: translate(-100px, 0px);
-    -ms-transform: translate(-100px, 0px);
-    transform: translate3d(-100px, 0px, 0px);
+    -moz-transform: translate3d(-200px, 0px, 0px);
+    -webkit-transform: translate3d(-200px, 0px, 0px);
+    -o-transform: translate(-200px, 0px);
+    -ms-transform: translate(-200px, 0px);
+    transform: translate3d(-200px, 0px, 0px);
 }
 .animation-element.slide-right {
     opacity: 0;
@@ -48,11 +48,11 @@
     -webkit-transition: all 500ms linear;
     -o-transition: all 500ms linear;
     transition: all 500ms linear;
-    -moz-transform: translate3d(100px, 0px, 0px);
-    -webkit-transform: translate3d(100px, 0px, 0px);
-    -o-transform: translate(100px, 0px);
-    -ms-transform: translate(100px, 0px);
-    transform: translate3d(100px, 0px, 0px);
+    -moz-transform: translate3d(200px, 0px, 0px);
+    -webkit-transform: translate3d(200px, 0px, 0px);
+    -o-transform: translate(200px, 0px);
+    -ms-transform: translate(200px, 0px);
+    transform: translate3d(200px, 0px, 0px);
 }
 .animation-element.slide-left.in-view,
 .animation-element.slide-right.in-view
@@ -79,12 +79,20 @@
 
     <div class="container mt-3">
         {{ series.details ? series.details|raw : '' }}
-        <div class="h7 text-center" style="font-size: 5vw">Listen to The Sermons</div>
-         <div class="list-group list-group-flush">
+        <a href="https://dl.dropbox.com/s/modnx30ifx9aj2x/Exiles_StudyGuide_Press.pdf" class="btn btn-block btn-info btn-lg shadow my-5">Download the study guide</a>
+        <img class="full_img animation-element slide-right shadow" src="http://e4288683bffdf646a051-1e3236766534d04f4850b57f040035f2.r26.cf2.rackcdn.com/uploaded/e/0e7081248_1520439927_exiles1.jpg" alt="" />
+        <img class="full_img animation-element slide-left shadow" src="http://e4288683bffdf646a051-1e3236766534d04f4850b57f040035f2.r26.cf2.rackcdn.com/uploaded/e/0e7081244_1520439923_exiles2.jpg" alt="" />
+        <img class="full_img animation-element slide-right shadow" src="http://e4288683bffdf646a051-1e3236766534d04f4850b57f040035f2.r26.cf2.rackcdn.com/uploaded/e/0e7081250_1520439927_exiles3.jpg" alt="" />
+        <img class="full_img animation-element slide-left shadow" src="http://e4288683bffdf646a051-1e3236766534d04f4850b57f040035f2.r26.cf2.rackcdn.com/uploaded/e/0e7081252_1520439929_exiles4.jpg" alt="" />
+        <img class="full_img animation-element slide-right shadow" src="http://e4288683bffdf646a051-1e3236766534d04f4850b57f040035f2.r26.cf2.rackcdn.com/uploaded/e/0e7081246_1520439926_exiles5.jpg" alt="" />
+    </div>
+    <div class="h7 text-center mt-5" style="font-size: 5vw">Listen&nbsp;to The&nbsp;Sermons</div>
+    <div class="container">
+        <div class="list-group list-group-flush">
             {% for sermon in sermons %}
-                    <a class="list-group-item list-group-item-action p-1 bg-{{ bg_color }} text-{{ text_color }} d-flex justify-content-between align-items-center" href="{{ app_uri }}resources/sermons/{{ series.slug }}/{{ sermon.slug }}">
-                        <span>{{  sermon.title }} <small class="text-uppercase text-secondary">{{ sermon.passage ? '- '~sermon.passage : '' }}</small></span> <span class="text-secondary">{{ sermon.date|date("m/d/Y") }}</span>
-                    </a>
+                <a class="list-group-item list-group-item-action p-1 bg-{{ bg_color }} text-{{ text_color }} d-flex justify-content-between align-items-center" href="{{ app_uri }}resources/sermons/{{ series.slug }}/{{ sermon.slug }}">
+                    <span>{{  sermon.title }} <small class="d-none d-md-inline text-uppercase text-secondary">{{ sermon.passage ? '- '~sermon.passage : '' }}</small></span> <span class="text-secondary">{{ sermon.date|date("m/d/Y") }}</span>
+                </a>
             {% endfor %}
         </div>
     </div>
@@ -97,5 +105,33 @@
         $(".parallax").css("opacity", 1 - $(window).scrollTop() / 600);
         $('.parallax').css("margin-top", -($(window).scrollTop()/4)+"px");
         });
+
+        var $animation_elements = $('.animation-element');
+        var $window = $(window);
+
+        function check_if_in_view() {
+            var window_height = $window.height();
+            var window_top_position = $window.scrollTop();
+            var window_bottom_position = (window_top_position + window_height);
+
+            $.each($animation_elements, function() {
+                var $element = $(this);
+                var element_height = $element.outerHeight();
+                var element_top_position = $element.offset().top;
+                var element_bottom_position = (element_top_position + element_height);
+
+                //check to see if this current container is within viewport
+                if ((element_bottom_position >= window_top_position) &&
+                    (element_top_position <= window_bottom_position)) {
+                    $element.addClass('in-view');
+                } else {
+                    $element.removeClass('in-view');
+                }
+            });
+        }
+
+        $window.on('scroll resize', check_if_in_view);
+        $window.trigger('scroll', check_if_in_view);
+
     </script>
 {% endblock scripts %}

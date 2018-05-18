@@ -1,37 +1,42 @@
-<footer class="container-fluid">
+<footer class="container-fluid text-white">
+    <div style="background-color: #0f212c;" class="d-none d-md-flex row">
+        <div class="col">&nbsp;</div>
+        <div class="col">&nbsp;</div>
+    </div>
     <div class="d-none d-md-flex row">
         <div style="background-color: #0f212c;font-size: small" class="col-10 px-5">
             <div class="row mx-0">
-                <div class="col">Col 1</div>
-                <div class="col">Col 2</div>
+                <div class="col-8">{{ settings.address }} {{ settings.city }}, {{ settings.state }} {{ settings.zip }}</div>
+                <div class="col-4 text-center"><a style="text-decoration: none" class="text-white" href="{{ app_uri }}about/mission"><strong>MATURE & MULTIPLY</strong></a></div>
             </div>
             <div class="row mx-0">
-                <div class="col">Col 1</div>
-                <div class="col">Col 2</div>
+                <div class="col-8">{{ settings.phone }} | {{ settings.email }}</div>
+                <div class="col-4 text-center small">INTEGRITY CHURCH EXISTS TO MATURE AND MULTIPLY BELIEVERS TO LEAVE A GOSPEL LEGACY.</div>
             </div>
             <div class="row mx-0">
-                <div class="col">Col 1</div>
-                <div class="col">Col 2</div>
+                <div class="col">&nbsp;</div>
+                <div class="col">&nbsp;</div>
             </div>
             <div class="row mx-0 border-top border-info">
                 <div style="font-size: 14px" class="col-8 my-auto pr-0">Copyright © 2018 Integrity Church | Greenville NC</div>
-                <div class="col-4 text-right pl-0 py-1">
+                <div class="col-4 text-center pl-0 py-1">
                     <div class="d-inline">
-                        <a href="#" class="d-inline text-white px-1"><img src="{{ app_uri }}img/icons/facebook.png"></a>
+                        <a href="#" class="d-inline text-light px-1"><img src="{{ app_uri }}img/icons/facebook.png"></a>
                         <a href="#" class="d-inline px-1"><img src="{{ app_uri }}img/icons/instagram.png"></a>
                         <a href="#" class="d-inline px-1"><img src="{{ app_uri }}img/icons/twitter.png"></a>
+                        <a href="#" class="d-inline px-1"><img src="{{ app_uri }}img/icons/spotify.png"></a>
                     </div>
                 </div>
             </div>
         </div>
-            <div style="background-color: #0f212c; font-size: small" class="col-2 pl-0">
-                <div class="list-group list-group-flush p-0 text-right">
-                    {% for link in footerLinkList %}
-                        <a class="list-group-item bg-transparent p-0 border-info text-white" href="{{ app_uri }}{{ link.parent ? '/' ~ link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
-                    {% endfor %}
-                        <a class="list-group-item bg-transparent text-white p-0 border-info text-white" href="{{ app_uri }}/admin/settings">Admin</a>
-                </div>
+        <div style="background-color: #0f212c; font-size: small" class="col-2 pl-0 align-text-bottom">
+            <div class="list-group list-group-flush p-0 text-right">
+                {% for link in footerLinkList %}
+                    <a class="list-group-item bg-transparent p-0 border-info text-white" href="{{ app_uri }}{{ link.parent ? link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
+                {% endfor %}
+                    <a class="list-group-item bg-transparent text-white p-0 border-info text-white" href="{{ app_uri }}admin/settings">Admin</a>
             </div>
+        </div>
         {#{% else %}#}
             {#<h1>Who needs a footer anyway?</h1>#}
     </div>
