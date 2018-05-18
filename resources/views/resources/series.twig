@@ -79,15 +79,9 @@
 
     <div class="container mt-3">
         {{ series.details ? series.details|raw : '' }}
-        <a href="https://dl.dropbox.com/s/modnx30ifx9aj2x/Exiles_StudyGuide_Press.pdf" class="btn btn-block btn-info btn-lg shadow my-5">Download the study guide</a>
-        <img class="full_img animation-element slide-right shadow" src="http://e4288683bffdf646a051-1e3236766534d04f4850b57f040035f2.r26.cf2.rackcdn.com/uploaded/e/0e7081248_1520439927_exiles1.jpg" alt="" />
-        <img class="full_img animation-element slide-left shadow" src="http://e4288683bffdf646a051-1e3236766534d04f4850b57f040035f2.r26.cf2.rackcdn.com/uploaded/e/0e7081244_1520439923_exiles2.jpg" alt="" />
-        <img class="full_img animation-element slide-right shadow" src="http://e4288683bffdf646a051-1e3236766534d04f4850b57f040035f2.r26.cf2.rackcdn.com/uploaded/e/0e7081250_1520439927_exiles3.jpg" alt="" />
-        <img class="full_img animation-element slide-left shadow" src="http://e4288683bffdf646a051-1e3236766534d04f4850b57f040035f2.r26.cf2.rackcdn.com/uploaded/e/0e7081252_1520439929_exiles4.jpg" alt="" />
-        <img class="full_img animation-element slide-right shadow" src="http://e4288683bffdf646a051-1e3236766534d04f4850b57f040035f2.r26.cf2.rackcdn.com/uploaded/e/0e7081246_1520439926_exiles5.jpg" alt="" />
     </div>
     <div class="h7 text-center mt-5" style="font-size: 5vw">Listen&nbsp;to The&nbsp;Sermons</div>
-    <div class="container">
+    <div class="container mb-5">
         <div class="list-group list-group-flush">
             {% for sermon in sermons %}
                 <a class="list-group-item list-group-item-action p-1 bg-{{ bg_color }} text-{{ text_color }} d-flex justify-content-between align-items-center" href="{{ app_uri }}resources/sermons/{{ series.slug }}/{{ sermon.slug }}">
