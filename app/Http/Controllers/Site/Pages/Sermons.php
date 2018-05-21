@@ -33,6 +33,7 @@ class Sermons extends Controller
 	    $latestSeriesSermon = Sermon::where(
 	    	'sermon_series_id', $currentSeries['id']
 	    )->orderBy('id', 'desc')->first();
+	    $sermonAudio = Media::where('id',$latestSeriesSermon['media_id'])->first();
 	    $seriesMedia = Media::where('id',$currentSeries['media_id'])->first();
 	    $allSeries = DB::table('sermon_series')
                         ->join('media', 'sermon_series.media_id', '=', 'media.id')
@@ -42,7 +43,8 @@ class Sermons extends Controller
 //		$page = DB::table('pages')->where('name','=','index')->first();
 	    return view('resources/sermons', [
 	    	'currentSeries' => $currentSeries,
-		    'latestSeriesSermon' => $latestSeriesSermon,
+		    'latestSermon' => $latestSeriesSermon,
+		    'sermonAudio' => $sermonAudio->toArray(),
 		    'seriesImage' => $seriesMedia->toArray(),
 		    'allSeries' => $allSeries,
 		    'page' => $p[0],

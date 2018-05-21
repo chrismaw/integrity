@@ -1,22 +1,22 @@
 <footer class="container-fluid text-white">
-    <div style="background-color: #0f212c;" class="d-none d-md-flex row">
-        <div class="col">&nbsp;</div>
-        <div class="col">&nbsp;</div>
-    </div>
+    {#<div style="background-color: #0f212c;" class="d-none d-md-flex row">#}
+        {#<div class="col">&nbsp;</div>#}
+        {#<div class="col">&nbsp;</div>#}
+    {#</div>#}
     <div class="d-none d-md-flex row">
-        <div style="background-color: #0f212c;font-size: small" class="col-10 px-5">
+        <div style="background-color: #0f212c;font-size: small" class="col-10 px-5 pt-2">
             <div class="row mx-0">
-                <div class="col-8">{{ settings.address }} {{ settings.city }}, {{ settings.state }} {{ settings.zip }}</div>
-                <div class="col-4 text-center"><a style="text-decoration: none" class="text-white" href="{{ app_uri }}about/mission"><strong>MATURE & MULTIPLY</strong></a></div>
+                <div class="col-7">{{ settings.address }} {{ settings.city }}, {{ settings.state }} {{ settings.zip }}</div>
+                <div class="col-5 text-center"><a style="text-decoration: none; letter-spacing: 2px" class="text-white" href="{{ app_uri }}about/mission"><strong>MATURE & MULTIPLY</strong></a></div>
             </div>
-            <div class="row mx-0">
-                <div class="col-8">{{ settings.phone }} | {{ settings.email }}</div>
-                <div class="col-4 text-center small">INTEGRITY CHURCH EXISTS TO MATURE AND MULTIPLY BELIEVERS TO LEAVE A GOSPEL LEGACY.</div>
+            <div class="row mx-0 mb-2">
+                <div class="col-7">{{ settings.phone }} | {{ settings.email }}</div>
+                <div class="col-5 text-center small">INTEGRITY CHURCH EXISTS TO MATURE AND MULTIPLY BELIEVERS TO LEAVE A GOSPEL LEGACY.</div>
             </div>
-            <div class="row mx-0">
-                <div class="col">&nbsp;</div>
-                <div class="col">&nbsp;</div>
-            </div>
+            {#<div class="row mx-0">#}
+                {#<div class="col">&nbsp;</div>#}
+                {#<div class="col">&nbsp;</div>#}
+            {#</div>#}
             <div class="row mx-0 border-top border-info">
                 <div style="font-size: 14px" class="col-8 my-auto pr-0">Copyright © 2018 Integrity Church | Greenville NC</div>
                 <div class="col-4 text-center pl-0 py-1">
@@ -29,7 +29,7 @@
                 </div>
             </div>
         </div>
-        <div style="background-color: #0f212c; font-size: small" class="col-2 pl-0 align-text-bottom">
+        <div style="background-color: #0f212c; font-size: small" class="col-2 pl-0 align-text-bottom pt-2">
             <div class="list-group list-group-flush p-0 text-right">
                 {% for link in footerLinkList %}
                     <a class="list-group-item bg-transparent p-0 border-info text-white" href="{{ app_uri }}{{ link.parent ? link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
@@ -58,14 +58,14 @@
                 <ul class="navbar-nav text-right text-white">
                     {% for key, parent in headerLinks %}
                         {% if key|length %}
-                            <li class="nav-item dropup">
-                                <a class="nav-link dropdown-toggle text-white" href="#" id="dropdown10" role="button"
+                            <li class="nav-item dropup text-white">
+                                <a class="nav-link dropdown-toggle" style="color:white !important;" href="#" id="dropdown10" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ key|title }}
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right text-right" aria-labelledby="dropdown10">
+                                <div class="dropdown-menu dropdown-menu-right text-right" style="border:none" aria-labelledby="dropdown10">
                                     {% for link in parent %}
-                                        <a class="dropdown-item"
+                                        <a class="dropdown-item "
                                            href="{{ app_uri }}{{ link.parent ?  link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
                                     {% endfor %}
                                 </div>
