@@ -1,16 +1,22 @@
 {% extends 'base.twig' %}
-{# header #}
-{% block content %}
 
+{% block content %}
     {% if billboard %}
         <div id="billboard-grid">
             <img id="billboard-img" src="{{ billboard.img|raw }}">
-            <div id="billboard-text">
+            <div id="billboard-text" class="text-center display-4" style="font-size: 5vw">
             {{ billboard.text|raw }}
             </div>
         </div>
     {% endif %}
-    {#{{ mediaLinks.index_billboard|raw }}#}
+<div class="row bg-white text-dark py-5 mx-0">
+    <div class="col-12 col-md-6 py-0 text-center">
+        <div class="h7 text-center" style="font-size: 5vw">SERVICE TIMEs</div>
+    </div>
+    <div class="col-12 col-md-6 py-0">
+        <div class="embed-responsive embed-responsive-1by1 mx-auto shadow"> <iframe class="embed-responsive-item" style="" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2864.3161577080405!2d-77.3445332202819!3d35.579932783701764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89aedd71b55fe63f%3A0xcbc3538a485074ed!2s2725+E+14th+St%2C+Greenville%2C+NC+27858!5e0!3m2!1sen!2sus!4v1470882936894" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
+    </div>
+</div>
     {% for section in sections %}
         <section style="margin-top: 5px">
                 {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
