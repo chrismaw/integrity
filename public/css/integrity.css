@@ -39,7 +39,7 @@ html, body, main, nav {
      padding-bottom: 0;
  }
 #navbarSupportedContent > ul > li:hover {
-     background-color: rgba(6,13,17,0.5);
+     background-color: rgba(6,13,17,0.7);
  }
 
 body > nav > ul > li:hover > a {
@@ -53,14 +53,37 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
      border-radius: 0;
      background-color: rgba(6,13,17,0.7);
      color: #fff;
+    margin: 0;
+    padding: 0;
+    border: none;
  }
 .dropdown-menu .dropdown-item:hover {
-    background-color: rgba(6,13,17,0.5);
+    background-color: rgba(6,13,17,0.7);
     color: #60aec8;
 }
 .dropdown-item {
     color: #fff;
     transition: color .5s ease;
+}
+
+#billboard-text > div > a {
+    transition: background-color .5s ease;
+
+}
+#billboard-text > div > a:hover {
+    background-color: rgba(6,13,17,0.7);
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: all .2s ease;
+}
+.fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    transform: translateX(-100px);
+    opacity: 0
+}
+.fade-enter {
+    transform: translateX(100px);
+    opacity: 0
 }
 
 .h7 {
