@@ -140,4 +140,11 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
     }
 
 }
+
 /* PAGE SPECIFIC*/
+.h7 {
+    font-family: Georgia;
+    font-variant: all-small-caps;
+    letter-spacing: 15px;
+    color: #60aec8;
+}

@@ -22,27 +22,14 @@
             }
         </style>
         <div id="billboard-grid">
-            <img id="billboard" class="shadow" src="{{ app_uri }}{{ billboard.img|raw }}">
+            <img id="billboard" src="{{ app_uri }}{{ billboard.img|raw }}">
             <div id="billboard-text" {% if page.billboard_text is not null %}{% else %}class="my-auto"{% endif %}>
-                {% if page.billboard_text is not null %}{{ page.billboard_text|raw }}{% else %}<div class="text-center" style="font-size: 13vw;">{{ page.name|title }}</div>{% endif %}
+                {% if page.billboard_text is not null %}{{ page.billboard_text|raw }}{% else %}<div class="text-center" style="font-size: 13vw; font-family: Georgia; font-variant: all-small-caps; letter-spacing: 2vw; ">{{ page.name|title }}</div>{% endif %}
             </div>
         </div>
     {% endif %}
     {{ page.content ? page.content|raw : '' }}
-    <div class="text-center mt-3 mb-3 mt-md-5 h7" style="font-size: 9vw;">SUNDAY MORNINGS</div>
-    <div class="container">
-        <h6><strong>LOCATION & SERVICE TIMES</strong></h6>
-        <p class="">On Sundays, we meet at 9am and 11am every week at <a class="text-info" href="https://goo.gl/maps/jpgKrUNWNSS2">2725 East 14th Street Greenville, NC 27858</a></p>
-        <p class=""></p>
-        <h6><strong>PARKING</strong></h6>
-        <p>Please follow the parking signs to accommodate for easy parking for everyone!</p>
-        <h6><strong>ARRIVAL</strong></h6>
-        <p class="text-justify">
-            In front of the entrance, there is a spot for all of our First Time Guests. If this Sunday is your first time at Integrity, please stop by our info tables to pick up a gift bag and find out everything you need to know about Integrity Church. Our gathering space can be accessed by either hallway, and the Kid's entrance is down the left hallway.        </p>
-        <h6><strong>CHILDREN</strong></h6>
-        <p class="text-justify">
-            We provide childcare for children that are infants through the 2nd Grade. We also provide a mother's room (located near the lobby) for infants, which has a TV streaming the sermon.        </p>
-    </div>
+
     {% for section in sections %}
         <section>
                 {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
