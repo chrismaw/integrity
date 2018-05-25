@@ -1,7 +1,6 @@
 {% extends 'base.twig' %}
-    {% block addToHead %}
-        <link>
-    {% endblock %}
+    {% block header %}
+    {% endblock header %}
 {% block content %}
     <div id="app">
         <div>
@@ -9,36 +8,65 @@
                 <router-view></router-view>
             </transition>
         </div>
-        <template id="home">
+    </div>
+    <template id="home">
+        <div>
+            {% include 'header.twig' %}
             {% if billboard %}
                 <div id="billboard-grid">
                     <img id="billboard-img" src="{{ billboard.img|raw }}">
-                    <div id="billboard-text" class="text-center display-4" style="font-size: 5vw">
+                    <div id="billboard-text" class="text-center display-4" style="font-size: 4.5vw">
                         {{ billboard.text|raw }}
                         <div class="d-none d-md-inline pt-4">
                             <p></p>
-                            <router-link to="/welcome" class="btn btn-lg text"
+                            <router-link to="/welcome" class="btn btn-lg text-white"
                                          style="border: 4px solid white; border-radius: 2px; width: 275px; font-size: .75rem">
                                 <strong>COME TO A SERVICE</strong></router-link>
-                            <router-link to="/beliefs" class="btn btn-lg text"
+                            <router-link to="/beliefs" class="btn btn-lg text-white"
                                          style="border: 4px solid white; border-radius: 2px; width: 275px; font-size: .75rem">
                                 <strong>SEE OUR BELIEFS</strong></router-link>
                         </div>
                     </div>
                 </div>
+                <div class="d-md-none py-1 text-center" style="background-color: #223D46;">
+                    <router-link id="action-button1" to="/welcome" class="btn btn-lg text-white"
+                                 style="border: 2px solid white; border-radius: 2px; font-size: .5rem">
+                        <strong>COME TO A SERVICE</strong></router-link>
+                    <router-link id="action-button2" to="/beliefs" class="btn btn-lg text-white"
+                                 style="border: 2px solid white; border-radius: 2px; font-size: .5rem">
+                        <strong>SEE OUR BELIEFS</strong></router-link>
+                </div>
             {% endif %}
-            <div class="row bg-white text-dark py-0 py-md-5 mx-0">
-                <div class="col-12 col-md-6 p-0 text-center" style="min-height: 315px">
-                    <div class="h7 text-center" style="font-size: 5vw">SERVICE TIMEs</div>
-                    <div class="text-center">We meet at 9AM and 11AM every Sunday</div>
+            <div class="bg-white text-dark py-3 mx-0">
+                <div class="text-center display-4" style="font-size: 4.5vw; line-height: 1; font-weight: bolder;">
+                    CURRENT SERMON SERIES <br>
+                    <span style="font-size: 3vw">1 PETER</span>
                 </div>
-                <div class="col-12 col-md-6 p-0">
-                    <div class="embed-responsive embed-responsive-1by1 mx-auto shadow">
-                        <iframe class="embed-responsive-item" style=""
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2864.3161577080405!2d-77.3445332202819!3d35.579932783701764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89aedd71b55fe63f%3A0xcbc3538a485074ed!2s2725+E+14th+St%2C+Greenville%2C+NC+27858!5e0!3m2!1sen!2sus!4v1470882936894"
-                                frameborder="0" allowfullscreen="allowfullscreen"></iframe>
-                    </div>
+                <div class="text-right container">
+                    <router-link to="/series" style="text-decoration: none" class="text-dark">
+                        <span style="vertical-align: text-bottom">VIEW SERIES&nbsp;&nbsp;&nbsp;</span>
+                        <i style="color:#60aec8;font-size: 1.5em" class="fas fa-caret-right"></i>
+                    </router-link>
+                    <br>
+                    <a href="{{ app_uri }}resources/sermons/{{ currentSeries.slug }}/{{ latestSermon.slug }}"
+                       style="text-decoration: none" class="text-dark">
+                        <span style="vertical-align: text-bottom">LATEST SERMON&nbsp;&nbsp;&nbsp;</span>
+                        <i style="color:#60aec8;font-size: 1.5em" class="fas fa-caret-right"></i>
+                    </a>
                 </div>
+                {#<div class="bg-white text-dark py-0 py-md-5 mx-0">#}
+                {#<div class="col-12 col-md-6 p-0 text-center" style="min-height: 315px">#}
+                {#<div class="h7 text-center" style="font-size: 5vw">SERVICE TIMEs</div>#}
+                {#<div class="text-center">We meet at 9AM and 11AM every Sunday</div>#}
+                {#</div>#}
+                {#<div class="col-12 col-md-6 p-0">#}
+                {#<div class="embed-responsive embed-responsive-1by1 mx-auto shadow">#}
+                {#<iframe class="embed-responsive-item" style=""#}
+                {#src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2864.3161577080405!2d-77.3445332202819!3d35.579932783701764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89aedd71b55fe63f%3A0xcbc3538a485074ed!2s2725+E+14th+St%2C+Greenville%2C+NC+27858!5e0!3m2!1sen!2sus!4v1470882936894"#}
+                {#frameborder="0" allowfullscreen="allowfullscreen"></iframe>#}
+                {#</div>#}
+                {#</div>#}
+                {#</div>#}
             </div>
             {% for section in sections %}
                 <section style="margin-top: 5px">
@@ -47,31 +75,159 @@
                         {% if section.content %}{{ section.content|raw }}{% endif %}
                     </div>
                 </section>
-                {#{% include 'sections/' ~ section.name ~ '.twig' %}#}
             {% endfor %}
-        </template>
-        <template id="welcome">
-            <h1>Hi</h1>
-        </template>
-        <template id="beliefs">
+            <nav id="index-footer" class="navbar navbar-dark text-white" style="width: 100%">
+                <div class="text-left text-md-center mr-auto mx-md-auto">
+                        <span>
+                            {{ settings.address }} {{ settings.city }},&nbsp;{{ settings.state }}
+                            &nbsp;{{ settings.zip }}
+                            <span class="d-none d-sm-inline"> | {{ settings.phone }} </span>
+                        </span>
+                    <span class="d-sm-none"><br></span>
+                    <span class="">
+                            <a href="#" class="d-inline pr-1"><img src="{{ app_uri }}img/icons/facebook.png"></a>
+                            <a href="#" class="d-inline px-1"><img src="{{ app_uri }}img/icons/instagram.png"></a>
+                            <a href="#" class="d-inline pl-1"><img src="{{ app_uri }}img/icons/twitter.png"></a>
+                        </span>
+                </div>
+                <button class="d-md-none navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarCollapse"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    {% if headerLinks %}
+                        <ul class="navbar-nav text-right text-white">
+                            {% for key, parent in headerLinks %}
+                                {% if key|length %}
+                                    <li class="nav-item dropup text-white">
+                                        <a class="nav-link dropdown-toggle" style="color:white !important;" href="#"
+                                           id="dropdown10" role="button"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {{ key|title }}
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right text-right"
+                                             style="border:none" aria-labelledby="dropdown10">
+                                            {% for link in parent %}
+                                                <a class="dropdown-item "
+                                                   href="{{ app_uri }}{{ link.parent ?  link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
+                                            {% endfor %}
+                                        </div>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <h1>No Parents, No Rules!</h1>
+                    {% endif %}
+                </div>
+            </nav>
+        </div>
+    </template>
+    <template id="welcome">
+        <div>
+            <div class="container-fluid">
+                <router-link to="/"><i style="color:#60aec8;font-size: 2.5em" class="fas fa-caret-left"></i>
+                </router-link>
+            </div>
+            <h1>Welcome</h1>
+        </div>
+    </template>
+    <template id="beliefs">
+        <div>
+            <div class="container-fluid">
+                <router-link to="/"><i style="color:#60aec8;font-size: 2.5em" class="fas fa-caret-left"></i>
+                </router-link>
+            </div>
             <h1>Believe it</h1>
-        </template>
-    </div>
+        </div>
+    </template>
+    <template id="series">
+        <div style="background-color: #2E2E2E">
+            <div id="billboard-grid">
+                <img id="billboard-img" src="{{ app_uri }}/img/sermons/{{ seriesImage.filename }}">
+                <div class="container-fluid" style="grid-column: 1 / 6; grid-row: 1 / 2;">
+                    <router-link to="/"><i style="color:black ;font-size: 2.5em" class="fas fa-caret-left"></i>
+                    </router-link>
+                </div>
+            </div>
+            <div class="row mt-5 mx-0" style="width: 100%;">
+                <div class="col-12 col-md-6 px-0 pl-md-5 pr-md-4">
+                    <div class="px-3 px-md-0">
+                        <h4 style="color: #CAB974" class="mb-1"><strong>SERMONS</strong></h4>
+                        <div style="overflow-y: auto">
+                            {% for sermon in sermons %}
+                                <div class="d-flex justify-content-between my-1"><span>{{ sermon.date|date("F d") }}: {{ sermon.title|title }}</span><span><a href="" class="text-white"><i class="far fa-play-circle mx-1"></i></a><a href="" class="text-white"><i class="fas fa-download mx-1"></i></a></span></div>
+                            {% endfor %}
+                        </div>
+                        <a id="series-dl-btn" class="btn btn-block mt-5" style="border: 5px solid #CAB974; border-radius: 2px; font-size: 1.5rem; font-weight: bolder">DOWNLOAD STUDY GUIDE</a>
+                    </div>
+                        <img class="mt-5" src="{{ app_uri }}img/site/exiles-girl.jpg" style="width: 100%; height: auto;">
+                </div>
+                <div class="col-12 col-md-6 pr-md-5 pl-md-4" style="font-size: .7rem">
+                    <h4 style="color: #CAB974" class="mb-1 mt-5 mt-md-0"><strong>OVERVIEW</strong></h4>
+                    <p>Suffering is the mark of a believer. Since the days of the early church,
+                    Christianity has grown even in the midst of severe suffering. In fact, much
+                    of the New Testament was written to churches who were undergoing
+                    persecution. The question that remains, however, is how? How have
+                    believers faced continual opposition and suffering from century to
+                        century, and have yet endured?</p>
+                    <p>One common theme that persists throughout the New Testament is that
+                    belief in God shapes the way people see themselves and the world
+                    around them. In other words, there is a distinct mindset that resonates
+                    with Christians that causes them to see the world differently. Followers of
+                    Jesus are called not to look to this world for ultimate satisfaction, but
+                    rather to find our satisfaction in Christ. Christ is the true treasure. The
+                    purpose of our lives is to glorify him as we await eternity, where we live
+                        with him forever.</p>
+                    <p>For this reason, we view this world as temporary; this world is not our
+                    home. This idea is one that encourages believers to endure suffering,
+                    realizing that our time here on earth is short lived, and what awaits us is
+                    far greater! Peter summarizes this concept by describing believers with
+                        one word: Exiles.</p>
+                    <h4 style="color: #CAB974" class="mb-1"><strong>BACKGROUND</strong></h4>
+                    <p>The Apostle Peter is writing this letter to many churches scattered
+                    throughout Asia Minor (modern day Turkey) who are being persecuted
+                    for their faith in Jesus Christ. The letter was likely written between 62-63
+                    AD, in a time where Rome was threatened by the rise of Christianity. As a
+                    result, believers were scattered throughout the region, meeting in house
+                        churches and living in obscurity.</p>
+                    <p>The purpose of this letter is to encourage these churches to stay strong
+                        in the faith. Peter does so by pointing them to the finished work of Christ. His Hope was for them to endure suffering by rediscovering the identity they have in Jesus.</p>
+                    <h4 style="color: #CAB974" class="mb-1"><strong>WHY WE CHOSE THIS SERIES</strong></h4>
+                    <p>We chose this series for two reasons:</p>
+                    <p>Christians suffer. We may not suffer the same way as the believers did in
+                    the first century, however, we live in an imperfect world and hardships are
+                    inevitable. Therefore, having a biblical mindset is important. Knowing
+                    that God is Sovereign and in control of all things causes us to trust Him
+                        and love Him despite the trials we face.</p>
+                    <p>This is timely for our church. We are in the process of moving our church
+                    family into a new location. It is important for us not to lose focus on what
+                    really matters: to mature and multiply believers to leave a gospel legacy!
+                        1 Peter is a great book that reminds us of how temporary material things are. This truth is vital for us at this time, as we prepare our hearts to make this move in a way that honors the Lord and keeps our priorities in line with our mission.</p>
+                </div>
+            </div>
+        </div>
+    </template>
 {% endblock content %}
+{% block footer %}
+{% endblock footer %}
 {% block scripts %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.js"></script>
     <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
     <script>
         const HomeComponent = {template: '#home'};
         const WelcomeComponent = {template: '#welcome'};
         const BeliefsComponent = {template: '#beliefs'};
+        const SeriesComponent = {template: '#series'};
 
         const routes = [
             {path: '/', component: HomeComponent},
             {path: '/welcome', component: WelcomeComponent},
             {path: '/beliefs', component: BeliefsComponent},
+            {path: '/series', component: SeriesComponent},
             {path: '*', redirect: '/'}
-        ]
+        ];
 
         const router = new VueRouter({
             routes

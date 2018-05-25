@@ -108,11 +108,21 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
     }
 }
 
-
+#action-button1, #action-button2 {
+    width: 140px;
+}
+#index-footer,
+#index-footer > #navbarCollapse > ul > li.nav-item.dropup.text-white.show > div{
+    width: 100%;
+    background-color: rgb(6, 13, 17);
+    font-size: 0.7rem;
+}
 .card-columns {
     column-count: 1;
 }
-
+#series-dl-btn {
+ font-size: 1rem;
+}
 #contact > div > div > div > a {
     font-size: 115%
 }
@@ -120,6 +130,9 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
 @media (min-width: 567px) {
     .card-columns {
         column-count: 2;
+    }
+    #action-button1, #action-button2 {
+        width: 190px;
     }
 }
 @media (min-width: 767.98px) {
@@ -131,6 +144,17 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
     }
     #contact > div > div > div > a {
         font-size: 75%;
+    }
+    .fade-enter-active, .fade-leave-active {
+        transition: all .4s ease ;
+    }
+    .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        transform: translateX(-1000px);
+        opacity: 0
+    }
+    .fade-enter {
+        transform: translateX(1000px);
+        opacity: 0
     }
 }
 

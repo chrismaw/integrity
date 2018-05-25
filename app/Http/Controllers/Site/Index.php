@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\SermonSeries;
+use App\Sermon;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Collection;
@@ -56,8 +57,19 @@ class Index extends Controller{
             ['active', '=', 1],
             ['where_used', 'like', '%index%'],
                 ])->get();
+
+		$currentSeries = SermonSeries::where('is_current',1)->first();
+        $latestSeriesSermon = Sermon::where(
+            'sermon_series_id', $currentSeries['id']
+        )->orderBy('id', 'desc')->first();
+        $sermons = Sermon::where('sermon_series_id',$currentSeries->id)->get();
+        $seriesImage = Media::where('id',$currentSeries->media_id)->first();
 //		$page = DB::table('pages')->where('name','=','index')->first();
 		return view('index', [
+            'currentSeries' => $currentSeries,
+            'latestSermon' => $latestSeriesSermon,
+            'seriesImage' => $seriesImage->toArray(),
+            'sermons' => $sermons,
 		    'page' => $p[0],
 		    'settings' => $settings,
             'sections' => $sections,

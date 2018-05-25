@@ -7,49 +7,112 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Integrity Church</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css"
+          integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ app_uri }}css/integrity.css" rel="stylesheet">
     {% block addToHead %}
     {% endblock %}
 
-        <style>
-            {% if billboard is defined%}
-            #billboard-grid {
-                /*display: grid;*/
-                /*grid-template-columns: 20% 20% 1fr 1fr 20%;*/
-                /*grid-template-rows: 1fr;*/
-                display: grid;
-                grid-template-columns: 20% 20% 1fr 1fr 20%;
-                grid-template-rows: 1fr;
-                /*grid-template-rows: 50px auto 50px;*/
-            }
-            #billboard-img {
-                grid-column: 1 / 7;
-                grid-row: 1 / 3;
-                width: 100%;
-                height: auto;
-                /*grid-column-start: 1;*/
-                /*grid-column-end: 6;*/
-                /*grid-row-start: 1;*/
-                /*grid-row-end: 3*/
-            }
+    <style>
+        {% if billboard is defined%}
+        #billboard-grid {
+            /*display: grid;*/
+            /*grid-template-columns: 20% 20% 1fr 1fr 20%;*/
+            /*grid-template-rows: 1fr;*/
+            display: grid;
+            grid-template-columns: 20% 20% 1fr 1fr 20%;
+            grid-template-rows: 1fr;
+            /*grid-template-rows: 50px auto 50px;*/
+        }
 
-            #billboard-text {
-                grid-column: 1 / 6;
-                grid-row: 1 / 2;
-                line-height: 1;
-                margin: auto 5% auto 5%;
-                vertical-align: middle!important;
-            }
-            {% else %}
-            body {
-                /*padding-top: 55px;*/
-            }
-            {% endif %}
+        #billboard-img {
+            grid-column: 1 / 7;
+            grid-row: 1 / 3;
+            width: 100%;
+            height: auto;
+            /*grid-column-start: 1;*/
+            /*grid-column-end: 6;*/
+            /*grid-row-start: 1;*/
+            /*grid-row-end: 3*/
+        }
 
-        </style>
+        #billboard-text {
+            grid-column: 1 / 6;
+            grid-row: 1 / 2;
+            line-height: 1;
+            margin: auto 5% auto 5%;
+            vertical-align: middle !important;
+            font-weight: bolder;
+        }
+
+        {% else %}
+        body {
+            /*padding-top: 55px;*/
+        }
+
+        {% endif %}
+        .parallax {
+        {#background-image: url("{{ app_uri }}{{ image.type }}/sermons/{{ image.filename }}");#} width: 100%;
+            height: auto;
+            position: fixed;
+            z-index: -1;
+        }
+
+        .hidden {
+            visibility: hidden;
+            width: 100%;
+            height: auto;
+        }
+
+        .full_img {
+            width: 100%;
+            height: auto;
+            overflow-x: hidden;
+        }
+
+        .animation-element {
+            opacity: 0;
+            position: relative;
+        }
+
+        .animation-element.slide-left {
+            opacity: 0;
+            -moz-transition: all 500ms linear;
+            -webkit-transition: all 500ms linear;
+            -o-transition: all 500ms linear;
+            transition: all 500ms linear;
+            -moz-transform: translate3d(-200px, 0px, 0px);
+            -webkit-transform: translate3d(-200px, 0px, 0px);
+            -o-transform: translate(-200px, 0px);
+            -ms-transform: translate(-200px, 0px);
+            transform: translate3d(-200px, 0px, 0px);
+        }
+
+        .animation-element.slide-right {
+            opacity: 0;
+            -moz-transition: all 500ms linear;
+            -webkit-transition: all 500ms linear;
+            -o-transition: all 500ms linear;
+            transition: all 500ms linear;
+            -moz-transform: translate3d(200px, 0px, 0px);
+            -webkit-transform: translate3d(200px, 0px, 0px);
+            -o-transform: translate(200px, 0px);
+            -ms-transform: translate(200px, 0px);
+            transform: translate3d(200px, 0px, 0px);
+        }
+
+        .animation-element.slide-left.in-view,
+        .animation-element.slide-right.in-view {
+            opacity: 1;
+            -moz-transform: translate3d(0px, 0px, 0px);
+            -webkit-transform: translate3d(0px, 0px, 0px);
+            -o-transform: translate(0px, 0px);
+            -ms-transform: translate(0px, 0px);
+            transform: translate3d(0px, 0px, 0px);
+        }
+    </style>
 </head>
 {% set bg_color = dark %}
 {% set text_color = light %}
@@ -59,20 +122,20 @@
 {% endif %} {# not elseif because the two variables coexist #}
 {% if series is defined %} {# needs to override page #}
     {% set bg_color = series.bg_color %}
-        {% if bg_color == "light" %}
+    {% if bg_color == "light" %}
         {% set text_color = "dark" %}
     {% else %}
         {% set text_color = "white" %}
     {% endif %}
 {% endif %}
 <body class="bg-{{ bg_color }} text-{{ text_color }} pb-md-0"
-      style="padding-bottom: 73px;"
+      style="padding-bottom: 73px; overflow-x: hidden;"
 >
 
 <!-- Navigation -->
 {% block header %}
     {% include 'header.twig' %}
-{% endblock header%}
+{% endblock header %}
 
 {% block content %}
 
@@ -88,21 +151,25 @@
     var OFFSET_TOP = 50;
     $(window).scroll(function () {
         $(".navbar").length && ($(".navbar").offset().top > OFFSET_TOP ? $(".scrolling-navbar").addClass("top-nav-collapse") : $(".scrolling-navbar").removeClass("top-nav-collapse"));
-        {% if bg_color != "dark" and page.billboard_img == null%}
-            $(".navbar").length && ($(".navbar").offset().top > OFFSET_TOP ? $(".nav-link").addClass("text-white").removeClass("text-dark") : $(".nav-link").removeClass("text-white").addClass('text-dark'));
-            $(".navbar").length && ($(".navbar").offset().top > OFFSET_TOP ? $("#header-logo").attr('src',"{{ app_uri }}img/headerlogo.png") : $("#header-logo").attr('src',"{{ app_uri }}img/headerlogodark.png"));
+        {% if bg_color != "dark" and page.billboard_img == null %}
+        $(".navbar").length && ($(".navbar").offset().top > OFFSET_TOP ? $(".nav-link").addClass("text-white").removeClass("text-dark") : $(".nav-link").removeClass("text-white").addClass('text-dark'));
+        $(".navbar").length && ($(".navbar").offset().top > OFFSET_TOP ? $("#header-logo").attr('src', "{{ app_uri }}img/headerlogo.png") : $("#header-logo").attr('src', "{{ app_uri }}img/headerlogodark.png"));
         {% endif %}
     });
     {% if text_color == 'dark' %}
-        {% if headerLinks %}
-            {% for each in headerLinks %}
-                $("#navbarSupportedContent > ul > li:nth-child({{ loop.index }})").hover(function(){
-                    $("#navbarSupportedContent > ul > li:nth-child({{ loop.index }}) > a").css("color", {% if text_color == 'dark' %}"#fff"{% else %}"#343a40"{% endif %});
-                }, function () {
-                    $("#navbarSupportedContent > ul > li:nth-child({{ loop.index }}) > a").css("color", {% if text_color == 'dark' %}"#343a40"{% else %}"#fff"{% endif %});
-                });
-            {% endfor %}
-        {% endif %}
+    {% if headerLinks %}
+    {% for each in headerLinks %}
+    $("#navbarSupportedContent > ul > li:nth-child({{ loop.index }})").hover(function () {
+        $("#navbarSupportedContent > ul > li:nth-child({{ loop.index }}) > a").css("color", {% if text_color == 'dark' %}"#fff"
+        {% else %}"#343a40"{% endif %})
+        ;
+    }, function () {
+        $("#navbarSupportedContent > ul > li:nth-child({{ loop.index }}) > a").css("color", {% if text_color == 'dark' %}"#343a40"
+        {% else %}"#fff"{% endif %})
+        ;
+    });
+    {% endfor %}
+    {% endif %}
     {% endif %}
 
 </script>
