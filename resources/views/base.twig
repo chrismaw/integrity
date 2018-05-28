@@ -54,7 +54,7 @@
 
         {% endif %}
         .parallax {
-        {#background-image: url("{{ app_uri }}{{ image.type }}/sermons/{{ image.filename }}");#} width: 100%;
+            width: 100%;
             height: auto;
             position: fixed;
             z-index: -1;
@@ -160,13 +160,11 @@
     {% if headerLinks %}
     {% for each in headerLinks %}
     $("#navbarSupportedContent > ul > li:nth-child({{ loop.index }})").hover(function () {
-        $("#navbarSupportedContent > ul > li:nth-child({{ loop.index }}) > a").css("color", {% if text_color == 'dark' %}"#fff"
-        {% else %}"#343a40"{% endif %})
-        ;
+        $("#navbarSupportedContent > ul > li:nth-child({{ loop.index }}) > a").css("color", {% if text_color == 'dark' %}"#fff" {% else %}"#343a40"{% endif %})
+
     }, function () {
-        $("#navbarSupportedContent > ul > li:nth-child({{ loop.index }}) > a").css("color", {% if text_color == 'dark' %}"#343a40"
-        {% else %}"#fff"{% endif %})
-        ;
+        $("#navbarSupportedContent > ul > li:nth-child({{ loop.index }}) > a").css("color", {% if text_color == 'dark' %}"#343a40" {% else %}"#fff"{% endif %})
+
     });
     {% endfor %}
     {% endif %}

@@ -127,6 +127,11 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
     font-size: 115%
 }
 
+@media (min-width: 430px) {
+    #footer-break > br {
+        display: none;
+    }
+}
 @media (min-width: 567px) {
     .card-columns {
         column-count: 2;

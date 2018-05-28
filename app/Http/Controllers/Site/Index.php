@@ -62,7 +62,12 @@ class Index extends Controller{
         $latestSeriesSermon = Sermon::where(
             'sermon_series_id', $currentSeries['id']
         )->orderBy('id', 'desc')->first();
-        $sermons = Sermon::where('sermon_series_id',$currentSeries->id)->get();
+        $sermons = DB::table('sermons')
+	        ->join('media', 'sermons.media_id', '=', 'media.id')
+	        ->select('sermons.*', 'media.type', 'media.folder', 'media.filename')
+	        ->where('sermon_series_id',$currentSeries->id)
+	        ->orderBy('id','desc')
+	        ->get();
         $seriesImage = Media::where('id',$currentSeries->media_id)->first();
 //		$page = DB::table('pages')->where('name','=','index')->first();
 		return view('index', [

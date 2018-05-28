@@ -15,12 +15,12 @@
             {% if billboard %}
                 <div id="billboard-grid">
                     <img id="billboard-img" src="{{ billboard.img|raw }}">
-                    <div id="billboard-text" class="text-center display-4" style="font-size: 4.5vw">
+                    <div id="billboard-text" class="text-center text-white display-4" style="font-size: 4.5vw">
                         {{ billboard.text|raw }}
                         <div class="d-none d-md-inline pt-4">
                             <p></p>
                             <router-link to="/welcome" class="btn btn-lg text-white"
-                                         style="border: 4px solid white; border-radius: 2px; width: 275px; font-size: .75rem">
+                                         style="border: 4px solid white; border-radius: 2px; font-size: .75rem">
                                 <strong>COME TO A SERVICE</strong></router-link>
                             <router-link to="/beliefs" class="btn btn-lg text-white"
                                          style="border: 4px solid white; border-radius: 2px; width: 275px; font-size: .75rem">
@@ -55,18 +55,18 @@
                     </a>
                 </div>
                 {#<div class="bg-white text-dark py-0 py-md-5 mx-0">#}
-                {#<div class="col-12 col-md-6 p-0 text-center" style="min-height: 315px">#}
-                {#<div class="h7 text-center" style="font-size: 5vw">SERVICE TIMEs</div>#}
-                {#<div class="text-center">We meet at 9AM and 11AM every Sunday</div>#}
-                {#</div>#}
-                {#<div class="col-12 col-md-6 p-0">#}
-                {#<div class="embed-responsive embed-responsive-1by1 mx-auto shadow">#}
-                {#<iframe class="embed-responsive-item" style=""#}
-                {#src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2864.3161577080405!2d-77.3445332202819!3d35.579932783701764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89aedd71b55fe63f%3A0xcbc3538a485074ed!2s2725+E+14th+St%2C+Greenville%2C+NC+27858!5e0!3m2!1sen!2sus!4v1470882936894"#}
-                {#frameborder="0" allowfullscreen="allowfullscreen"></iframe>#}
-                {#</div>#}
-                {#</div>#}
-                {#</div>#}
+                    {#<div class="col-12 col-md-6 p-0 text-center" style="min-height: 315px">#}
+                        {#<div class="h7 text-center" style="font-size: 5vw">SERVICE TIMEs</div>#}
+                        {#<div class="text-center">We meet at 9AM and 11AM every Sunday</div>#}
+                    {#</div>#}
+                    {#<div class="col-12 col-md-6 p-0">#}
+                        {#<div class="embed-responsive embed-responsive-1by1 mx-auto shadow">#}
+                            {#<iframe class="embed-responsive-item" style=""#}
+                                    {#src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2864.3161577080405!2d-77.3445332202819!3d35.579932783701764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89aedd71b55fe63f%3A0xcbc3538a485074ed!2s2725+E+14th+St%2C+Greenville%2C+NC+27858!5e0!3m2!1sen!2sus!4v1470882936894"#}
+                                    {#frameborder="0" allowfullscreen="allowfullscreen"></iframe>#}
+                        {#</div>#}
+                    {#</div>#}
+                </div>
             </div>
             {% for section in sections %}
                 <section style="margin-top: 5px">
@@ -76,18 +76,19 @@
                     </div>
                 </section>
             {% endfor %}
-            <nav id="index-footer" class="navbar navbar-dark text-white" style="width: 100%">
-                <div class="text-left text-md-center mr-auto mx-md-auto">
+            <nav id="index-footer" class="navbar navbar-dark fixed-bottom text-white">
+                <div class="text-left text-md-center mx-md-auto">
                         <span>
                             {{ settings.address }} {{ settings.city }},&nbsp;{{ settings.state }}
                             &nbsp;{{ settings.zip }}
                             <span class="d-none d-sm-inline"> | {{ settings.phone }} </span>
                         </span>
-                    <span class="d-sm-none"><br></span>
-                    <span class="">
-                            <a href="#" class="d-inline pr-1"><img src="{{ app_uri }}img/icons/facebook.png"></a>
-                            <a href="#" class="d-inline px-1"><img src="{{ app_uri }}img/icons/instagram.png"></a>
-                            <a href="#" class="d-inline pl-1"><img src="{{ app_uri }}img/icons/twitter.png"></a>
+                    <span id="footer-break"><br></span>
+                    <span class="align-content-between">
+                            <a href="#" class="d-inline"><img src="{{ app_uri }}img/icons/facebook.png"></a>
+                            <a href="#" class="d-inline"><img src="{{ app_uri }}img/icons/instagram.png"></a>
+                            <a href="#" class="d-inline"><img src="{{ app_uri }}img/icons/twitter.png"></a>
+                            <a href="#" class="d-inline"><img src="{{ app_uri }}img/icons/spotify.png"></a>
                         </span>
                 </div>
                 <button class="d-md-none navbar-toggler" type="button" data-toggle="collapse"
@@ -157,54 +158,71 @@
                         <h4 style="color: #CAB974" class="mb-1"><strong>SERMONS</strong></h4>
                         <div style="overflow-y: auto">
                             {% for sermon in sermons %}
-                                <div class="d-flex justify-content-between my-1"><span style="text-overflow: ellipsis">{{ sermon.date|date("F d") }}: {{ sermon.title|title }}</span><span><a href="" class="text-white"><i class="far fa-play-circle mx-1"></i></a><a href="" class="text-white"><i class="fas fa-download mx-1"></i></a></span></div>
+                                <div class="d-flex justify-content-between my-1">
+                                    <span style="text-overflow: ellipsis">
+                                        {{ sermon.date|date("F d") }} : {{ sermon.title|title }}
+                                    </span>
+                                    <span>
+                                        <a href="{{ app_uri }}resources/sermons/{{ currentSeries.slug }}/{{ sermon.slug }}" class="text-white">
+                                            <i class="far fa-play-circle mx-1"></i>
+                                        </a>
+                                        <a href="{{ app_uri }}{{ sermon.type }}/{{ sermon.folder }}/{{ sermon.filename }}" download class="text-white">
+                                            <i class="fas fa-download mx-1"></i>
+                                        </a>
+                                    </span>
+                                </div>
                             {% endfor %}
                         </div>
-                        <a id="series-dl-btn" class="btn btn-block mt-5" style="border: 5px solid #CAB974; border-radius: 2px;font-weight: bolder">DOWNLOAD STUDY GUIDE</a>
+                        <a id="series-dl-btn" class="btn btn-block mt-5"
+                           style="border: 5px solid #CAB974; border-radius: 2px;font-weight: bolder">DOWNLOAD STUDY
+                            GUIDE</a>
                     </div>
-                        <img class="mt-5" src="{{ app_uri }}img/site/exiles-girl.jpg" style="width: 100%; height: auto;">
+                    <img class="mt-5" src="{{ app_uri }}img/site/exiles-girl.jpg" style="width: 100%; height: auto;">
                 </div>
                 <div class="col-12 col-md-6 pr-md-5 pl-md-4" style="font-size: .7rem">
                     <h4 style="color: #CAB974" class="mb-1 mt-5 mt-md-0"><strong>OVERVIEW</strong></h4>
                     <p>Suffering is the mark of a believer. Since the days of the early church,
-                    Christianity has grown even in the midst of severe suffering. In fact, much
-                    of the New Testament was written to churches who were undergoing
-                    persecution. The question that remains, however, is how? How have
-                    believers faced continual opposition and suffering from century to
+                        Christianity has grown even in the midst of severe suffering. In fact, much
+                        of the New Testament was written to churches who were undergoing
+                        persecution. The question that remains, however, is how? How have
+                        believers faced continual opposition and suffering from century to
                         century, and have yet endured?</p>
                     <p>One common theme that persists throughout the New Testament is that
-                    belief in God shapes the way people see themselves and the world
-                    around them. In other words, there is a distinct mindset that resonates
-                    with Christians that causes them to see the world differently. Followers of
-                    Jesus are called not to look to this world for ultimate satisfaction, but
-                    rather to find our satisfaction in Christ. Christ is the true treasure. The
-                    purpose of our lives is to glorify him as we await eternity, where we live
+                        belief in God shapes the way people see themselves and the world
+                        around them. In other words, there is a distinct mindset that resonates
+                        with Christians that causes them to see the world differently. Followers of
+                        Jesus are called not to look to this world for ultimate satisfaction, but
+                        rather to find our satisfaction in Christ. Christ is the true treasure. The
+                        purpose of our lives is to glorify him as we await eternity, where we live
                         with him forever.</p>
                     <p>For this reason, we view this world as temporary; this world is not our
-                    home. This idea is one that encourages believers to endure suffering,
-                    realizing that our time here on earth is short lived, and what awaits us is
-                    far greater! Peter summarizes this concept by describing believers with
+                        home. This idea is one that encourages believers to endure suffering,
+                        realizing that our time here on earth is short lived, and what awaits us is
+                        far greater! Peter summarizes this concept by describing believers with
                         one word: Exiles.</p>
                     <h4 style="color: #CAB974" class="mb-1"><strong>BACKGROUND</strong></h4>
                     <p>The Apostle Peter is writing this letter to many churches scattered
-                    throughout Asia Minor (modern day Turkey) who are being persecuted
-                    for their faith in Jesus Christ. The letter was likely written between 62-63
-                    AD, in a time where Rome was threatened by the rise of Christianity. As a
-                    result, believers were scattered throughout the region, meeting in house
+                        throughout Asia Minor (modern day Turkey) who are being persecuted
+                        for their faith in Jesus Christ. The letter was likely written between 62-63
+                        AD, in a time where Rome was threatened by the rise of Christianity. As a
+                        result, believers were scattered throughout the region, meeting in house
                         churches and living in obscurity.</p>
                     <p>The purpose of this letter is to encourage these churches to stay strong
-                        in the faith. Peter does so by pointing them to the finished work of Christ. His Hope was for them to endure suffering by rediscovering the identity they have in Jesus.</p>
+                        in the faith. Peter does so by pointing them to the finished work of Christ. His Hope was for
+                        them to endure suffering by rediscovering the identity they have in Jesus.</p>
                     <h4 style="color: #CAB974" class="mb-1"><strong>WHY WE CHOSE THIS SERIES</strong></h4>
                     <p>We chose this series for two reasons:</p>
                     <p>Christians suffer. We may not suffer the same way as the believers did in
-                    the first century, however, we live in an imperfect world and hardships are
-                    inevitable. Therefore, having a biblical mindset is important. Knowing
-                    that God is Sovereign and in control of all things causes us to trust Him
+                        the first century, however, we live in an imperfect world and hardships are
+                        inevitable. Therefore, having a biblical mindset is important. Knowing
+                        that God is Sovereign and in control of all things causes us to trust Him
                         and love Him despite the trials we face.</p>
                     <p>This is timely for our church. We are in the process of moving our church
-                    family into a new location. It is important for us not to lose focus on what
-                    really matters: to mature and multiply believers to leave a gospel legacy!
-                        1 Peter is a great book that reminds us of how temporary material things are. This truth is vital for us at this time, as we prepare our hearts to make this move in a way that honors the Lord and keeps our priorities in line with our mission.</p>
+                        family into a new location. It is important for us not to lose focus on what
+                        really matters: to mature and multiply believers to leave a gospel legacy!
+                        1 Peter is a great book that reminds us of how temporary material things are. This truth is
+                        vital for us at this time, as we prepare our hearts to make this move in a way that honors the
+                        Lord and keeps our priorities in line with our mission.</p>
                 </div>
             </div>
         </div>
