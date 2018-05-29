@@ -114,8 +114,8 @@
         }
     </style>
 </head>
-{% set bg_color = dark %}
-{% set text_color = light %}
+{% set bg_color = "dark" %}
+{% set text_color = "light" %}
 {% if page is defined %}
     {% set bg_color = page.bg_color %}
     {% set text_color = page.text_color %}
@@ -129,7 +129,9 @@
     {% endif %}
 {% endif %}
 <body class="bg-{{ bg_color }} text-{{ text_color }} pb-md-0"
-      style="padding-bottom: 73px; overflow-x: hidden;"
+      style="
+      /*padding-bottom: 63px;*/
+      overflow-x: hidden;"
 >
 
 <!-- Navigation -->

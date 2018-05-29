@@ -11,6 +11,8 @@
     </div>
     <template id="home">
         <div>
+            {% set bg_color = "dark" %}
+            {% set text_color = "white" %}
             {% include 'header.twig' %}
             {% if billboard %}
                 <div id="billboard-grid">
@@ -23,7 +25,7 @@
                                          style="border: 4px solid white; border-radius: 2px; font-size: .75rem">
                                 <strong>COME TO A SERVICE</strong></router-link>
                             <router-link to="/beliefs" class="btn btn-lg text-white"
-                                         style="border: 4px solid white; border-radius: 2px; width: 275px; font-size: .75rem">
+                                         style="border: 4px solid white; border-radius: 2px; font-size: .75rem">
                                 <strong>SEE OUR BELIEFS</strong></router-link>
                         </div>
                     </div>
@@ -37,12 +39,12 @@
                         <strong>SEE OUR BELIEFS</strong></router-link>
                 </div>
             {% endif %}
-            <div class="bg-white text-dark py-3 mx-0">
+            <div class="bg-white text-dark py-3 mx-0 mb-0 mb-sm-4">
                 <div class="text-center display-4" style="font-size: 4.5vw; line-height: 1; font-weight: bolder;">
                     CURRENT SERMON SERIES <br>
                     <span style="font-size: 3vw">1 PETER</span>
                 </div>
-                <div class="text-right container">
+                <div class="text-right container mb-5">
                     <router-link to="/series" style="text-decoration: none" class="text-dark">
                         <span style="vertical-align: text-bottom">VIEW SERIES&nbsp;&nbsp;&nbsp;</span>
                         <i style="color:#60aec8;font-size: 1.5em" class="fas fa-caret-right"></i>
@@ -54,28 +56,28 @@
                         <i style="color:#60aec8;font-size: 1.5em" class="fas fa-caret-right"></i>
                     </a>
                 </div>
-                {#<div class="bg-white text-dark py-0 py-md-5 mx-0">#}
-                    {#<div class="col-12 col-md-6 p-0 text-center" style="min-height: 315px">#}
-                        {#<div class="h7 text-center" style="font-size: 5vw">SERVICE TIMEs</div>#}
-                        {#<div class="text-center">We meet at 9AM and 11AM every Sunday</div>#}
-                    {#</div>#}
-                    {#<div class="col-12 col-md-6 p-0">#}
-                        {#<div class="embed-responsive embed-responsive-1by1 mx-auto shadow">#}
-                            {#<iframe class="embed-responsive-item" style=""#}
-                                    {#src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2864.3161577080405!2d-77.3445332202819!3d35.579932783701764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89aedd71b55fe63f%3A0xcbc3538a485074ed!2s2725+E+14th+St%2C+Greenville%2C+NC+27858!5e0!3m2!1sen!2sus!4v1470882936894"#}
-                                    {#frameborder="0" allowfullscreen="allowfullscreen"></iframe>#}
-                        {#</div>#}
-                    {#</div>#}
-                </div>
             </div>
-            {% for section in sections %}
-                <section style="margin-top: 5px">
-                    {% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}
-                    <div>
-                        {% if section.content %}{{ section.content|raw }}{% endif %}
-                    </div>
-                </section>
-            {% endfor %}
+            {#<div class="bg-white text-dark py-0 py-md-5 mx-0">#}
+            {#<div class="col-12 col-md-6 p-0 text-center" style="min-height: 315px">#}
+            {#<div class="h7 text-center" style="font-size: 5vw">SERVICE TIMEs</div>#}
+            {#<div class="text-center">We meet at 9AM and 11AM every Sunday</div>#}
+            {#</div>#}
+            {#<div class="col-12 col-md-6 p-0">#}
+            {#<div class="embed-responsive embed-responsive-1by1 mx-auto shadow">#}
+            {#<iframe class="embed-responsive-item" style=""#}
+            {#src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2864.3161577080405!2d-77.3445332202819!3d35.579932783701764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89aedd71b55fe63f%3A0xcbc3538a485074ed!2s2725+E+14th+St%2C+Greenville%2C+NC+27858!5e0!3m2!1sen!2sus!4v1470882936894"#}
+            {#frameborder="0" allowfullscreen="allowfullscreen"></iframe>#}
+            {#</div>#}
+            {#</div>#}
+            {#</div>#}
+            {#{% for section in sections %}#}
+            {#<section style="margin-top: 5px">#}
+            {#{% if section.heading %}<h2>{{ section.heading }}</h2>{% endif %}#}
+            {#<div>#}
+            {#{% if section.content %}{{ section.content|raw }}{% endif %}#}
+            {#</div>#}
+            {#</section>#}
+            {#{% endfor %}#}
             <nav id="index-footer" class="navbar navbar-dark fixed-bottom text-white">
                 <div class="text-left text-md-center mx-md-auto">
                         <span>
@@ -127,7 +129,7 @@
     </template>
     <template id="welcome">
         <div>
-            <div class="container-fluid">
+            <div class="container-fluid sticky-top">
                 <router-link to="/"><i style="color:#60aec8;font-size: 2.5em" class="fas fa-caret-left"></i>
                 </router-link>
             </div>
@@ -145,12 +147,12 @@
     </template>
     <template id="series">
         <div style="background-color: #2E2E2E">
+            <div class="container-fluid sticky-top" style="height:0px">
+                <router-link to="/"><i style="color:black ;font-size: 2.5em; z-index: 1000"
+                                       class="fas fa-caret-left"></i></router-link>
+            </div>
             <div id="billboard-grid">
                 <img id="billboard-img" src="{{ app_uri }}/img/sermons/{{ seriesImage.filename }}">
-                <div class="container-fluid" style="grid-column: 1 / 6; grid-row: 1 / 2;">
-                    <router-link to="/"><i style="color:black ;font-size: 2.5em" class="fas fa-caret-left"></i>
-                    </router-link>
-                </div>
             </div>
             <div class="row mt-5 mx-0" style="width: 100%;">
                 <div class="col-12 col-md-6 px-0 pl-md-5 pr-md-4">
@@ -159,14 +161,16 @@
                         <div style="overflow-y: auto">
                             {% for sermon in sermons %}
                                 <div class="d-flex justify-content-between my-1">
-                                    <span style="text-overflow: ellipsis">
+                                    <span class="text-truncate">
                                         {{ sermon.date|date("F d") }} : {{ sermon.title|title }}
                                     </span>
-                                    <span>
-                                        <a href="{{ app_uri }}resources/sermons/{{ currentSeries.slug }}/{{ sermon.slug }}" class="text-white">
+                                    <span style="white-space: nowrap">
+                                        <a href="{{ app_uri }}resources/sermons/{{ currentSeries.slug }}/{{ sermon.slug }}"
+                                           class="text-white">
                                             <i class="far fa-play-circle mx-1"></i>
                                         </a>
-                                        <a href="{{ app_uri }}{{ sermon.type }}/{{ sermon.folder }}/{{ sermon.filename }}" download class="text-white">
+                                        <a href="{{ app_uri }}{{ sermon.type }}/{{ sermon.folder }}/{{ sermon.filename }}"
+                                           download class="text-white">
                                             <i class="fas fa-download mx-1"></i>
                                         </a>
                                     </span>
@@ -174,8 +178,8 @@
                             {% endfor %}
                         </div>
                         <a id="series-dl-btn" class="btn btn-block mt-5"
-                           style="border: 5px solid #CAB974; border-radius: 2px;font-weight: bolder">DOWNLOAD STUDY
-                            GUIDE</a>
+                           style="border: 5px solid #CAB974; border-radius: 2px;font-weight: bolder; white-space: normal">DOWNLOAD
+                            STUDY GUIDE</a>
                     </div>
                     <img class="mt-5" src="{{ app_uri }}img/site/exiles-girl.jpg" style="width: 100%; height: auto;">
                 </div>

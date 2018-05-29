@@ -14,7 +14,7 @@
 {% endblock %}
 {% block content %}
     <div class="container-fluid mt-3 mb-3 mt-md-5 text-center">
-        <span style="font-size: 7vw">{{ currentSeries.title }} | </span><span style="font-size: 3vw" class="text-uppercase">{{ sermon.title }}</span>
+        <span style="font-size: 7vw">{{ series.title }} | </span><span style="font-size: 3vw" class="text-uppercase">{{ sermon.title }}</span>
     </div>
     {% if audio %}
         <audio class="shadow" id="mediaplayer" src="{{ app_uri }}/aud/{{ audio.filename }}"></audio>

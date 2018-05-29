@@ -21,6 +21,8 @@ class CreateSermonSeriesTable extends Migration
 	        $table->unsignedInteger('media_id')->nullable();
             $table->longText('details')->nullable();
 	        $table->string('slug')->nullable();
+	        $table->string('bg_color')->default('white');
+	        $table->string('text_color')->default('dark');
 	        $table->boolean('is_current')->default(0);
 	        $table->timestamps();
 

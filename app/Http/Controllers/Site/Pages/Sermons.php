@@ -72,7 +72,7 @@ class Sermons extends Controller
 		return view('resources/sermon', [
 			'audio' => $audio,
 			'sermon' => $sm,
-			'currentSeries' => $sr,
+			'series' => $sr,
 			'seriesImage' => $seriesImage->toArray(),
 			'settings' => $settings,
 			'headerLinks' => $headerLinks,
