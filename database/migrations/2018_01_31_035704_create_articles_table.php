@@ -18,10 +18,12 @@ class CreateArticlesTable extends Migration
             $table->smallInteger('series');
             $table->string('title');
             $table->date('date');
-            $table->text('desc');
-            $table->longText('content');
-            $table->string('author');
-            $table->unsignedInteger('media');
+            $table->text('desc')->nullable();
+            $table->longText('content')->nullable();
+            $table->string('author')->nullable();
+            $table->unsignedInteger('media')->nullable();
+            $table->unsignedInteger('image_media')->nullable();
+	        $table->boolean('featured')->default(1);
             $table->timestamps();
         });
     }
