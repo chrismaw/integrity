@@ -1,0 +1,133 @@
+{% extends 'base.twig' %}
+{% block addToHead %}
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ app_uri }}mediaelement/mediaelement-and-player.min.js"></script>
+    <script type="text/javascript" src="{{ app_uri }}mediaelement/jump-forward/jump-forward.min.js"></script>
+    <script type="text/javascript" src="{{ app_uri }}mediaelement/jump-forward/jump-forward-i18n.js"></script>
+    <link rel="stylesheet" href="{{ app_uri }}mediaelement/mediaelementplayer.min.css"/>
+    <link rel="stylesheet" href="{{ app_uri }}mediaelement/jump-forward/jump-forward.min.css"/>
+
+
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="text-center mt-3 mb-3 mt-md-5 h7" style="font-size: 9vw; line-height: 1">INTEGRITY STORIES</div>
+        {#{{ page.content ? page.content|raw : '' }}#}
+
+        <div class="container mt-5 text-center">
+            <div class="row">
+                <div class="col-8 text-left h6"><strong>{{ featured.title|title }} | {{ featured.series }}</strong></div>
+                <div class="col-4 text-right h6"><strong>{{ featured.date }}</strong></div>
+            </div>
+        </div>
+    </div>
+    {% for series in allSeries %}
+        <div class="container mt-3 mb-3 mt-md-5 text-center">
+            <a class="" href="{{ app_uri }}resources/stories/{{ series.slug }}">
+                <img style="width: 100%; height: auto;" class="img-responsive"
+                     src="{{ app_uri }}{{ series.type }}/stories/{{ series.filename }}">
+            </a>
+        </div>
+    {% endfor %}
+
+    <div class="container mt-5 text-center">
+        <span style="font-size: 7vw">Story Series</span>
+    </div>
+
+    <div class="album pb-5 d.block d-md-none">
+        <div class="container">
+            {% set count = 0 %}
+            {% for series in allSeries %}
+                {% if series.is_current == 0 %}
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card mb-4 box-shadow bg-transparent" style="border:none;">
+                                <a href="{{ app_uri }}resources/stories/{{ series.slug }}">
+                                    <img alt=""
+                                         style="height: 56.25%; width: 100%; display: block; border-radius: 2px;"
+                                         src="{{ app_uri }}img/{{ series.folder }}/{{ series.filename }}"/>
+                                </a>
+                                <div class="card-body p-1 text-center text-{{ text_color }}">
+                                    <span class="card-text"
+                                          style="font-size: 125%"><strong>{{ series.title|title }}</strong></span>
+                                    <p class="card-text small">{{ series.passage|title }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="album pb-5 d-none d-md-block d-lg-none">
+        <div class="container">
+            <div class="row">
+                {% set count = 0 %}
+                {% for series in allSeries %}
+                {% if series.is_current == 0 %}
+                {% set count = count + 1 %}
+                {% if count > 2 %}
+                {% set count = 1 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                <div class="col-6">
+                    <div class="card mb-4 box-shadow bg-transparent" style="min-height: 320px; border:none">
+                        <a href="{{ app_uri }}resources/sermons/{{ series.slug }}">
+                            <img alt="" style="height: 56.25%; width: 100%; display: block; border-radius: 2px;"
+                                 src="{{ app_uri }}img/{{ series.folder }}/{{ series.filename }}"/>
+                        </a>
+                        <div class="card-body p-1 text-center text-{{ text_color }}">
+                            <span class="card-text"
+                                  style="font-size: 125%"><strong>{{ series.title|title }}</strong></span>
+                            <p class="card-text small">{{ series.passage|title }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% if count < 2 %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    </div>
+    <div class="album pb-5 d-none d-lg-block">
+        <div class="container">
+            <div class="row">
+                {% set count = 0 %}
+                {% for series in allSeries %}
+                {% if series.is_current == 0 %}
+                {% set count = count + 1 %}
+                {% if count > 3 %}
+                {% set count = 1 %}
+            </div>
+            <div class="row">
+                {% endif %}
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card mb-4 box-shadow bg-transparent" style="min-height: 325px; border: none">
+                        <a href="{{ app_uri }}resources/sermons/{{ series.slug }}">
+                            <img alt="" style="height: 56.25%; width: 100%; display: block; border-radius: 2px;"
+                                 src="{{ app_uri }}img/{{ series.folder }}/{{ series.filename }}"/>
+                        </a>
+                        <div class="card-body p-1 text-center text-{{ text_color }}">
+                            <span class="card-text"
+                                  style="font-size: 125%"><strong>{{ series.title|title }}</strong></span>
+                            <p class="card-text small">{{ series.passage|title }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% if count < 3 %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    </div>
+{% endblock %}
+

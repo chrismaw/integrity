@@ -1,0 +1,1 @@
+INSERT INTO integrity.stories (series, title, date, `desc`, content, author, media, image_media, updated_at, created_at, featured) VALUES (1, 'Savannah Bryant', '2018-04-22', null, null, null, null, 21, '2018-05-31 21:59:09', '2018-05-30 22:44:31', 1);

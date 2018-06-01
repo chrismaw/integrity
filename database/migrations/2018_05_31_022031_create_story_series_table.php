@@ -13,7 +13,7 @@ class CreateArticleSeriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('article_series', function (Blueprint $table) {
+        Schema::create('story_series', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->string('tagline')->nullable();
@@ -36,6 +36,6 @@ class CreateArticleSeriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('article_series');
+        Schema::dropIfExists('story_series');
     }
 }

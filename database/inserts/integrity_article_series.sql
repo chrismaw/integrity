@@ -1,1 +1,0 @@
-INSERT INTO integrity.article_series (title, tagline, media_id, details, slug, bg_color, text_color, created_at, updated_at) VALUES ('Stories of Life Change', null, null, null, 'life-change', 'white', 'dark', '2018-05-30 22:37:41', '2018-05-30 22:37:43');
