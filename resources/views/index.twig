@@ -93,12 +93,14 @@
                             <a href="#" class="d-inline"><img src="{{ app_uri }}img/icons/spotify.png"></a>
                         </span>
                 </div>
-                <button class="d-md-none navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarCollapse"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="d-md-none navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                        style="border: none">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="modal2 collapse navbar-collapse" id="navbarCollapse">
+                    <div class="modal2__header"></div>
+                    <div class="modal2__content">
                     {% if headerLinks %}
                         <ul class="navbar-nav text-right text-white">
                             {% for key, parent in headerLinks %}
@@ -123,6 +125,29 @@
                     {% else %}
                         <h1>No Parents, No Rules!</h1>
                     {% endif %}
+                    </div>
+                    <div class="modal2__footer fixed-bottom text-right">
+                        <div class="text-left text-md-center mx-md-auto">
+                        <span>
+                            {{ settings.address }} {{ settings.city }},&nbsp;{{ settings.state }}
+                            &nbsp;{{ settings.zip }}
+                            <span class="d-none d-sm-inline"> | {{ settings.phone }} </span>
+                        </span>
+                            <span id="footer-break"><br></span>
+                            <span class="align-content-between">
+                            <a href="#" class="d-inline"><img src="{{ app_uri }}img/icons/facebook.png"></a>
+                            <a href="#" class="d-inline"><img src="{{ app_uri }}img/icons/instagram.png"></a>
+                            <a href="#" class="d-inline"><img src="{{ app_uri }}img/icons/twitter.png"></a>
+                            <a href="#" class="d-inline"><img src="{{ app_uri }}img/icons/spotify.png"></a>
+                        </span>
+                        </div>
+                        <button class="d-md-none navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                                style="border: none;
+                                ">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
                 </div>
             </nav>
         </div>
