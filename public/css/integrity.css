@@ -99,7 +99,7 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
 #index-footer,
 #index-footer > #navbarCollapse > ul > li.nav-item.dropup.text-white.show > div{
     width: 100%;
-    background-color: rgb(6, 13, 17);
+    background-color: rgb(0, 0, 0);
     font-size: 0.7rem;
 }
 .card-columns {
@@ -112,8 +112,9 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
     font-size: 115%
 }
 .modal2 {
-    display: none;
+    /*display: none;*/
     height: 100%;
+    opacity: 0;
     left: 0;
     position: fixed;
     top: 0;
@@ -122,16 +123,24 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
 }
 .modal2.show {
     display: flex;
+    opacity: 1;
     flex-direction: column;
+}
+.modal2 {
+    transition: opacity .5s ease-in-out 0s;
 }
 .modal2__header,
 .modal2__footer {
-    height: 61.17px;
+    height: 57px;
     padding: 0.5rem 1rem;
 }
 .modal2__content {
     height: 100%;
+    width: 100%;
     overflow-y: auto;
+}
+.collapsing {
+    transition: none;
 }
 @media only screen and (max-width: 767.98px) {
     .navbar {
@@ -143,7 +152,7 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
     }
     .dropdown-menu {
         border-radius: 0;
-        background-color: #0f212c;
+        background-color: #000000;
         color: #fff
     }
 }
