@@ -85,7 +85,12 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
     transform: translateX(100px);
     opacity: 0
 }
-
+.rotate {
+    transform: scaleY(-1);
+}
+#dropdown10 > i {
+    transition: all 150ms linear;
+}
 .h7 {
     font-family: Georgia;
     font-variant: all-small-caps;
@@ -131,13 +136,22 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
 }
 .modal2__header,
 .modal2__footer {
-    height: 57px;
+    /*height: 57px;*/
+    width: 100%;
     padding: 0.5rem 1rem;
 }
 .modal2__content {
     height: 100%;
     width: 100%;
     overflow-y: auto;
+    font-size: 1.5rem
+}
+.dropup .dropdown-toggle::after{
+    display: none;
+}
+.flipped
+#navbarCollapse > div.modal2__content > ul > li.nav-item.dropup.text-white.px-3.show > div {
+    font-size: 1rem;
 }
 .collapsing {
     transition: none;

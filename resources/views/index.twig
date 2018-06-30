@@ -100,7 +100,8 @@
                 </button>
             </nav>
             <div class="modal2 collapse navbar-collapse" id="navbarCollapse">
-                <div class="modal2__header"></div>
+                {#<div class="modal2__header text-left">#}
+                {#</div>#}
                 <div class="modal2__content">
                     {% if headerLinks %}
                         <ul class="navbar-nav text-right text-white">
@@ -108,14 +109,16 @@
                                 {% if key|length %}
                                     <li class="nav-item dropup text-white px-3">
                                         <a class="nav-link dropdown-toggle" style="color:white !important;" href="#"
-                                           id="dropdown10" role="button"
+                                           id="dropdown10" role="button" @click="flip{{ loop.index }} = !flip{{ loop.index }}"
                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             {{ key|title }}
+                                                <i v-if="flip{{ loop.index }}" class="fas fa-angle-down ml-2"></i>
+                                                <i v-else class="rotate fas fa-angle-down ml-2"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right text-right"
                                              style="border:none" aria-labelledby="dropdown10">
                                             {% for link in parent %}
-                                                <a class="dropdown-item "
+                                                <a class="dropdown-item"
                                                    href="{{ app_uri }}{{ link.parent ?  link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
                                             {% endfor %}
                                         </div>
@@ -126,27 +129,29 @@
                     {% else %}
                         <h1>No Parents, No Rules!</h1>
                     {% endif %}
+                    <img id="header-logo" style="position: fixed; top: 10px; left: 10px; width: 50%; max-width: 204px" src="{{ app_uri }}img/{{ settings.header_logo_light }}"/>
+
                 </div>
-                <div class="modal2__footer fixed-bottom text-right">
-                    <div class="text-left text-md-center mx-md-auto">
-                        <span>
-                            {{ settings.address }} {{ settings.city }},&nbsp;{{ settings.state }}
-                            &nbsp;{{ settings.zip }}
-                            <span class="d-none d-sm-inline"> | {{ settings.phone }} </span>
-                        </span>
-                        <span id="footer-break"><br></span>
-                        <span class="align-content-between">
-                            <a href="#" class="d-inline"><img src="{{ app_uri }}img/icons/facebook.png"></a>
-                            <a href="#" class="d-inline"><img src="{{ app_uri }}img/icons/instagram.png"></a>
-                            <a href="#" class="d-inline"><img src="{{ app_uri }}img/icons/twitter.png"></a>
-                            <a href="#" class="d-inline"><img src="{{ app_uri }}img/icons/spotify.png"></a>
-                        </span>
-                    </div>
-                    <button id="" class="d-md-none navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
+                {#<div class="modal2__footer fixed-bottom text-right">#}
+                    {#<div class="text-left text-md-center mx-md-auto">#}
+                        {#<span>#}
+                            {#{{ settings.address }} {{ settings.city }},&nbsp;{{ settings.state }}#}
+                            {#&nbsp;{{ settings.zip }}#}
+                            {#<span class="d-none d-sm-inline"> | {{ settings.phone }} </span>#}
+                        {#</span>#}
+                        {#<span id="footer-break"><br></span>#}
+                        {#<span class="align-content-between">#}
+                            {#<a href="#" class="d-inline"><img src="{{ app_uri }}img/icons/facebook.png"></a>#}
+                            {#<a href="#" class="d-inline"><img src="{{ app_uri }}img/icons/instagram.png"></a>#}
+                            {#<a href="#" class="d-inline"><img src="{{ app_uri }}img/icons/twitter.png"></a>#}
+                            {#<a href="#" class="d-inline"><img src="{{ app_uri }}img/icons/spotify.png"></a>#}
+                        {#</span>#}
+                    {#</div>#}
+                    {#<button id="" class="d-md-none navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"#}
+                            {#aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">#}
+                        {#<span class="navbar-toggler-icon"></span>#}
+                    {#</button>#}
+                {#</div>#}
             </div>
         </div>
     </template>
@@ -176,7 +181,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.js"></script>
     <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
     <script>
-        const HomeComponent = {template: '#home'};
+        const HomeComponent = {
+            props: [
+                {% for each in headerLinks %}
+                'flip{{ loop.index }}',
+                {% endfor %}
+            ],
+            template: '#home'};
         const WelcomeComponent = {template: '#welcome'};
         const BeliefsComponent = {template: '#beliefs'};
         const SeriesComponent = {template: '#series'};
@@ -194,6 +205,6 @@
         });
         const app = new Vue({
             router
-        }).$mount('#app')
+        }).$mount('#app');
     </script>
 {% endblock scripts %}
