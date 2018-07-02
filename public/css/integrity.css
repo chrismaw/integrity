@@ -8,11 +8,12 @@
 }
 
 html, body, main, nav {
-    font-family: "Avenir LT Std 35 Light";
+    font-family: "Avenir LT Std 35 Light", sans-serif;
 }
 .navbar {
     background-color: transparent;
     transition: background-color .5s ease;
+    -webkit-transition: background-color .5s ease;
 }
 
 .navbar.scrolling-navbar {
@@ -34,6 +35,7 @@ html, body, main, nav {
 
 #navbarSupportedContent > ul > li {
      transition: background-color .5s ease;
+    -webkit-transition: background-color .5s ease;
  }
 #navbarSupportedContent > ul > li > a {
      padding-bottom: 0;
@@ -64,10 +66,12 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
 .dropdown-item {
     color: #fff;
     transition: color .5s ease;
+    -webkit-transition: color .5s ease;
 }
 
 #billboard-text > div > a {
     transition: background-color .5s ease;
+    -webkit-transition: background-color .5s ease;
 
 }
 #billboard-text > div > a:hover {
@@ -76,8 +80,9 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
 
 .fade-enter-active, .fade-leave-active {
     transition: all .2s ease;
+    -webkit-transition: all .2s ease;
 }
-.fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-leave-to {
     transform: translateX(-100px);
     opacity: 0
 }
@@ -90,9 +95,10 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
 }
 #dropdown10 > i {
     transition: all 150ms linear;
+    -webkit-transition: all 150ms linear;
 }
 .h7 {
-    font-family: Georgia;
+    font-family: Georgia serif;
     font-variant: all-small-caps;
     letter-spacing: 15px;
     color: #60aec8;
@@ -111,7 +117,7 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
     column-count: 1;
 }
 #series-dl-btn {
- font-size: 1rem;
+    font-size: 1rem;
 }
 #contact > div > div > div > a {
     font-size: 115%
@@ -133,6 +139,9 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
 }
 .modal2 {
     transition: opacity .5s ease-in-out 0s;
+    -webkit-transition: opacity .5s ease-in-out 0s;
+    -moz-transition: opacity .5s ease-in-out 0s;
+    -o-transition: opacity .5s ease-in-out 0s;
 }
 .modal2__header,
 .modal2__footer {
@@ -149,20 +158,28 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
 .dropup .dropdown-toggle::after{
     display: none;
 }
-.flipped
 #navbarCollapse > div.modal2__content > ul > li.nav-item.dropup.text-white.px-3.show > div {
     font-size: 1rem;
 }
 .collapsing {
     transition: none;
+    -webkit-transition: none;
+}
+#modal-header-logo{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 50%;
+    max-width: 204px
 }
 @media only screen and (max-width: 767.98px) {
     .navbar {
-        background-color: #0f212c;
+        background-color: #000;
     }
     body > nav > ul > li {
         line-height: 1.6;
         transition: background-color .5s ease;
+        -webkit-transition: background-color .5s ease;
     }
     .dropdown-menu {
         border-radius: 0;
@@ -202,6 +219,7 @@ body > nav > ul > li.nav-item.dropdown.show > div > a {
     }
     .fade-enter-active, .fade-leave-active {
         transition: all .4s ease ;
+        -webkit-transition: all .4s ease ;
     }
     .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
         transform: translateX(-1000px);
