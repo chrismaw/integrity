@@ -11,6 +11,22 @@ html, body, main, nav {
     font-family: "Avenir LT Std 35 Light", sans-serif;
     line-height: 1.5;
 }
+.h1{
+    font-size: 8vw;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+.h3{
+    font-size: 5vw;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+.h4 {
+    font-size: 5vw;
+    font-weight: 600;
+    margin-bottom: 0;
+}
 button.navbar-toggler:focus,button.navbar-toggler:active {
     outline: none !important;
     box-shadow: none;
@@ -56,6 +72,7 @@ button.navbar-toggler {
     width: 100%;
 }
 #burger span:nth-child(2),#burger span:nth-child(3) {
+    margin-left: 6.5px;
     top: 10px;
     width: 80%;
 }
@@ -94,25 +111,48 @@ button.navbar-toggler {
     /*z-index: -1;*/
 /*}*/
 #index-top {
-    background-image: url('/integrity/public/img/collage.jpg');
+    background-image: url('/integrity/public/img/billboard.png');
     background-attachment: fixed;
     background-position: top;
     background-repeat: no-repeat;
-    background-size: contain;
-    clip-path: polygon(0 0, 100% 0,100% 100%, 0 90%);
+    background-size: auto;
+    clip-path: polygon(0 0, 100% 0,100% 100%, 0 85%);
     padding-top: 20%;
 }
 #index-top-main #welcome-text {
-    font-size: 7vw;
-    letter-spacing: 3px;
-    font-weight: 600;
     border-bottom: white 2px solid;
+    margin-left: 25vw;
 }
 
 #index-mid {
+    height: 100vh;
     background-color: #60aec8;
+    margin-top: -45px;
 }
 
+#index-mid #mandm {
+    font-weight: bolder;
+}
+#index-footer {
+    background-color: black;
+    clip-path: polygon(0 15%, 100% 0,100% 100%, 0 100%);
+}
+#index-footer > div {
+    padding-top: 5vh;
+}
+#index-footer > div > div.col-10 > div {
+    color: #60aec8;
+}
+#index-footer > div > div.col-10.text-white > div a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 4vw;
+    font-weight: 300;
+}
+.footer-icon {
+    color: #60aec8;
+    font-size: 2em;
+}
 /*.navbar {*/
     /*background-color: transparent;*/
     /*transition: background-color .5s ease;*/

@@ -53,37 +53,78 @@
                     {#</div>#}
                 </nav>
             </div>
-            <div id="index-top">
+            <div id="index-top" class="jumbotron jumbotron-fluid m-0">
                 {#<img class="img-fluid" src="{{ app_uri }}/img/collage.jpg">#}
-                <div id="index-top-main" class="px-5 text-right">
-                    <div id="welcome-text" class="ml-5">WELCOME</div>
-                    <div style="line-height: 1">
-                        <router-link to="/welcome" class="text-white" style="text-decoration: none; font-size: 1.5em">
-                            <span style="vertical-align: text-bottom">COME TO A SERVICE&nbsp;&nbsp;&nbsp;</span>
-                            <i style="color:#60aec8;font-size: 2em" class="fas fa-caret-right"></i>
-                        </router-link><br>
-                        <router-link to="/" class="text-white" style="text-decoration: none; font-size: 1.5em">
-                            <span style="vertical-align: text-bottom">SEE OUR BELIEFS&nbsp;&nbsp;&nbsp;</span>
-                            <i style="color:#60aec8;font-size: 2em" class="fas fa-caret-right"></i>
-                        </router-link><br>
-                        <router-link to="/" class="text-white" style="text-decoration: none; font-size: 1.5em">
-                            <span style="vertical-align: text-bottom">LATEST SERMON&nbsp;&nbsp;&nbsp;</span>
-                            <i style="color:#60aec8;font-size: 2em" class="fas fa-caret-right"></i>
-                        </router-link><br>
-                    </div>
+                <div id="index-top-main" class="px-4 pb-4 text-right">
+                    <div id="welcome-text" class="h1">WELCOME</div>
+                    <table border="0" width="100%" class="ml-auto mt-2">
+                        <tr>
+                            <td class="text-white h3">
+                                COME TO A SERVICE
+                            </td>
+                            <td>
+                                <router-link to="/welcome"><i style="color:#60aec8;font-size: 8vw" class="fas fa-caret-right"></i></router-link>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-white h3">
+                                SEE OUR BELIEFS
+                            </td>
+                            <td>
+                                <router-link to="/welcome"><i style="color:#60aec8;font-size: 8vw" class="fas fa-caret-right"></i></router-link>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-white h3">
+                                LATEST SERMON
+                            </td>
+                            <td>
+                                <router-link to="/welcome"><i style="color:#60aec8;font-size: 8vw" class="fas fa-caret-right"></i></router-link>
+                            </td>
+                        </tr>
+                    </table>
+                    {#<div style="line-height: 1">#}
+                        {#<router-link to="/welcome" class="text-white" style="text-decoration: none; font-size: 1.5em">#}
+                            {#<span class="d-inline-block align-middle">COME TO A SERVICE&nbsp;&nbsp;&nbsp;</span>#}
+                            {#<i style="color:#60aec8;font-size: 2em" class="fas fa-caret-right"></i>#}
+                        {#</router-link><br>#}
+                        {#<router-link to="/" class="text-white" style="text-decoration: none; font-size: 1.5em">#}
+                            {#<span class="d-inline-block">SEE OUR BELIEFS&nbsp;&nbsp;&nbsp;</span>#}
+                            {#<i style="color:#60aec8;font-size: 2em" class="fas fa-caret-right"></i>#}
+                        {#</router-link><br>#}
+                        {#<router-link to="/" class="text-white" style="text-decoration: none; font-size: 1.5em">#}
+                            {#<span class="d-inline-block">LATEST SERMON&nbsp;&nbsp;&nbsp;</span>#}
+                            {#<i style="color:#60aec8;font-size: 2em" class="fas fa-caret-right"></i>#}
+                        {#</router-link><br>#}
+                    {#</div>#}
                 </div>
             </div>
             <div id="index-mid">
-                <div class="container text-center">
+                <div class="container text-center py-5 text-black-50 h3">
                     <p class="my-5">
                         OUR MISSION IS TO <br>
-                        <span id="m&m">MATURE AND MULTIPLY</span><br>
+                        <span class="text-white" id="m&m">MATURE AND MULTIPLY</span><br>
                         BELIEVERS TO LEAVE<br>
                         A GOSPEL LEGACY
                     </p>
                 </div>
             </div>
-            <div id="index-footer">
+            <div id="index-footer" class="fixed-bottom py-3">
+                <div class="container-fluid row mx-0">
+                    <div class="col-10 text-white pl-0">
+                        <div class="h4">CONTACT US</div>
+                        <div>
+                            <a href="#" class="">info@liveintegrity.org</a><br>
+                            <a href="#" class="">(252) 756-4508</a><br>
+                            <a href="#" class="">569 Irish Ln, Winterville, NC 28590</a>
+                        </div>
+                    </div>
+                    <div class="col-2 text-center pr-0">
+                        <i class="footer-icon fab fa-facebook-f"></i><br>
+                        <i class="footer-icon fab fa-instagram py-2"></i><br>
+                        <i class="footer-icon fab fa-twitter"></i>
+                    </div>
+                </div>
 
             </div>
         </div>
