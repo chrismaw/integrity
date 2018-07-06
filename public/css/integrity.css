@@ -135,18 +135,19 @@ button.navbar-toggler {
     display: flex;
     flex-direction: column;
     justify-content: stretch;
+    padding-bottom: 1vh;
 }
 #mid_flex1 {
-    flex-grow: 1.5;
+    flex-grow: 2;
 }
 #mid_flex2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-grow: 1;
+    flex-grow: 0;
 }
 #mid_flex3 {
-    flex-grow: 1;
+    flex-grow: 1.5;
 }
 #index-mid #mandm {
     font-weight: bolder;
