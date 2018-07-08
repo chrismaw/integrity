@@ -2,58 +2,59 @@
     {% block header %}
     {% endblock header %}
 {% block content %}
+    <div id="index-header">
+        <nav id="index-nav" class="navbar fixed-top navbar-expand-md navbar-{{ bg_color }} scrolling-navbar">
+            {% if settings %}
+                <a class="navbar-brand text-hide" href="{{ app_uri }}">Integrity Church
+                    <img id="header-logo" src="{{ app_uri }}img/{% if bg_color == "dark" %}{{ settings.header_logo_light }}{% else %}{{ settings.header_logo_dark }}{% endif %}"/>
+                </a>
+            {% endif %}
+            <button class="navbar-toggler" type="button" data-toggle="" data-target="" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <div id="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            {#<div class="navbar-collapse collapse" id="navbarSupportedContent">#}
+            {#{% if headerLinks %}#}
+            {#<ul class="navbar-nav ml-auto">#}
+            {#{% for key, parent in headerLinks %}#}
+            {#{% if key|length %}#}
+            {#<li class="nav-item dropdown">#}
+            {#<a class="nav-link dropdown-toggle h5" style="color: {% if text_color == 'dark' %}#343a40{% else %}#fff{% endif %}" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
+            {#{{ key|title }}#}
+            {#</a>#}
+            {#<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">#}
+            {#{% for link in parent%}#}
+            {#<a class="dropdown-item" href="{{ app_uri }}{{  link.parent ?  link.parent : '' }}/{{ link.path }}"><strong>{{ link.name|title }}</strong></a>#}
+            {#{% endfor %}#}
+            {#</div>#}
+            {#</li>#}
+            {#{% endif %}#}
+            {#{% endfor %}#}
+            {#</ul>#}
+            {#{% else %}#}
+            {#<h1>No Link Parents, No Link Rules!</h1>#}
+            {#{% endif %}#}
+            {#</div>#}
+        </nav>
+    </div>
+    {{ include('./templates/fullnav') }}
     <div id="app">
-        <div>
-            <transition name="fade" mode="out-in">
-                <router-view></router-view>
-            </transition>
-        </div>
+        <transition name="fade" mode="out-in">
+            <router-view></router-view>
+        </transition>
     </div>
     <template id="home">
         <div>
             {% set bg_color = "dark" %}
             {% set text_color = "white" %}
             {#{% include 'header.twig' %}#}
-            <div id="index-header">
-                <nav class="navbar fixed-top navbar-expand-md navbar-{{ bg_color }} scrolling-navbar">
-                    {% if settings %}
-                        <a class="navbar-brand text-hide" href="{{ app_uri }}">Integrity Church
-                            <img id="header-logo" src="{{ app_uri }}img/{% if bg_color == "dark" %}{{ settings.header_logo_light }}{% else %}{{ settings.header_logo_dark }}{% endif %}"/>
-                        </a>
-                    {% endif %}
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <div id="burger">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </button>
-                    {#<div class="navbar-collapse collapse" id="navbarSupportedContent">#}
-                        {#{% if headerLinks %}#}
-                            {#<ul class="navbar-nav ml-auto">#}
-                                {#{% for key, parent in headerLinks %}#}
-                                    {#{% if key|length %}#}
-                                        {#<li class="nav-item dropdown">#}
-                                            {#<a class="nav-link dropdown-toggle h5" style="color: {% if text_color == 'dark' %}#343a40{% else %}#fff{% endif %}" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">#}
-                                                {#{{ key|title }}#}
-                                            {#</a>#}
-                                            {#<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">#}
-                                                {#{% for link in parent%}#}
-                                                    {#<a class="dropdown-item" href="{{ app_uri }}{{  link.parent ?  link.parent : '' }}/{{ link.path }}"><strong>{{ link.name|title }}</strong></a>#}
-                                                {#{% endfor %}#}
-                                            {#</div>#}
-                                        {#</li>#}
-                                    {#{% endif %}#}
-                                {#{% endfor %}#}
-                            {#</ul>#}
-                        {#{% else %}#}
-                            {#<h1>No Link Parents, No Link Rules!</h1>#}
-                        {#{% endif %}#}
-                    {#</div>#}
-                </nav>
-            </div>
-            <div id="index-top" class="jumbotron jumbotron-fluid m-0">
+
+            <div id="index-top" class="m-0">
+
                 {#<img class="img-fluid" src="{{ app_uri }}/img/collage.jpg">#}
                 <div id="index-top-main" class="px-4 text-right">
                     <div id="welcome-text" class="h1">WELCOME</div>
@@ -71,7 +72,7 @@
                                 SEE OUR BELIEFS
                             </td>
                             <td>
-                                <router-link to="/welcome"><i style="color:#60aec8;font-size: 8vw" class="fas fa-caret-right"></i></router-link>
+                                <router-link to="/beliefs"><i style="color:#60aec8;font-size: 8vw" class="fas fa-caret-right"></i></router-link>
                             </td>
                         </tr>
                         <tr>
@@ -100,7 +101,7 @@
                 </div>
             </div>
             <div id="index-mid">
-                <div id="mid_flex1"></div>
+                {#<div id="mid_flex1"></div>#}
                 <div id="mid_flex2" class="container mx-auto text-center m-0 text-black-50 h3">
                     <p class="m-0">
                         OUR MISSION IS TO <br>
@@ -109,9 +110,9 @@
                         A GOSPEL LEGACY
                     </p>
                 </div>
-                <div id="mid_flex3"></div>
+                {#<div id="mid_flex3"></div>#}
             </div>
-            <div id="index-footer" class="fixed-bottom py-3">
+            <div id="index-footer" class="py-3 ">
                 <div class="container-fluid row mx-0">
                     <div class="col-10 text-white pl-0">
                         <div class="h4">CONTACT US</div>
@@ -137,14 +138,7 @@
     </template>
 
     <template id="beliefs">
-        <div>
-            <div class="container-fluid">
-                <router-link to="/">
-                    <i style="color:#60aec8;font-size: 2.5em" class="fas fa-caret-left"></i>
-                </router-link>
-            </div>
-            <h1>Believe it</h1>
-        </div>
+        {{ include('./templates/beliefs') }}
     </template>
 
     <template id="series">
@@ -184,6 +178,17 @@
         $(document).ready(function(){
             $('#burger').click(function(){
                 $(this).toggleClass('open');
+//                    .attr('data-dismiss','modal');
+                $('#navModal').toggleClass('show').toggleClass('d-flex').toggleClass('no-height').toggleClass('full-height');
+//                    .css('height','100%');
+                $('body').toggleClass('modal-open');
+            });
+            let OFFSET_TOP = 1;
+            $(window).scroll(function () {
+                $("#index-nav").length && $("#index-nav").offset().top > OFFSET_TOP
+                ? $("#index-nav").addClass("bg-integrity")
+                : $("#index-nav").removeClass("bg-integrity")
+
             });
         });
     </script>

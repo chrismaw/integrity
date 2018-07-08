@@ -152,14 +152,14 @@
 <!-- Custom scripts for this template -->
 <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 <script type="text/javascript">
-    var OFFSET_TOP = 50;
-    $(window).scroll(function () {
-        $(".navbar").length && ($(".navbar").offset().top > OFFSET_TOP ? $(".scrolling-navbar").addClass("top-nav-collapse") : $(".scrolling-navbar").removeClass("top-nav-collapse"));
-        {% if bg_color != "dark" and page.billboard_img == null %}
-        $(".navbar").length && ($(".navbar").offset().top > OFFSET_TOP ? $(".nav-link").addClass("text-white").removeClass("text-dark") : $(".nav-link").removeClass("text-white").addClass('text-dark'));
-        $(".navbar").length && ($(".navbar").offset().top > OFFSET_TOP ? $("#header-logo").attr('src', "{{ app_uri }}img/headerlogo.png") : $("#header-logo").attr('src', "{{ app_uri }}img/headerlogodark.png"));
-        {% endif %}
-    });
+    {#var OFFSET_TOP = 50;#}
+    {#$(window).scroll(function () {#}
+        {#$(".navbar").length && ($(".navbar").offset().top > OFFSET_TOP ? $(".scrolling-navbar").addClass("top-nav-collapse") : $(".scrolling-navbar").removeClass("top-nav-collapse"));#}
+        {#{% if bg_color != "dark" and page.billboard_img == null %}#}
+        {#$(".navbar").length && ($(".navbar").offset().top > OFFSET_TOP ? $(".nav-link").addClass("text-white").removeClass("text-dark") : $(".nav-link").removeClass("text-white").addClass('text-dark'));#}
+        {#$(".navbar").length && ($(".navbar").offset().top > OFFSET_TOP ? $("#header-logo").attr('src', "{{ app_uri }}img/headerlogo.png") : $("#header-logo").attr('src', "{{ app_uri }}img/headerlogodark.png"));#}
+        {#{% endif %}#}
+    {#});#}
     {% if text_color == 'dark' %}
     {% if headerLinks %}
     {% for each in headerLinks %}

@@ -6,10 +6,19 @@
     font-family: "Georgia";
     src: url("../fonts/vendor/Georgia/georgia.ttf");
 }
-
+html, body, #app {
+    height: 100%;
+    width: 100%;
+}
 html, body, main, nav {
     font-family: "Avenir LT Std 35 Light", sans-serif;
     line-height: 1.5;
+}
+.text-black {
+    color: #000;
+}
+.bg-integrity {
+    background-color: #60aec8;
 }
 .h1{
     font-size: 8vw;
@@ -26,6 +35,11 @@ html, body, main, nav {
     font-size: 5vw;
     font-weight: 600;
     margin-bottom: 0;
+}
+.h5{
+    font-size: 4vw;
+    /*letter-spacing: 1px;*/
+    text-transform: uppercase;
 }
 button.navbar-toggler:focus,button.navbar-toggler:active {
     outline: none !important;
@@ -101,23 +115,62 @@ button.navbar-toggler {
 }
 #burger.open span:nth-child(4) {
     top: 18px;
-    width: 0%;
+    width: 0;
     left: 50%;
 }
+#index-header > nav {
+    z-index: 1060 !important;
+    transition: background-color 500ms ease-in-out;
+}
+.full-height {
+    height: 100%;
+}
+.no-height {
+    height: 0;
+}
+.modal{
+    display: flex !important;
+    flex-direction: column;
+}
 
-/*#index-top > img {*/
-    /*position: fixed;*/
-    /*visibility: hidden;*/
-    /*z-index: -1;*/
-/*}*/
+#navModal {
+    width: 100%;
+    background-color: #60aec8;
+    /*transform: translateY(-100px);*/
+    -webkit-transition: all .4s ease ;
+    transition: all .4s ease ;
+}
+#navModal .modal-header,
+#navModal .modal-body,
+#navModal .modal-footer {
+    border: none;
+}
+.modal-footer {
+    /*background-image: url('/integrity/public/img/logos/mm.png');*/
+}
+#app > div {
+    height:100%;
+    width:100%;
+    background-color: #60aec8;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+}
 #index-top {
     background-image: url('/integrity/public/img/billboard.png');
-    background-attachment: fixed;
+    /*background-attachment: fixed;*/
     background-position: top;
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
+    -webkit-clip-path: polygon(0 0, 100% 0,100% 100%, 0 85%);
     clip-path: polygon(0 0, 100% 0,100% 100%, 0 85%);
     padding-top: 20%;
+    flex-grow: 3;
 }
 #index-top-main #welcome-text {
     border-bottom: white 2px solid;
@@ -125,36 +178,35 @@ button.navbar-toggler {
 }
 
 #index-mid {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #60aec8;
-    z-index: -2;
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    padding-bottom: 1vh;
-}
-#mid_flex1 {
-    flex-grow: 2;
-}
-#mid_flex2 {
+    background-color: transparent;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-grow: 0;
+}
+#mid_flex1 {
+    /*flex-grow: 2;*/
+}
+#mid_flex2 {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: center;*/
+    /*flex-grow: 0;*/
 }
 #mid_flex3 {
-    flex-grow: 1.5;
+    /*flex-grow: 1.5;*/
 }
 #index-mid #mandm {
     font-weight: bolder;
 }
 #index-footer {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     background-color: black;
     clip-path: polygon(0 15%, 100% 0,100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 15%, 100% 0,100% 100%, 0 100%);
 }
 #index-footer > div {
     padding-top: 5vh;
@@ -171,6 +223,18 @@ button.navbar-toggler {
 .footer-icon {
     color: #60aec8;
     font-size: 2em;
+}
+#beliefs {
+    /*flex-direction: column;*/
+    /*display: flex;*/
+    background-color: #60aec8;
+    font-size: 1rem;
+}
+#beliefs > div > h5 {
+    background-color: black;
+}
+#beliefs > div > #basic-beliefs {
+    background-color: #60aec8;
 }
 /*.navbar {*/
     /*background-color: transparent;*/
@@ -240,18 +304,18 @@ button.navbar-toggler {
     /*background-color: rgb(6,13,17);*/
 /*}*/
 
-/*.fade-enter-active, .fade-leave-active {*/
-    /*transition: all .2s ease;*/
-    /*-webkit-transition: all .2s ease;*/
-/*}*/
-/*.fade-leave-to {*/
-    /*transform: translateX(-100px);*/
+.fade-enter-active, .fade-leave-active {
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+}
+.fade-leave-to {
+    transform: translateX(-1000px);
     /*opacity: 0*/
-/*}*/
-/*.fade-enter {*/
-    /*transform: translateX(100px);*/
+}
+.fade-enter {
+    transform: translateX(1000px);
     /*opacity: 0*/
-/*}*/
+}
 /*.rotate {*/
     /*transform: scaleY(-1);*/
 /*}*/
