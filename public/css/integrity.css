@@ -145,7 +145,11 @@ button.navbar-toggler {
 #navModal .modal-footer {
     border: none;
 }
-.modal-footer {
+.modal-footer img {
+    width: 25%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
     /*background-image: url('/integrity/public/img/logos/mm.png');*/
 }
 #app > div {
