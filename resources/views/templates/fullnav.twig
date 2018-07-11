@@ -1,30 +1,32 @@
 <div class="modal no-height" id="navModal">
-    <div class="modal-header">
+    <div class="modal-content">
+        <div class="modal-header">
 
-    </div>
-    <div class="modal-body text-right mt-5">
-        {% if headerLinks %}
-            {% for key, parent in headerLinks %}
-                {% if key|length %}
-                    <a class="h1 text-white" style="text-decoration: none" data-toggle="collapse" href="#collapse{{ key }}" role="button" aria-expanded="false" aria-controls="#collapse{{ key }}">
-                        {{ key|title }}
-                    </a>
+        </div>
+        <div class="modal-body text-right mt-5">
+            {% if headerLinks %}
+                {% for key, parent in headerLinks %}
+                    {% if key|length %}
+                        <a class="h1 text-white" style="text-decoration: none" data-toggle="collapse" href="#collapse{{ key }}" role="button" aria-expanded="false" aria-controls="#collapse{{ key }}">
+                            {{ key|title }}
+                        </a>
+                        <br>
+                        <div class="collapse" id="collapse{{ key }}">
+                            {% for link in parent %}
+                                <br>
+                                <a class="h3 mr-3 font-weight-bold" style="text-decoration: none; color: #000" href="{{ app_uri }}{{ link.parent ? link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
+                                <br>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                     <br>
-                    <div class="collapse" id="collapse{{ key }}">
-                        {% for link in parent %}
-                            <br>
-                            <a class="h3 mr-3 font-weight-bold" style="text-decoration: none; color: #000" href="{{ app_uri }}{{ link.parent ? link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
-                            <br>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-                <br>
-            {% endfor %}
-        {% else %}
-            <h1>No Link Parents, No Link Rules!</h1>
-        {% endif %}
-    </div>
-    <div class="modal-footer">
-        <img class="mx-auto" src="{{ app_uri }}img/logos/mm.png"/>
+                {% endfor %}
+            {% else %}
+                <h1>No Link Parents, No Link Rules!</h1>
+            {% endif %}
+        </div>
+        <div class="modal-footer">
+            <img class="mx-auto" src="{{ app_uri }}img/logos/mm_t_black.png"/>
+        </div>
     </div>
 </div>

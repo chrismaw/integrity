@@ -68,7 +68,7 @@ button.navbar-toggler {
     display: block;
     position: absolute;
     height: 5px;
-    background: #fff;
+    background: #000;
     border-radius: 9px;
     opacity: 1;
     left: 0;
@@ -140,16 +140,26 @@ button.navbar-toggler {
     -webkit-transition: all .4s ease ;
     transition: all .4s ease ;
 }
+#navModal .modal-content {
+    height: 100%;
+    background-color: transparent;
+    position: relative;
+}
+#navModal .modal-content,
 #navModal .modal-header,
 #navModal .modal-body,
 #navModal .modal-footer {
     border: none;
 }
+.modal-footer {
+    background-color: #60aec8;
+    width: 100%;
+    bottom:0;
+    position:absolute;
+}
 .modal-footer img {
     width: 25%;
     height: auto;
-    position: fixed;
-    bottom: 0;
     /*background-image: url('/integrity/public/img/logos/mm.png');*/
 }
 #app > div {
@@ -166,7 +176,7 @@ button.navbar-toggler {
     align-items: stretch;
 }
 #index-top {
-    background-image: url('/integrity/public/img/billboard.png');
+    background-image: url('/integrity/public/img/billboard.jpg');
     /*background-attachment: fixed;*/
     background-position: top;
     background-repeat: no-repeat;
