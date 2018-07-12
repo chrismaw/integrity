@@ -290,7 +290,7 @@ button.navbar-toggler {
     }
     #index-top {
         padding-top: 15%;
-        flex: 2 50vw;
+        flex: 2 50vh;
     }
     #index-top-main #welcome-text {
         margin-left: 50%;
@@ -299,10 +299,10 @@ button.navbar-toggler {
         font-size: 5vw;
     }
     #index-mid {
-        flex: 1 25vw;
+        flex: 1 25vh;
     }
     #index-footer {
-        flex: 1;
+        flex: 1 25vh;
     }
     .footer-link > div a {
         font-size: 3vw;
@@ -352,18 +352,35 @@ button.navbar-toggler {
     .fullnav-link {
         font-size: 1.5vw;
     }
+    #index-top {
+        padding-top: 15%;
+        flex: 2 50vh;
+    }
+    #index-mid {
+        flex: 1 25vh;
+    }
     #index-footer {
-        flex: 3;
+        flex: 1 25vh;
         padding-bottom: 1rem;
     }
     .footer-link {
-        font-size: 1vw;
+        font-size: 2vw;
     }
     .footer-icon {
-        font-size: 2vw;
+        font-size: 3vw;
     }
 }
 @media (min-width: 1200px) {
+    #index-top {
+        padding-top: 15%;
+        flex: 2 100vh;
+    }
+    #index-mid {
+        flex: 1 50vh;
+    }
+    #index-footer {
+        flex: 1 35vh;
+    }
     .fade-leave-to {
         transform: translateX(-2000px);
         /*opacity: 0*/
