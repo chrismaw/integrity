@@ -245,6 +245,11 @@ button.navbar-toggler {
     color: #fff;
     font-size: 4vw;
     font-weight: 300;
+    transition: color .5s ease;
+}
+.footer-link:hover {
+    text-decoration: none;
+    color: #C3E1EA;
 }
 #footer-icon-div{
     display: flex;
@@ -254,6 +259,10 @@ button.navbar-toggler {
 .footer-icon {
     color: #60aec8;
     font-size: 6vw;
+    transition: color .5s ease;
+}
+.footer-icon:hover {
+    color: #C3E1EA
 }
 #beliefs {
     /*flex-direction: column;*/
