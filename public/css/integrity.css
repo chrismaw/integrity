@@ -329,6 +329,14 @@ button.navbar-toggler {
     }
 }
 @media (min-width: 992px) {
+    .fade-leave-to {
+        transform: translateX(-1200px);
+        /*opacity: 0*/
+    }
+    .fade-enter {
+        transform: translateX(1200px);
+        /*opacity: 0*/
+    }
     .h4 {
         font-size: 2vw;
     }
@@ -356,7 +364,14 @@ button.navbar-toggler {
     }
 }
 @media (min-width: 1200px) {
-
+    .fade-leave-to {
+        transform: translateX(-2000px);
+        /*opacity: 0*/
+    }
+    .fade-enter {
+        transform: translateX(2000px);
+        /*opacity: 0*/
+    }
 }
 /*.navbar {*/
     /*background-color: transparent;*/
