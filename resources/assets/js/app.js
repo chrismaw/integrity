@@ -6,3 +6,8 @@
  */
 
 require('./bootstrap');
+
+
+$('#navModal').on('shown.bs.modal', function (e) {
+    console.log('shown!')
+});

@@ -13011,6 +13011,10 @@ module.exports = __webpack_require__(9);
 
 __webpack_require__(5);
 
+$('#navModal').on('shown.bs.modal', function (e) {
+  console.log('shown!');
+});
+
 /***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {

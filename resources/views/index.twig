@@ -10,13 +10,11 @@
                     <span class="h3 font-weight-bold align-middle">Integrity Church</span>
                 </a>
             {% endif %}
-            <button class="navbar-toggler" type="button" data-toggle="" data-target="" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <div id="burger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+            <button class="navbar-toggler" id="burger" type="button" data-toggle="" data-target="" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </nav>
     </div>
@@ -37,29 +35,29 @@
                 {#<img class="img-fluid" src="{{ app_uri }}/img/collage.jpg">#}
                 <div id="index-top-main" class="px-4 text-right">
                     <div id="welcome-text" class="h1">WELCOME</div>
-                    <table border="0" width="100%" class="ml-auto mt-2">
+                    <table border="0" width="100%" cellpadding="0" cellspacing="0"  class="ml-auto mt-2">
                         <tr>
-                            <td class="text-white h3">
-                                COME TO A SERVICE
+                            <td class="h3">
+                                <router-link to="/welcome" style="text-decoration: none;" class="text-white">COME TO A SERVICE</router-link>
                             </td>
                             <td>
-                                <router-link to="/welcome"><i style="color:#60aec8;font-size: 8vw" class="fas fa-caret-right"></i></router-link>
+                                <router-link to="/welcome"><i class="fas fa-caret-right main-menu-icon"></i></router-link>
                             </td>
                         </tr>
                         <tr>
-                            <td class="text-white h3">
-                                SEE OUR BELIEFS
+                            <td class="h3">
+                                <router-link to="/beliefs" style="text-decoration: none;" class="text-white">SEE OUR BELIEFS</router-link>
                             </td>
                             <td>
-                                <router-link to="/beliefs"><i style="color:#60aec8;font-size: 8vw" class="fas fa-caret-right"></i></router-link>
+                                <router-link to="/beliefs"><i class="fas fa-caret-right main-menu-icon"></i></router-link>
                             </td>
                         </tr>
                         <tr>
-                            <td class="text-white h3">
-                                LATEST SERMON
+                            <td class="h3">
+                                <router-link to="/welcome" style="text-decoration: none;" class="text-white">LATEST SERMON</router-link>
                             </td>
                             <td>
-                                <router-link to="/welcome"><i style="color:#60aec8;font-size: 8vw" class="fas fa-caret-right"></i></router-link>
+                                <router-link to="/welcome"><i class="fas fa-caret-right main-menu-icon"></i></router-link>
                             </td>
                         </tr>
                     </table>
@@ -93,17 +91,17 @@
             </div>
             <div id="index-footer" class="py-3 ">
                 <div class="container-fluid row mx-0">
-                    <div class="col-10 text-white pl-0">
+                    <div class="col-10 col-lg-11 text-white pl-0">
                         <div class="h4">CONTACT US</div>
                         <div>
-                            <a href="#" class="">info@liveintegrity.org</a><br>
-                            <a href="#" class="">(252) 756-4508</a><br>
-                            <a href="#" class="">569 Irish Ln, Winterville, NC 28590</a>
+                            <a href="#" class="footer-link">info@liveintegrity.org</a><br>
+                            <a href="#" class="footer-link">(252) 756-4508</a><br>
+                            <a href="#" class="footer-link">569 Irish Ln, Winterville, NC 28590</a>
                         </div>
                     </div>
-                    <div class="col-2 text-center pr-0">
-                        <i class="footer-icon fab fa-facebook-f"></i><br>
-                        <i class="footer-icon fab fa-instagram py-2"></i><br>
+                    <div id="footer-icon-div" class="col-2 col-lg-1 text-center pr-0">
+                        <i class="footer-icon fab fa-facebook-f"></i>
+                        <i class="footer-icon fab fa-instagram"></i>
                         <i class="footer-icon fab fa-twitter"></i>
                     </div>
                 </div>
@@ -158,7 +156,7 @@
             $('#burger').click(function(){
                 $(this).toggleClass('open');
 //                    .attr('data-dismiss','modal');
-                $('#navModal').toggleClass('show').toggleClass('d-flex').toggleClass('no-height').toggleClass('full-height');
+                $('#navModal').toggleClass('show').toggleClass('d-flex').toggleClass('no-height').toggleClass('full-height').toggleClass('no-width').toggleClass('full-width');
 //                    .css('height','100%');
                 $('body').toggleClass('modal-open');
             });
@@ -169,6 +167,8 @@
                 : $("#index-nav").removeClass("bg-integrity")
 
             });
+
         });
+
     </script>
 {% endblock scripts %}

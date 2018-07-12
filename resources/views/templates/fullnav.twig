@@ -3,7 +3,7 @@
         <div class="modal-header">
 
         </div>
-        <div class="modal-body text-right mt-5">
+        <div class="modal-body text-right text-md-left mt-3 mt-md-5">
             {% if headerLinks %}
                 {% for key, parent in headerLinks %}
                     {% if key|length %}
@@ -13,8 +13,8 @@
                         <br>
                         <div class="collapse" id="collapse{{ key }}">
                             {% for link in parent %}
-                                <br>
-                                <a class="h3 mr-3 font-weight-bold" style="text-decoration: none; color: #000" href="{{ app_uri }}{{ link.parent ? link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
+                                <br class="d-md-none">
+                                <a class="h3 mr-3 font-weight-bold fullnav-link" style="text-decoration: none; color: #000" href="{{ app_uri }}{{ link.parent ? link.parent : '' }}/{{ link.path }}">{{ link.name|title }}</a>
                                 <br>
                             {% endfor %}
                         </div>
