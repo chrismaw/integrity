@@ -2,4 +2,4 @@ Church Website
 # Laravel, Twig, Bootstrap, Vue, jQuery, MySQL
 Also includes CSS transitions and Parrallax effects. 
 
-note: Front page currently designed for mobile only at the moment
+[View the site in progress!](https://mawfulcode.com/integrity/public)
