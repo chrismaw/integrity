@@ -1,8 +1,13 @@
-<div style="background-color: #2E2E2E">
-    <div class="container-fluid sticky-top" style="height:0px">
-        <router-link to="/"><i style="color:black ;font-size: 2.5em; z-index: 1000"
-                               class="fas fa-caret-left"></i></router-link>
+<div id="series-div" style="background-color: #2E2E2E">
+    <div id="index-nav" class="navbar bg-integrity">
+        <a class="navbar-brand" style="visibility: hidden">
+            <img id="header-logo"
+                 src="{{ app_uri }}img/logos/brand_50-{% if bg_color == "dark" %}light{% else %}light{% endif %}.png"/>
+        </a>
     </div>
+    {#<div class="container-fluid sticky-top" style="height:0px">#}
+    {#<router-link to="/"><i style="color:black ;font-size: 2.5em; z-index: 1000" class="fas fa-caret-left"></i></router-link>#}
+    {#</div>#}
     <div id="billboard-grid">
         <img id="billboard-img" src="{{ app_uri }}/img/sermons/{{ seriesImage.filename }}">
     </div>
@@ -35,7 +40,7 @@
             </div>
             <img class="mt-5" src="{{ app_uri }}img/site/exiles-girl.jpg" style="width: 100%; height: auto;">
         </div>
-        <div class="col-12 col-md-6 pr-md-5 pl-md-4" style="font-size: .7rem">
+        <div class="col-12 col-md-6 pr-md-5 pl-md-4">
             <h4 style="color: #CAB974" class="mb-1 mt-5 mt-md-0"><strong>OVERVIEW</strong></h4>
             <p>Suffering is the mark of a believer. Since the days of the early church,
                 Christianity has grown even in the midst of severe suffering. In fact, much
@@ -56,29 +61,78 @@
                 realizing that our time here on earth is short lived, and what awaits us is
                 far greater! Peter summarizes this concept by describing believers with
                 one word: Exiles.</p>
-            <h4 style="color: #CAB974" class="mb-1"><strong>BACKGROUND</strong></h4>
-            <p>The Apostle Peter is writing this letter to many churches scattered
-                throughout Asia Minor (modern day Turkey) who are being persecuted
-                for their faith in Jesus Christ. The letter was likely written between 62-63
-                AD, in a time where Rome was threatened by the rise of Christianity. As a
-                result, believers were scattered throughout the region, meeting in house
-                churches and living in obscurity.</p>
-            <p>The purpose of this letter is to encourage these churches to stay strong
-                in the faith. Peter does so by pointing them to the finished work of Christ. His Hope was for
-                them to endure suffering by rediscovering the identity they have in Jesus.</p>
-            <h4 style="color: #CAB974" class="mb-1"><strong>WHY WE CHOSE THIS SERIES</strong></h4>
-            <p>We chose this series for two reasons:</p>
-            <p>Christians suffer. We may not suffer the same way as the believers did in
-                the first century, however, we live in an imperfect world and hardships are
-                inevitable. Therefore, having a biblical mindset is important. Knowing
-                that God is Sovereign and in control of all things causes us to trust Him
-                and love Him despite the trials we face.</p>
-            <p>This is timely for our church. We are in the process of moving our church
-                family into a new location. It is important for us not to lose focus on what
-                really matters: to mature and multiply believers to leave a gospel legacy!
-                1 Peter is a great book that reminds us of how temporary material things are. This truth is
-                vital for us at this time, as we prepare our hearts to make this move in a way that honors the
-                Lord and keeps our priorities in line with our mission.</p>
+            <div class="d-md-none d-lg-block">
+                <h4 style="color: #CAB974" class="mb-1"><strong>BACKGROUND</strong></h4>
+                <p>The Apostle Peter is writing this letter to many churches scattered
+                    throughout Asia Minor (modern day Turkey) who are being persecuted
+                    for their faith in Jesus Christ. The letter was likely written between 62-63
+                    AD, in a time where Rome was threatened by the rise of Christianity. As a
+                    result, believers were scattered throughout the region, meeting in house
+                    churches and living in obscurity.</p>
+                <p>The purpose of this letter is to encourage these churches to stay strong
+                    in the faith. Peter does so by pointing them to the finished work of Christ. His Hope was for
+                    them to endure suffering by rediscovering the identity they have in Jesus.</p>
+                <div class="d-md-none d-xl-block">
+                <h4 style="color: #CAB974" class="mb-1"><strong>WHY WE CHOSE THIS SERIES</strong></h4>
+                <p>We chose this series for two reasons:</p>
+                <p>Christians suffer. We may not suffer the same way as the believers did in
+                    the first century, however, we live in an imperfect world and hardships are
+                    inevitable. Therefore, having a biblical mindset is important. Knowing
+                    that God is Sovereign and in control of all things causes us to trust Him
+                    and love Him despite the trials we face.</p>
+                <p>This is timely for our church. We are in the process of moving our church
+                    family into a new location. It is important for us not to lose focus on what
+                    really matters: to mature and multiply believers to leave a gospel legacy!
+                    1 Peter is a great book that reminds us of how temporary material things are. This truth is
+                    vital for us at this time, as we prepare our hearts to make this move in a way that honors the
+                    Lord and keeps our priorities in line with our mission.</p>
+                </div>
+            </div>
+        </div>
+        <div class="d-none d-md-flex d-lg-none col-md-12 pr-md-5 pl-md-4 mt-3" style="flex-direction: column">
+            <div class="px-4">
+                <h4 style="color: #CAB974" class="mb-1"><strong>BACKGROUND</strong></h4>
+                <p>The Apostle Peter is writing this letter to many churches scattered
+                    throughout Asia Minor (modern day Turkey) who are being persecuted
+                    for their faith in Jesus Christ. The letter was likely written between 62-63
+                    AD, in a time where Rome was threatened by the rise of Christianity. As a
+                    result, believers were scattered throughout the region, meeting in house
+                    churches and living in obscurity.</p>
+                <p>The purpose of this letter is to encourage these churches to stay strong
+                    in the faith. Peter does so by pointing them to the finished work of Christ. His Hope was for
+                    them to endure suffering by rediscovering the identity they have in Jesus.</p>
+                <h4 style="color: #CAB974" class="mb-1"><strong>WHY WE CHOSE THIS SERIES</strong></h4>
+                <p>We chose this series for two reasons:</p>
+                <p>Christians suffer. We may not suffer the same way as the believers did in
+                    the first century, however, we live in an imperfect world and hardships are
+                    inevitable. Therefore, having a biblical mindset is important. Knowing
+                    that God is Sovereign and in control of all things causes us to trust Him
+                    and love Him despite the trials we face.</p>
+                <p>This is timely for our church. We are in the process of moving our church
+                    family into a new location. It is important for us not to lose focus on what
+                    really matters: to mature and multiply believers to leave a gospel legacy!
+                    1 Peter is a great book that reminds us of how temporary material things are. This truth is
+                    vital for us at this time, as we prepare our hearts to make this move in a way that honors the
+                    Lord and keeps our priorities in line with our mission.</p>
+            </div>
+        </div>
+
+        <div class="d-none d-lg-flex d-xl-none col-md-12 pr-md-5 pl-md-4 mt-3" style="flex-direction: column">
+            <div class="px-4">
+                <h4 style="color: #CAB974" class="mb-1"><strong>WHY WE CHOSE THIS SERIES</strong></h4>
+                <p>We chose this series for two reasons:</p>
+                <p>Christians suffer. We may not suffer the same way as the believers did in
+                    the first century, however, we live in an imperfect world and hardships are
+                    inevitable. Therefore, having a biblical mindset is important. Knowing
+                    that God is Sovereign and in control of all things causes us to trust Him
+                    and love Him despite the trials we face.</p>
+                <p>This is timely for our church. We are in the process of moving our church
+                    family into a new location. It is important for us not to lose focus on what
+                    really matters: to mature and multiply believers to leave a gospel legacy!
+                    1 Peter is a great book that reminds us of how temporary material things are. This truth is
+                    vital for us at this time, as we prepare our hearts to make this move in a way that honors the
+                    Lord and keeps our priorities in line with our mission.</p>
+            </div>
         </div>
     </div>
 </div>

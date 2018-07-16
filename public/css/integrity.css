@@ -172,7 +172,14 @@ button.navbar-toggler {
     height: auto;
     /*background-image: url('/integrity/public/img/logos/mm.png');*/
 }
-#app > div {
+
+/*
+
+vue-app
+
+*/
+
+#home-div {
     height:100%;
     width:100%;
     background-color: #60aec8;
@@ -185,6 +192,13 @@ button.navbar-toggler {
     justify-content: stretch;
     align-items: stretch;
 }
+
+/*
+
+vue-index
+
+ */
+
 #index-top {
     background-image: url('/integrity/public/img/billboard.jpg');
     background-position: top;
@@ -264,23 +278,55 @@ button.navbar-toggler {
 .footer-icon:hover {
     color: #C3E1EA
 }
-#beliefs {
+
+/*
+
+vue-beliefs
+
+ */
+
+#beliefs-div {
     /*flex-direction: column;*/
     /*display: flex;*/
     background-color: #60aec8;
     font-size: 1rem;
 }
-#beliefs > div > h5 {
+#beliefs-div > div > h5 {
     background-color: black;
 }
-#beliefs > div > #basic-beliefs {
+#beliefs-div > div > #basic-beliefs {
     background-color: #60aec8;
 }
+
+
+#welcome-div {
+    background-color: #ffffff;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: flex-start;*/
+    /*align-items: stretch;*/
+}
+#welcome-video {
+
+}
+#services-text {
+    padding: 8%;
+}
+
+#series-div > div.row.mt-5.mx-0 > div.col-12.col-md-6.pr-md-5.pl-md-4 {
+    font-size: .9rem;
+}
+/*
+
+responsive
+
+ */
 
 @media (min-width: 430px) {
 
 }
 @media (min-width: 567px) {
+
     .h1 {
         font-size: 5vw;
     }
@@ -293,13 +339,31 @@ button.navbar-toggler {
     .h5 {
         font-size: 3vw;
     }
-    #app > div {
+
+    #header-logo {
+        height: 5vw;
+    }
+
+    /*
+
+    vue-app-567+
+
+    */
+
+
+
+    /*
+
+    vue-index-567+
+
+    */
+    #home-div {
         height: initial;
         justify-content: center;
     }
     #index-top {
         padding-top: 15%;
-        flex: 2 50vh;
+        flex: 2 50vw;
     }
     #index-top-main #welcome-text {
         margin-left: 50%;
@@ -308,12 +372,12 @@ button.navbar-toggler {
         font-size: 5vw;
     }
     #index-mid {
-        flex: 1 25vh;
+        flex: 1 25vw;
     }
     #index-footer {
-        flex: 1 25vh;
+        flex: 1 25vw;
     }
-    .footer-link > div a {
+    .footer-link {
         font-size: 3vw;
     }
     .footer-icon {
@@ -335,6 +399,9 @@ button.navbar-toggler {
     .fullnav-link {
         font-size: 2vw;
         line-height: 2;
+    }
+    #series-div > div.row.mt-5.mx-0 > div.col-12.col-md-6.pr-md-5.pl-md-4 {
+        font-size: 1rem;
     }
 }
 @media (min-width: 992px) {
@@ -361,9 +428,16 @@ button.navbar-toggler {
     .fullnav-link {
         font-size: 1.5vw;
     }
+
+    /*
+
+    vue-index-992+
+
+    */
+
     #index-top {
         padding-top: 15%;
-        flex: 2 50vh;
+        /*flex: 2 50vh;*/
     }
     #index-mid {
         flex: 1 25vh;
@@ -378,6 +452,27 @@ button.navbar-toggler {
     .footer-icon {
         font-size: 3vw;
     }
+
+    /*
+
+    app-welcome-767.98+
+
+     */
+    #welcome-body {
+        display: flex;
+        flex-direction: column;
+    }
+    #welcome-video {
+        float: left;
+        max-width: 840px;
+        height: auto;
+        margin-top: 5%;
+        overflow: initial;
+    }
+    /*#welcome-video::before {*/
+        /*-webkit-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;*/
+        /*box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;*/
+    /*}*/
 }
 @media (min-width: 1200px) {
     #index-top {

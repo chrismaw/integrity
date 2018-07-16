@@ -25,7 +25,7 @@
         </transition>
     </div>
     <template id="home">
-        <div>
+        <div id="home-div">
             {% set bg_color = "dark" %}
             {% set text_color = "white" %}
             {#{% include 'header.twig' %}#}
@@ -41,7 +41,7 @@
                                 <router-link to="/welcome" style="text-decoration: none;" class="text-white">COME TO A SERVICE</router-link>
                             </td>
                             <td>
-                                <router-link to="/welcome"><i class="fas fa-caret-right main-menu-icon"></i></router-link>
+                                <router-link to="/welcome" ><i class="fas fa-caret-right main-menu-icon"></i></router-link>
                             </td>
                         </tr>
                         <tr>
@@ -54,10 +54,10 @@
                         </tr>
                         <tr>
                             <td class="h3">
-                                <router-link to="/welcome" style="text-decoration: none;" class="text-white">LATEST SERMON</router-link>
+                                <router-link to="/series" style="text-decoration: none;" class="text-white">LATEST SERMON</router-link>
                             </td>
                             <td>
-                                <router-link to="/welcome"><i class="fas fa-caret-right main-menu-icon"></i></router-link>
+                                <router-link to="/series"><i class="fas fa-caret-right main-menu-icon"></i></router-link>
                             </td>
                         </tr>
                     </table>
@@ -133,7 +133,12 @@
             props: [],
             template: '#home'
         };
-        const WelcomeComponent = {template: '#welcome'};
+        const WelcomeComponent = {
+            template: '#welcome',
+            created: function () {
+                $('#welcome').css('padding-top', $("#index-nav").height())
+            }
+        };
         const BeliefsComponent = {template: '#beliefs'};
         const SeriesComponent = {template: '#series'};
 
@@ -167,6 +172,14 @@
                 : $("#index-nav").removeClass("bg-integrity")
 
             });
+//            add padding to avoid video overlapping header
+
+//            $('.welcomeLoad').click(function() {
+//                $('#welcome').css('padding-top', $("#index-nav").height())
+//            });
+//            $(window).resize(function() {
+//                $('#welcome').css('padding-top', $("#index-nav").height())
+//            });
 
         });
 

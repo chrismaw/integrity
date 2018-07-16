@@ -1,9 +1,24 @@
-<div class="pt-3">
+<div id="welcome-div" style="height: 100%;">
+        <div id="index-nav" class="navbar bg-integrity">
+            <a class="navbar-brand" style="visibility: hidden">
+                <img id="header-logo" src="{{ app_uri }}img/logos/brand_50-{% if bg_color == "dark" %}light{% else %}light{% endif %}.png"/>
+            </a>
+        </div>
+
     {#<div class="container-fluid sticky-top">#}
         {#<router-link to="/"><i style="color:#60aec8;font-size: 2.5em" class="fas fa-caret-left"></i>#}
         {#</router-link>#}
     {#</div>#}
-    <div class="embed-responsive embed-responsive-16by9 mt-5">
-        <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/191681525" frameborder="0" allowfullscreen></iframe>
+    <div id="welcome-body" class="mx-0 bg-white">
+        <div id="welcome-video" class="mx-auto embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item shadow shadow-lg" src="https://player.vimeo.com/video/191681525" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div id="services-text" class="text-black">
+            <span class="font-weight-bold h3" style="color: #60aec8">Sunday Gatherings</span><br>
+            Curabitur quis lacus molestie, laoreet odio id, fringilla ante. Cras fermentum massa nec eros scelerisque dignissim. Duis posuere nunc at velit bibendum tristique. Phasellus ut convallis enim, et tempus felis. Vivamus nisi nibh, fringilla sit amet dolor sit amet, venenatis ultrices mauris. In non ornare quam. Sed sapien odio, vulputate vel justo in, imperdiet tempus turpis.
+            <br><br>
+            <span class="font-weight-bold h3" style="color: #60aec8">Childcare</span><br>
+            Curabitur quis lacus molestie, laoreet odio id, fringilla ante. Cras fermentum massa nec eros scelerisque dignissim. Duis posuere nunc at velit bibendum tristique. Phasellus ut convallis enim, et tempus felis. Vivamus nisi nibh, fringilla sit amet dolor sit amet, venenatis ultrices mauris. In non ornare quam. Sed sapien odio, vulputate vel justo in, imperdiet tempus turpis.
+        </div>
     </div>
 </div>
